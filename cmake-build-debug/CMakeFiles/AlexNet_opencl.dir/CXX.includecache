@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/pratik/data/CLionProjects/AlexNet_opencl/main.cpp
+math.h
+-
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+time.h
+-
+CL/cl.h
+-
+
+/opt/intel/system_studio_2019/include/math.h
+../ucrt/math.h
+-
+../ucrt/math.h
+-
+math_common_define.h
+-
+math_common_undefine.h
+-
+
+/opt/intel/system_studio_2019/include/math_common_define.h
+
+/opt/intel/system_studio_2019/include/math_common_undefine.h
+
