@@ -9,7 +9,7 @@
 #include <CL/cl.h>
 
 #define PROGRAM_FILE "alexnet_opencl.cl"
-#define L1_CONV_KERNEL_FUNC "conv_layer1"
+#define L1_CONV_KERNEL_FUNC "executeFirstLayer"
 #define L1_NORM_KERNEL_FUNC "executelrnNorm_split"
 #define POOL_KERNEL_FUNC "executepooling"
 #define CONV3D_KERNEL_FUNC "execute3Dconvolution"
@@ -179,6 +179,28 @@ cl_program build_program(cl_context ctx, cl_device_id dev, const char *filename)
     return program;
 }
 
+void dump_CPU_array_to_file(float* cpu_mem, int count, char *filename) {
+
+    if (cpu_mem != NULL) {
+        /* Read the kernel's output */
+        FILE *fptr = fopen(filename, "wa+");
+        if (fptr != NULL) {
+            printf("starting to save data in file %s\n", filename);
+            for (int i = 0; i < count; i++) {
+                fprintf(fptr, "%f\n", cpu_mem[i]);
+            }
+            fclose(fptr);
+            printf("data saved in file %s\n", filename);
+        } else {
+            printf("failed to create file %s\n", filename);
+            exit(0);
+        }
+    } else {
+        printf("passed mem is null\n");
+        exit(0);
+    }
+}
+
 void dump_GPU_array_to_file(cl_mem gpu_mem, int count, char *filename) {
 
     float *cpu_mem;
@@ -210,6 +232,8 @@ void dump_GPU_array_to_file(cl_mem gpu_mem, int count, char *filename) {
         exit(0);
     }
 }
+
+
 
 void build_kernels() {
 
@@ -364,13 +388,14 @@ void conv_layer1() {
     cl_int r_offset;
     cl_int c_offset;
 
+    dump_CPU_array_to_file(bias_1, 96, "Layer1_bias_CPU_p.txt");
     /*Layer1 */
     Layer1_bias_GPU = clCreateBuffer(context, CL_MEM_READ_WRITE | CL_MEM_COPY_HOST_PTR,
                                      sizeof(float) * L1_OUT, bias_1, &err);
     if (err < 0) {
         printf("Couldn't create a buffer Layer1_bias_GPU");
         exit(1);
-    };
+    }
 
     Layer1_Neurons_GPU = clCreateBuffer(context, CL_MEM_READ_WRITE | CL_MEM_COPY_HOST_PTR,
                                         sizeof(float) * INPUT_SIZE, Layer1_Neurons_CPU, &err);
@@ -399,7 +424,6 @@ void conv_layer1() {
         printf("Couldn't create a kernel argument Layer1_bias_GPU\n");
         exit(1);
     }
-
     err = clSetKernelArg(kernel_l1_conv, 1, sizeof(Layer1_Neurons_GPU), &Layer1_Neurons_GPU);
     if (err < 0) {
         printf("Couldn't create a kernel argument Layer1_Neurons_GPU err=%d\n", err);
@@ -444,6 +468,8 @@ void conv_layer1() {
         exit(1);
     }
 
+    dump_GPU_array_to_file(Layer1_Norm_GPU, (L1_OUT * L1_FMAP), "Layer1_Norm_GPU_1.txt");
+
     r_offset = 0;
     c_offset = 32;
 
@@ -460,7 +486,7 @@ void conv_layer1() {
     }
 
     local_size[0] = 32;
-    local_size[1] = 23;
+    local_size[1] = 32;
 
     /* Enqueue kernel */
     err = clEnqueueNDRangeKernel(queue, kernel_l1_conv, 2, NULL, global_size,
@@ -469,6 +495,8 @@ void conv_layer1() {
         printf("Couldn't enqueue the kernel_l1_conv\n");
         exit(1);
     }
+
+    dump_GPU_array_to_file(Layer1_Norm_GPU, (L1_OUT * L1_FMAP), "Layer1_Norm_GPU_2.txt");
 
     r_offset = 32;
     c_offset = 0;
@@ -485,7 +513,7 @@ void conv_layer1() {
         exit(1);
     }
 
-    local_size[0] = 23;
+    local_size[0] = 32;
     local_size[1] = 32;
 
     /* Enqueue kernel */
@@ -496,6 +524,7 @@ void conv_layer1() {
         exit(1);
     }
 
+    dump_GPU_array_to_file(Layer1_Norm_GPU, (L1_OUT * L1_FMAP), "Layer1_Norm_GPU_3.txt");
     r_offset = 32;
     c_offset = 32;
 
@@ -511,8 +540,8 @@ void conv_layer1() {
         exit(1);
     }
 
-    local_size[0] = 23;
-    local_size[1] = 23;
+    local_size[0] = 32;
+    local_size[1] = 32;
 
     /* Enqueue kernel */
     err = clEnqueueNDRangeKernel(queue, kernel_l1_conv, 2, NULL, global_size,
@@ -522,7 +551,7 @@ void conv_layer1() {
         exit(1);
     }
 
-    dump_GPU_array_to_file(Layer1_Norm_GPU, (L1_OUT * L1_FMAP), "Layer1_Norm_GPU.txt");
+    dump_GPU_array_to_file(Layer1_Norm_GPU, (L1_OUT * L1_FMAP), "Layer1_Norm_GPU_4.txt");
 
 }
 
@@ -2347,6 +2376,10 @@ void collect_results() {
 }
 
 int main() {
+
+    //global_size[2] = 1;
+    //local_size[2] = 1;
+
     /* Create device and context */
     device = create_device();
     context = clCreateContext(NULL, 1, &device, NULL, NULL, &err);

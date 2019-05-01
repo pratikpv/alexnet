@@ -1,25 +1,21 @@
 
-__kernel void conv_layer1(__global float *bias, __global float *Layer1_Neurons_GPU,
-                            __global float *Layer1_Weights_GPU, __global float *Layer2_Neurons_GPU,
-                                int r_offset, int c_offset) {
-
+__kernel void executeFirstLayer( __global float *bias, __global float *Layer1_Neurons_GPU,
+                                 __global float *Layer1_Weights_GPU,__global float *Layer2_Neurons_GPU,
+                                 int r_offset, int c_offset)
+{
     float product = 0.0;
     int col_width = 227;
     int stride_width = 4;
     int stride = 0,colstride = 0;
     int output = get_group_id(0);
-    int row = get_local_id(0) + r_offset;
-    int col = get_local_id(1) + c_offset;
+    int row = get_local_id(1) + r_offset;
+    int col = get_local_id(0) + c_offset;
+    //printf("output = %d\n",output);
     colstride = 3*row*stride_width*col_width;
     stride = 0;
     product = 0;
     stride = col * 4 * 3;
     /* RGB weights and input 11*11*3 */
-
-    /*if( get_group_id(0) == 0){
-        printf("r_offset = %d\n",r_offset);
-        printf("c_offset = %d\n",c_offset);
-    }*/
     for(int i = 0; i < 11; i++)
     {
         for(int j = 0; j < 11; j++)
