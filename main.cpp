@@ -203,6 +203,7 @@ void dump_CPU_array_to_file(float* cpu_mem, int count, char *filename) {
 
 void dump_GPU_array_to_file(cl_mem gpu_mem, int count, char *filename) {
 
+    return;
     float *cpu_mem;
     cpu_mem = (float *) malloc(sizeof(float) * count);
     if (cpu_mem != NULL) {
@@ -419,22 +420,22 @@ void conv_layer1() {
         exit(1);
     }
 
-    err = clSetKernelArg(kernel_l1_conv, 0, sizeof(Layer1_bias_GPU), &Layer1_bias_GPU);
+    err = clSetKernelArg(kernel_l1_conv, 0, sizeof(cl_mem), &Layer1_bias_GPU);
     if (err < 0) {
         printf("Couldn't create a kernel argument Layer1_bias_GPU\n");
         exit(1);
     }
-    err = clSetKernelArg(kernel_l1_conv, 1, sizeof(Layer1_Neurons_GPU), &Layer1_Neurons_GPU);
+    err = clSetKernelArg(kernel_l1_conv, 1, sizeof(cl_mem), &Layer1_Neurons_GPU);
     if (err < 0) {
         printf("Couldn't create a kernel argument Layer1_Neurons_GPU err=%d\n", err);
         exit(1);
     }
-    err = clSetKernelArg(kernel_l1_conv, 2, sizeof(Layer1_Weights_GPU), &Layer1_Weights_GPU);
+    err = clSetKernelArg(kernel_l1_conv, 2, sizeof(cl_mem), &Layer1_Weights_GPU);
     if (err < 0) {
         printf("Couldn't create a kernel argument Layer1_Weights_GPU");
         exit(1);
     }
-    err = clSetKernelArg(kernel_l1_conv, 3, sizeof(Layer1_Norm_GPU), &Layer1_Norm_GPU);
+    err = clSetKernelArg(kernel_l1_conv, 3, sizeof(cl_mem), &Layer1_Norm_GPU);
     if (err < 0) {
         printf("Couldn't create a kernel argument Layer1_Norm_GPU");
         exit(1);
@@ -455,10 +456,10 @@ void conv_layer1() {
         exit(1);
     }
 
-    global_size[0] = 96;
-    global_size[1] = 1;
     local_size[0] = 32;
     local_size[1] = 32;
+    global_size[0] = 96*local_size[0];
+    global_size[1] = 1*local_size[1];
 
     /* Enqueue kernel */
     err = clEnqueueNDRangeKernel(queue, kernel_l1_conv, 2, NULL, global_size,
@@ -487,7 +488,8 @@ void conv_layer1() {
 
     local_size[0] = 32;
     local_size[1] = 32;
-
+    global_size[0] = 96*local_size[0];
+    global_size[1] = 1*local_size[1];
     /* Enqueue kernel */
     err = clEnqueueNDRangeKernel(queue, kernel_l1_conv, 2, NULL, global_size,
                                  local_size, 0, NULL, NULL);
@@ -507,14 +509,18 @@ void conv_layer1() {
         exit(1);
     }
 
+    printf("1\n");
     err = clSetKernelArg(kernel_l1_conv, 5, sizeof(cl_int), &c_offset);
     if (err < 0) {
         printf("Couldn't create a kernel argument Layer1_Norm_GPU\n");
         exit(1);
     }
 
+    printf("2\n");
     local_size[0] = 32;
     local_size[1] = 32;
+    global_size[0] = 96*local_size[0];
+    global_size[1] = 1*local_size[1];
 
     /* Enqueue kernel */
     err = clEnqueueNDRangeKernel(queue, kernel_l1_conv, 2, NULL, global_size,
@@ -523,11 +529,12 @@ void conv_layer1() {
         printf("Couldn't enqueue the kernel_l1_conv");
         exit(1);
     }
-
-    dump_GPU_array_to_file(Layer1_Norm_GPU, (L1_OUT * L1_FMAP), "Layer1_Norm_GPU_3.txt");
+    printf("3\n");
+    //dump_GPU_array_to_file(Layer1_Norm_GPU, (L1_OUT * L1_FMAP), "Layer1_Norm_GPU_3.txt");
     r_offset = 32;
     c_offset = 32;
 
+    printf("4\n");
     err = clSetKernelArg(kernel_l1_conv, 4, sizeof(cl_int), &r_offset);
     if (err < 0) {
         printf("Couldn't create a kernel argument r_offset\n");
@@ -542,6 +549,8 @@ void conv_layer1() {
 
     local_size[0] = 32;
     local_size[1] = 32;
+    global_size[0] = 96*local_size[0];
+    global_size[1] = 1*local_size[1];
 
     /* Enqueue kernel */
     err = clEnqueueNDRangeKernel(queue, kernel_l1_conv, 2, NULL, global_size,
@@ -550,8 +559,9 @@ void conv_layer1() {
         printf("Couldn't enqueue the kernel_l1_conv\n");
         exit(1);
     }
-
-    dump_GPU_array_to_file(Layer1_Norm_GPU, (L1_OUT * L1_FMAP), "Layer1_Norm_GPU_4.txt");
+    printf("5\n");
+    //dump_GPU_array_to_file(Layer1_Norm_GPU, (L1_OUT * L1_FMAP), "Layer1_Norm_GPU_4.txt");
+    printf("6\n");
 
 }
 
@@ -605,7 +615,7 @@ void normalise_layer1() {
     cl_int c_offset;
 
 
-    err = clSetKernelArg(kernel_l1_norm, 0, sizeof(Layer1_Norm_GPU), &Layer1_Norm_GPU);
+    err = clSetKernelArg(kernel_l1_norm, 0, sizeof(cl_mem), &Layer1_Norm_GPU);
     if (err < 0) {
         printf("Couldn't create a kernel argument Layer1_Norm_GPU\n");
         exit(1);
@@ -656,7 +666,7 @@ void normalise_layer1() {
         exit(1);
     };
 
-    err = clSetKernelArg(kernel_l1_norm, 1, sizeof(Layer1_pool_GPU), &Layer1_pool_GPU);
+    err = clSetKernelArg(kernel_l1_norm, 1, sizeof(cl_mem), &Layer1_pool_GPU);
     if (err < 0) {
         printf("Couldn't create a kernel argument Layer1_pool_GPU");
         exit(1);
@@ -677,11 +687,10 @@ void normalise_layer1() {
         exit(1);
     }
 
-    global_size[0] = 96;
-    global_size[1] = 1;
-
     local_size[0] = 32;
     local_size[1] = 32;
+    global_size[0] = 96*local_size[0];
+    global_size[1] = 1*local_size[1];
 
     /* Enqueue kernel */
     err = clEnqueueNDRangeKernel(queue, kernel_l1_norm, 2, NULL, global_size,
@@ -709,6 +718,9 @@ void normalise_layer1() {
 
     local_size[0] = 32;
     local_size[1] = 23;
+    global_size[0] = 96*local_size[0];
+    global_size[1] = 1*local_size[1];
+
 
     /* Enqueue kernel */
     err = clEnqueueNDRangeKernel(queue, kernel_l1_norm, 2, NULL, global_size,
@@ -736,6 +748,10 @@ void normalise_layer1() {
 
     local_size[0] = 23;
     local_size[1] = 32;
+    global_size[0] = 96*local_size[0];
+    global_size[1] = 1*local_size[1];
+
+
 
     /* Enqueue kernel */
     err = clEnqueueNDRangeKernel(queue, kernel_l1_norm, 2, NULL, global_size,
@@ -762,6 +778,9 @@ void normalise_layer1() {
 
     local_size[0] = 23;
     local_size[1] = 23;
+    global_size[0] = 96*local_size[0];
+    global_size[1] = 1*local_size[1];
+
 
     /* Enqueue kernel */
     err = clEnqueueNDRangeKernel(queue, kernel_l1_norm, 2, NULL, global_size,
@@ -805,13 +824,13 @@ void max_pool_layer1() {
 
 
     //TODO: check arg sequence of pool and neurons
-    err = clSetKernelArg(kernel_pool, 0, sizeof(Layer1_pool_GPU), &Layer1_pool_GPU);
+    err = clSetKernelArg(kernel_pool, 0, sizeof(cl_mem), &Layer1_pool_GPU);
     if (err < 0) {
         printf("Couldn't create a kernel argument Layer1_pool_GPU\n");
         exit(1);
     }
 
-    err = clSetKernelArg(kernel_pool, 1, sizeof(Layer2_Neurons_GPU), &Layer2_Neurons_GPU);
+    err = clSetKernelArg(kernel_pool, 1, sizeof(cl_mem), &Layer2_Neurons_GPU);
     if (err < 0) {
         printf("Couldn't create a kernel argument Layer2_Neurons_GPU\n");
         exit(1);
@@ -859,11 +878,10 @@ void max_pool_layer1() {
         exit(1);
     }
 
-    global_size[0] = 96;
-    global_size[1] = 1;
-
     local_size[0] = 27;
     local_size[1] = 27;
+    global_size[0] = 96*local_size[0];
+    global_size[1] = 1*local_size[1];
 
     /* Enqueue kernel */
     err = clEnqueueNDRangeKernel(queue, kernel_pool, 2, NULL, global_size,
@@ -946,25 +964,25 @@ __kernel void execute3Dconvolution(__global float *bias, __global float *Layer2_
 					int pad ,int in_output, int group)
 */
 
-    err = clSetKernelArg(kernel_conv3d, 0, sizeof(Layer2_bias_GPU), &Layer2_bias_GPU);
+    err = clSetKernelArg(kernel_conv3d, 0, sizeof(cl_mem), &Layer2_bias_GPU);
     if (err < 0) {
         printf("Couldn't create a kernel argument Layer2_bias_GPU\n");
         exit(1);
     }
 
-    err = clSetKernelArg(kernel_conv3d, 1, sizeof(Layer2_Neurons_GPU), &Layer2_Neurons_GPU);
+    err = clSetKernelArg(kernel_conv3d, 1, sizeof(cl_mem), &Layer2_Neurons_GPU);
     if (err < 0) {
         printf("Couldn't create a kernel argument Layer2_Neurons_GPU\n");
         exit(1);
     }
 
-    err = clSetKernelArg(kernel_conv3d, 2, sizeof(Layer2_Weights_GPU), &Layer2_Weights_GPU);
+    err = clSetKernelArg(kernel_conv3d, 2, sizeof(cl_mem), &Layer2_Weights_GPU);
     if (err < 0) {
         printf("Couldn't create a kernel argument Layer2_Weights_GPU\n");
         exit(1);
     }
 
-    err = clSetKernelArg(kernel_conv3d, 3, sizeof(Layer2_Norm_GPU), &Layer2_Norm_GPU);
+    err = clSetKernelArg(kernel_conv3d, 3, sizeof(cl_mem), &Layer2_Norm_GPU);
     if (err < 0) {
         printf("Couldn't create a kernel argument Layer2_Norm_GPU\n");
         exit(1);
@@ -1029,10 +1047,10 @@ __kernel void execute3Dconvolution(__global float *bias, __global float *Layer2_
 
     /* Group = 2 and each group is 128*27*27 */
 
-    global_size[0] = 128;
-    global_size[1] = 128;
     local_size[0] = 27;
     local_size[1] = 27;
+    global_size[0] = 128*local_size[0];
+    global_size[1] = 128*local_size[1];
 
     /* Enqueue kernel */
     err = clEnqueueNDRangeKernel(queue, kernel_conv3d, 2, NULL, global_size,
@@ -1053,27 +1071,25 @@ __kernel void execute3Dconvolutiongroup2(__global float *bias,__global float *La
 
 */
 
-
-
-    err = clSetKernelArg(kernel_conv3d_g2, 0, sizeof(Layer2_bias_GPU), &Layer2_bias_GPU);
+    err = clSetKernelArg(kernel_conv3d_g2, 0, sizeof(cl_mem), &Layer2_bias_GPU);
     if (err < 0) {
         printf("Couldn't create a kernel argument Layer2_bias_GPU\n");
         exit(1);
     }
 
-    err = clSetKernelArg(kernel_conv3d_g2, 1, sizeof(Layer2_Neurons_GPU), &Layer2_Neurons_GPU);
+    err = clSetKernelArg(kernel_conv3d_g2, 1, sizeof(cl_mem), &Layer2_Neurons_GPU);
     if (err < 0) {
         printf("Couldn't create a kernel argument Layer2_Neurons_GPU\n");
         exit(1);
     }
 
-    err = clSetKernelArg(kernel_conv3d_g2, 2, sizeof(Layer2_Weights_GPU), &Layer2_Weights_GPU);
+    err = clSetKernelArg(kernel_conv3d_g2, 2, sizeof(cl_mem), &Layer2_Weights_GPU);
     if (err < 0) {
         printf("Couldn't create a kernel argument Layer2_Weights_GPU\n");
         exit(1);
     }
 
-    err = clSetKernelArg(kernel_conv3d_g2, 3, sizeof(Layer2_Norm_GPU), &Layer2_Norm_GPU);
+    err = clSetKernelArg(kernel_conv3d_g2, 3, sizeof(cl_mem), &Layer2_Norm_GPU);
     if (err < 0) {
         printf("Couldn't create a kernel argument Layer2_Norm_GPU\n");
         exit(1);
@@ -1158,21 +1174,21 @@ void normalise_layer2() {
     }
 
 
-    err = clSetKernelArg(kernel_normlrn, 0, sizeof(Layer2_Norm_GPU), &Layer2_Norm_GPU);
+    err = clSetKernelArg(kernel_normlrn, 0, sizeof(cl_mem), &Layer2_Norm_GPU);
     if (err < 0) {
         printf("Couldn't create a kernel argument Layer2_Norm_GPU\n");
         exit(1);
     }
-    err = clSetKernelArg(kernel_normlrn, 1, sizeof(Layer2_pool_GPU), &Layer2_pool_GPU);
+    err = clSetKernelArg(kernel_normlrn, 1, sizeof(cl_mem), &Layer2_pool_GPU);
     if (err < 0) {
         printf("Couldn't create a kernel argument Layer2_pool_GPU\n");
         exit(1);
     }
 
-    global_size[0] = 256;
-    global_size[1] = 1;
     local_size[0] = 27;
     local_size[1] = 27;
+    global_size[0] = 256*local_size[0];
+    global_size[1] = 1*local_size[1];
 
     /* Enqueue kernel */
     err = clEnqueueNDRangeKernel(queue, kernel_normlrn, 2, NULL, global_size,
@@ -1214,13 +1230,13 @@ __kernel void executepooling(__global float *Layer2_Neurons_GPU, __global float 
 
     /* TODO check arg seq for 0th and 1st*/
 
-    err = clSetKernelArg(kernel_pool, 0, sizeof(Layer2_pool_GPU), &Layer2_pool_GPU);
+    err = clSetKernelArg(kernel_pool, 0, sizeof(cl_mem), &Layer2_pool_GPU);
     if (err < 0) {
         printf("Couldn't create a kernel argument Layer2_pool_GPU\n");
         exit(1);
     }
 
-    err = clSetKernelArg(kernel_pool, 1, sizeof(Layer3_Neurons_GPU), &Layer3_Neurons_GPU);
+    err = clSetKernelArg(kernel_pool, 1, sizeof(cl_mem), &Layer3_Neurons_GPU);
     if (err < 0) {
         printf("Couldn't create a kernel argument Layer3_Neurons_GPU\n");
         exit(1);
@@ -1268,10 +1284,12 @@ __kernel void executepooling(__global float *Layer2_Neurons_GPU, __global float 
         exit(1);
     }
 
-    global_size[0] = 256;
-    global_size[1] = 1;
     local_size[0] = 13;
     local_size[1] = 13;
+    global_size[0] = 256*local_size[0];
+    global_size[1] = 1*local_size[1];
+
+
 
     /* Enqueue kernel */
     err = clEnqueueNDRangeKernel(queue, kernel_pool, 2, NULL, global_size,
@@ -1325,11 +1343,11 @@ void conv_layer3() {
     dim3 Layer3_Block(384,1,1);
     dim3 Layer3_Thread(13,13);
     */
-    global_size[0] = 384;
-    global_size[1] = 1;
-
     local_size[0] = 13;
     local_size[1] = 13;
+    global_size[0] = 384*local_size[0];
+    global_size[1] = 1*local_size[1];
+
 
 //    execute3DconvolutionCuda<<<Layer3_Block,Layer3_Thread>>>(Layer3_bias_GPU,Layer3_Neurons_GPU,
 //    Layer3_Weights_GPU,Layer4_Neurons_GPU,384,13,13,1,3,1,256,1);
@@ -1343,25 +1361,25 @@ void conv_layer3() {
     cl_int in_output = 256;
     cl_int group = 1;
 
-    err = clSetKernelArg(kernel_conv3d, 0, sizeof(Layer3_bias_GPU), &Layer3_bias_GPU);
+    err = clSetKernelArg(kernel_conv3d, 0, sizeof(cl_mem), &Layer3_bias_GPU);
     if (err < 0) {
         printf("Couldn't create a kernel argument Layer2_bias_GPU\n");
         exit(1);
     }
 
-    err = clSetKernelArg(kernel_conv3d, 1, sizeof(Layer3_Neurons_GPU), &Layer3_Neurons_GPU);
+    err = clSetKernelArg(kernel_conv3d, 1, sizeof(cl_mem), &Layer3_Neurons_GPU);
     if (err < 0) {
         printf("Couldn't create a kernel argument Layer2_Neurons_GPU\n");
         exit(1);
     }
 
-    err = clSetKernelArg(kernel_conv3d, 2, sizeof(Layer3_Weights_GPU), &Layer3_Weights_GPU);
+    err = clSetKernelArg(kernel_conv3d, 2, sizeof(cl_mem), &Layer3_Weights_GPU);
     if (err < 0) {
         printf("Couldn't create a kernel argument Layer2_Weights_GPU\n");
         exit(1);
     }
 
-    err = clSetKernelArg(kernel_conv3d, 3, sizeof(Layer4_Neurons_GPU), &Layer4_Neurons_GPU);
+    err = clSetKernelArg(kernel_conv3d, 3, sizeof(cl_mem), &Layer4_Neurons_GPU);
     if (err < 0) {
         printf("Couldn't create a kernel argument Layer2_Norm_GPU\n");
         exit(1);
@@ -1465,11 +1483,10 @@ void conv_layer4() {
 
      */
 
-    global_size[0] = 192;
-    global_size[1] = 1;
     local_size[0] = 13;
     local_size[1] = 13;
-
+    global_size[0] = 192*local_size[0];
+    global_size[1] = 1*local_size[1];
 /*
     execute3DconvolutionCuda<<<Layer4_Block,Layer4_Thread>>>(Layer4_bias_GPU,Layer4_Neurons_GPU,
      Layer4_Weights_GPU,Layer5_Neurons_GPU,192,13,13,1,3,1,192,2);
@@ -1484,25 +1501,25 @@ void conv_layer4() {
     cl_int in_output = 192;
     cl_int group = 2;
 
-    err = clSetKernelArg(kernel_conv3d, 0, sizeof(Layer4_bias_GPU), &Layer4_bias_GPU);
+    err = clSetKernelArg(kernel_conv3d, 0, sizeof(cl_mem), &Layer4_bias_GPU);
     if (err < 0) {
         printf("Couldn't create a kernel argument Layer4_bias_GPU\n");
         exit(1);
     }
 
-    err = clSetKernelArg(kernel_conv3d, 1, sizeof(Layer4_Neurons_GPU), &Layer4_Neurons_GPU);
+    err = clSetKernelArg(kernel_conv3d, 1, sizeof(cl_mem), &Layer4_Neurons_GPU);
     if (err < 0) {
         printf("Couldn't create a kernel argument Layer4_Neurons_GPU\n");
         exit(1);
     }
 
-    err = clSetKernelArg(kernel_conv3d, 2, sizeof(Layer4_Weights_GPU), &Layer4_Weights_GPU);
+    err = clSetKernelArg(kernel_conv3d, 2, sizeof(cl_mem), &Layer4_Weights_GPU);
     if (err < 0) {
         printf("Couldn't create a kernel argument Layer2_Weights_GPU\n");
         exit(1);
     }
 
-    err = clSetKernelArg(kernel_conv3d, 3, sizeof(Layer5_Neurons_GPU), &Layer5_Neurons_GPU);
+    err = clSetKernelArg(kernel_conv3d, 3, sizeof(cl_mem), &Layer5_Neurons_GPU);
     if (err < 0) {
         printf("Couldn't create a kernel argument Layer5_Neurons_GPU\n");
         exit(1);
@@ -1577,25 +1594,25 @@ void conv_layer4() {
     in_output = 192;
     group = 2;
 
-    err = clSetKernelArg(kernel_conv3d_g2, 0, sizeof(Layer4_bias_GPU), &Layer4_bias_GPU);
+    err = clSetKernelArg(kernel_conv3d_g2, 0, sizeof(cl_mem), &Layer4_bias_GPU);
     if (err < 0) {
         printf("Couldn't create a kernel argument Layer4_bias_GPU\n");
         exit(1);
     }
 
-    err = clSetKernelArg(kernel_conv3d_g2, 1, sizeof(Layer4_Neurons_GPU), &Layer4_Neurons_GPU);
+    err = clSetKernelArg(kernel_conv3d_g2, 1, sizeof(cl_mem), &Layer4_Neurons_GPU);
     if (err < 0) {
         printf("Couldn't create a kernel argument Layer4_Neurons_GPU\n");
         exit(1);
     }
 
-    err = clSetKernelArg(kernel_conv3d_g2, 2, sizeof(Layer4_Weights_GPU), &Layer4_Weights_GPU);
+    err = clSetKernelArg(kernel_conv3d_g2, 2, sizeof(cl_mem), &Layer4_Weights_GPU);
     if (err < 0) {
         printf("Couldn't create a kernel argument Layer4_Weights_GPU\n");
         exit(1);
     }
 
-    err = clSetKernelArg(kernel_conv3d_g2, 3, sizeof(Layer5_Neurons_GPU), &Layer5_Neurons_GPU);
+    err = clSetKernelArg(kernel_conv3d_g2, 3, sizeof(cl_mem), &Layer5_Neurons_GPU);
     if (err < 0) {
         printf("Couldn't create a kernel argument Layer5_Neurons_GPU\n");
         exit(1);
@@ -1702,12 +1719,10 @@ void conv_layer5() {
     dim3 Layer5_Thread(13,13);
      */
 
-    global_size[0] = 128;
-    global_size[1] = 128;
-
     local_size[0] = 13;
     local_size[1] = 13;
-
+    global_size[0] = 128*local_size[0];
+    global_size[1] = 128*local_size[1];
 
     //execute3DconvolutionCuda<<<Layer5_Block,Layer5_Thread>>>(Layer5_bias_GPU,
     //      Layer5_Neurons_GPU,Layer5_Weights_GPU,Layer5_pool_GPU,128,13,13,1,3,1,192,2);
@@ -1721,25 +1736,25 @@ void conv_layer5() {
     cl_int in_output = 192;
     cl_int group = 2;
 
-    err = clSetKernelArg(kernel_conv3d, 0, sizeof(Layer5_bias_GPU), &Layer5_bias_GPU);
+    err = clSetKernelArg(kernel_conv3d, 0, sizeof(cl_mem), &Layer5_bias_GPU);
     if (err < 0) {
         printf("Couldn't create a kernel argument Layer5_bias_GPU\n");
         exit(1);
     }
 
-    err = clSetKernelArg(kernel_conv3d, 1, sizeof(Layer5_Neurons_GPU), &Layer5_Neurons_GPU);
+    err = clSetKernelArg(kernel_conv3d, 1, sizeof(cl_mem), &Layer5_Neurons_GPU);
     if (err < 0) {
         printf("Couldn't create a kernel argument Layer5_Neurons_GPU\n");
         exit(1);
     }
 
-    err = clSetKernelArg(kernel_conv3d, 2, sizeof(Layer5_Weights_GPU), &Layer5_Weights_GPU);
+    err = clSetKernelArg(kernel_conv3d, 2, sizeof(cl_mem), &Layer5_Weights_GPU);
     if (err < 0) {
         printf("Couldn't create a kernel argument Layer2_Weights_GPU\n");
         exit(1);
     }
 
-    err = clSetKernelArg(kernel_conv3d, 3, sizeof(Layer5_pool_GPU), &Layer5_pool_GPU);
+    err = clSetKernelArg(kernel_conv3d, 3, sizeof(cl_mem), &Layer5_pool_GPU);
     if (err < 0) {
         printf("Couldn't create a kernel argument Layer2_Norm_GPU\n");
         exit(1);
@@ -1814,25 +1829,25 @@ void conv_layer5() {
     in_output = 192;
     group = 2;
 
-    err = clSetKernelArg(kernel_conv3d_g2, 0, sizeof(Layer5_bias_GPU), &Layer5_bias_GPU);
+    err = clSetKernelArg(kernel_conv3d_g2, 0, sizeof(cl_mem), &Layer5_bias_GPU);
     if (err < 0) {
         printf("Couldn't create a kernel argument Layer5_bias_GPU\n");
         exit(1);
     }
 
-    err = clSetKernelArg(kernel_conv3d_g2, 1, sizeof(Layer5_Neurons_GPU), &Layer5_Neurons_GPU);
+    err = clSetKernelArg(kernel_conv3d_g2, 1, sizeof(cl_mem), &Layer5_Neurons_GPU);
     if (err < 0) {
         printf("Couldn't create a kernel argument Layer5_Neurons_GPU\n");
         exit(1);
     }
 
-    err = clSetKernelArg(kernel_conv3d_g2, 2, sizeof(Layer5_Weights_GPU), &Layer5_Weights_GPU);
+    err = clSetKernelArg(kernel_conv3d_g2, 2, sizeof(cl_mem), &Layer5_Weights_GPU);
     if (err < 0) {
         printf("Couldn't create a kernel argument Layer5_Weights_GPU\n");
         exit(1);
     }
 
-    err = clSetKernelArg(kernel_conv3d_g2, 3, sizeof(Layer5_pool_GPU), &Layer5_pool_GPU);
+    err = clSetKernelArg(kernel_conv3d_g2, 3, sizeof(cl_mem), &Layer5_pool_GPU);
     if (err < 0) {
         printf("Couldn't create a kernel argument Layer5_pool_GPU\n");
         exit(1);
@@ -1908,12 +1923,10 @@ void conv_layer5() {
     dim3 pool5_Thread(6,6);
      */
 
-    global_size[0] = 256;
-    global_size[1] = 256;
-
     local_size[0] = 6;
     local_size[1] = 6;
-
+    global_size[0] = 256*local_size[0];
+    global_size[1] = 256*local_size[1];
     //executepoolingCuda<<<pool5_Block,pool5_Thread>>>(Layer5_pool_GPU,Layer6_Neurons_GPU,256,6,6,3,2,13,13);
 
     /*
@@ -1930,13 +1943,13 @@ __kernel void executepooling(__global float *Layer2_Neurons_GPU, __global float 
     cl_int in_fr = 13;
     cl_int in_fc = 13;
 
-    err = clSetKernelArg(kernel_pool, 0, sizeof(Layer5_pool_GPU), &Layer5_pool_GPU);
+    err = clSetKernelArg(kernel_pool, 0, sizeof(cl_mem), &Layer5_pool_GPU);
     if (err < 0) {
         printf("Couldn't create a kernel argument Layer5_pool_GPU\n");
         exit(1);
     }
 
-    err = clSetKernelArg(kernel_pool, 1, sizeof(Layer6_Neurons_GPU), &Layer6_Neurons_GPU);
+    err = clSetKernelArg(kernel_pool, 1, sizeof(cl_mem), &Layer6_Neurons_GPU);
     if (err < 0) {
         printf("Couldn't create a kernel argument Layer6_Neurons_GPU\n");
         exit(1);
@@ -2041,11 +2054,10 @@ void conv_layer6() {
     dim3 Layer6_Thread(1,1);   // combi tried 10*10*10
     */
 
-    global_size[0] = 4096;
-    global_size[1] = 1;
     local_size[0] = 1;
     local_size[1] = 1;
-
+    global_size[0] = 4096*local_size[0];
+    global_size[1] = 1*local_size[1];
     //executeFCLayer<<<Layer6_Block,Layer6_Thread>>>(Layer6_bias_GPU,Layer6_Neurons_GPU,Layer6_Weights_GPU,
     // Layer7_Neurons_GPU,4096,(256*6*6),true,false);
 //__kernel void executeFCLayer(__global float *bias, __global float *Layer_InNeurons_GPU,
@@ -2064,19 +2076,19 @@ void conv_layer6() {
         exit(1);
     }
 
-    err = clSetKernelArg(kernel_fully_connected, 1, sizeof(Layer6_Neurons_GPU), &Layer6_Neurons_GPU);
+    err = clSetKernelArg(kernel_fully_connected, 1, sizeof(cl_mem), &Layer6_Neurons_GPU);
     if (err < 0) {
         printf("Couldn't create a kernel argument Layer6_Neurons_GPU\n");
         exit(1);
     }
 
-    err = clSetKernelArg(kernel_fully_connected, 2, sizeof(Layer6_Weights_GPU), &Layer6_Weights_GPU);
+    err = clSetKernelArg(kernel_fully_connected, 2, sizeof(cl_mem), &Layer6_Weights_GPU);
     if (err < 0) {
         printf("Couldn't create a kernel argument Layer6_Weights_GPU\n");
         exit(1);
     }
 
-    err = clSetKernelArg(kernel_fully_connected, 3, sizeof(Layer7_Neurons_GPU), &Layer7_Neurons_GPU);
+    err = clSetKernelArg(kernel_fully_connected, 3, sizeof(cl_mem), &Layer7_Neurons_GPU);
     if (err < 0) {
         printf("Couldn't create a kernel argument Layer6_Weights_GPU\n");
         exit(1);
@@ -2163,10 +2175,12 @@ void conv_layer7() {
     dim3 Layer7_Thread(1,1);   // combi tried 10*10*10
 
  */
-    global_size[0] = 4096;
-    global_size[1] = 4096;
     local_size[0] = 1;
     local_size[1] = 1;
+
+    global_size[0] = 4096*local_size[0];
+    global_size[1] = 4096*local_size[1];
+
 //    executeFCLayer<<<Layer7_Block,Layer7_Thread>>>(Layer7_bias_GPU,Layer7_Neurons_GPU,Layer7_Weights_GPU,
 //    Layer8_Neurons_GPU,4096,4096,true,false);
 
@@ -2175,25 +2189,25 @@ void conv_layer7() {
     cl_int reLU = true;
     cl_int dropout = false;
 
-    err = clSetKernelArg(kernel_fully_connected, 0, sizeof(Layer7_bias_GPU), &Layer7_bias_GPU);
+    err = clSetKernelArg(kernel_fully_connected, 0, sizeof(cl_mem), &Layer7_bias_GPU);
     if (err < 0) {
         printf("Couldn't create a kernel argument Layer7_bias_GPU\n");
         exit(1);
     }
 
-    err = clSetKernelArg(kernel_fully_connected, 1, sizeof(Layer7_Neurons_GPU), &Layer7_Neurons_GPU);
+    err = clSetKernelArg(kernel_fully_connected, 1, sizeof(cl_mem), &Layer7_Neurons_GPU);
     if (err < 0) {
         printf("Couldn't create a kernel argument Layer7_Neurons_GPU\n");
         exit(1);
     }
 
-    err = clSetKernelArg(kernel_fully_connected, 2, sizeof(Layer7_Weights_GPU), &Layer7_Weights_GPU);
+    err = clSetKernelArg(kernel_fully_connected, 2, sizeof(cl_mem), &Layer7_Weights_GPU);
     if (err < 0) {
         printf("Couldn't create a kernel argument Layer6_Weights_GPU\n");
         exit(1);
     }
 
-    err = clSetKernelArg(kernel_fully_connected, 3, sizeof(Layer8_Neurons_GPU), &Layer8_Neurons_GPU);
+    err = clSetKernelArg(kernel_fully_connected, 3, sizeof(cl_mem), &Layer8_Neurons_GPU);
     if (err < 0) {
         printf("Couldn't create a kernel argument Layer6_Weights_GPU\n");
         exit(1);
@@ -2278,11 +2292,10 @@ void conv_layer8() {
         exit(1);
     }
 
-    global_size[0] = 1000;
-    global_size[1] = 1;
     local_size[0] = 1;
     local_size[1] = 1;
-
+    global_size[0] = 1000*local_size[0];
+    global_size[1] = 1*local_size[1];
     //    executeFCLayer<<<Layer8_Block,Layer8_Thread>>>(Layer8_bias_GPU,Layer8_Neurons_GPU,
     //    Layer8_Weights_GPU,Layer9_Neurons_GPU,1000,4096,false,false);
 
@@ -2292,25 +2305,25 @@ void conv_layer8() {
     cl_int reLU = false;
     cl_int dropout = false;
 
-    err = clSetKernelArg(kernel_fully_connected, 0, sizeof(Layer8_bias_GPU), &Layer8_bias_GPU);
+    err = clSetKernelArg(kernel_fully_connected, 0, sizeof(cl_mem), &Layer8_bias_GPU);
     if (err < 0) {
         printf("Couldn't create a kernel argument Layer8_bias_GPU\n");
         exit(1);
     }
 
-    err = clSetKernelArg(kernel_fully_connected, 1, sizeof(Layer8_Neurons_GPU), &Layer8_Neurons_GPU);
+    err = clSetKernelArg(kernel_fully_connected, 1, sizeof(cl_mem), &Layer8_Neurons_GPU);
     if (err < 0) {
         printf("Couldn't create a kernel argument Layer8_Neurons_GPU\n");
         exit(1);
     }
 
-    err = clSetKernelArg(kernel_fully_connected, 2, sizeof(Layer8_Weights_GPU), &Layer8_Weights_GPU);
+    err = clSetKernelArg(kernel_fully_connected, 2, sizeof(cl_mem), &Layer8_Weights_GPU);
     if (err < 0) {
         printf("Couldn't create a kernel argument Layer8_Weights_GPU\n");
         exit(1);
     }
 
-    err = clSetKernelArg(kernel_fully_connected, 3, sizeof(Layer9_Neurons_GPU), &Layer9_Neurons_GPU);
+    err = clSetKernelArg(kernel_fully_connected, 3, sizeof(cl_mem), &Layer9_Neurons_GPU);
     if (err < 0) {
         printf("Couldn't create a kernel argument Layer6_Weights_GPU\n");
         exit(1);
@@ -2400,28 +2413,37 @@ int main() {
 
     build_kernels();
 
+    printf("Starting Layer1\n");
     conv_layer1();
     normalise_layer1();
     max_pool_layer1();
 
+    printf("Starting Layer2\n");
     conv_layer2();
     normalise_layer2();
     max_pool_layer2();
 
+    printf("Starting Layer3\n");
     conv_layer3();
 
+    printf("Starting Layer4\n");
     conv_layer4();
 
+    printf("Starting Layer5\n");
     conv_layer5();
 
+    printf("Starting Layer6\n");
     conv_layer6();
 
+    printf("Starting Layer7\n");
     conv_layer7();
 
+    printf("Starting Layer8\n");
     conv_layer8();
-    printf("Checking for results\n");
 
+    printf("Checking for results\n");
     collect_results();
+
     cleanup_mem();
     return 0;
 }
