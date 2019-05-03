@@ -8,8 +8,8 @@ __kernel void executeFirstLayer( __global float *bias, __global float *Layer1_Ne
     int stride_width = 4;
     int stride = 0,colstride = 0;
     int output = get_group_id(0);
-    int row = get_local_id(1) + r_offset;
-    int col = get_local_id(0) + c_offset;
+    int row = get_local_id(0) + r_offset;
+    int col = get_local_id(1) + c_offset;
     //printf("output = %d\n",output);
     colstride = 3*row*stride_width*col_width;
     stride = 0;
@@ -93,7 +93,7 @@ __kernel void execute3Dconvolution(__global float *bias, __global float *Layer2_
     float product = 0.0;
     int x_pad = 0, y_pad = 0, loopc = 0,loopr = 0;
     int stride = 0,colstride = 0;
-    int output = get_group_id(0);
+    int output = get_group_id(0);//128;
     colstride = 0;
     int row = get_local_id(0);
     stride = 0;
@@ -129,12 +129,7 @@ __kernel void execute3Dconvolution(__global float *bias, __global float *Layer2_
         {
             for(int j =0; j < loopc ; j++) // kernel convolution
             {
-                product += ( Layer2_Neurons_GPU[feature*fr*fc + i*fc + j + stride + colstride] *
-                             Layer2_Weights_GPU [ output*kernel_mask*kernel_mask*in_output +
-                                                  feature*kernel_mask*kernel_mask + i*kernel_mask + j +
-                                                  kernel_mask*x_pad + y_pad
-                             ]
-                );
+                product += ( Layer2_Neurons_GPU[feature*fr*fc + i*fc + j + stride + colstride] * Layer2_Weights_GPU[output*kernel_mask*kernel_mask*in_output + feature*kernel_mask*kernel_mask + i*kernel_mask + j + kernel_mask*x_pad + y_pad]);
             }
         }
     }

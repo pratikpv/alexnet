@@ -203,7 +203,6 @@ void dump_CPU_array_to_file(float* cpu_mem, int count, char *filename) {
 
 void dump_GPU_array_to_file(cl_mem gpu_mem, int count, char *filename) {
 
-    return;
     float *cpu_mem;
     cpu_mem = (float *) malloc(sizeof(float) * count);
     if (cpu_mem != NULL) {
@@ -384,6 +383,36 @@ void readIn(float *layer1) {
     }
 }
 
+void allocate_mem() {
+
+    /* Read Input File 227*227*3 */
+    Layer1_Neurons_CPU = (float *) malloc(INPUT_SIZE * sizeof(float));
+
+    Layer1_Weights_CPU = (float *) malloc(sizeof(float) * (L1_KERNEL_SIZE * L1_OUT));
+    Layer2_Weights_CPU = (float *) malloc(sizeof(float) * (L2_KERNEL_SIZE * L2_OUT));
+    Layer3_Weights_CPU = (float *) malloc(sizeof(float) * (L3_KERNEL_SIZE * L3_OUT));
+    Layer4_Weights_CPU = (float *) malloc(sizeof(float) * (L4_KERNEL_SIZE * L4_OUT));
+    Layer5_Weights_CPU = (float *) malloc(sizeof(float) * (L5_KERNEL_SIZE * L5_OUT));
+    Layer6_Weights_CPU = (float *) malloc(sizeof(float) * (4096 * 256 * 6 * 6));
+    Layer7_Weights_CPU = (float *) malloc(sizeof(float) * (4096 * 4096));
+    Layer8_Weights_CPU = (float *) malloc(sizeof(float) * (4096 * 1000));
+    fc9_Neurons_CPU = (float *) malloc(sizeof(float) * (1000));
+
+}
+
+void init_data() {
+
+    readIn(Layer1_Neurons_CPU);
+
+    /* Fill Bias and Weights */
+    Fill_bias(bias_1, bias_2, bias_3, bias_4, bias_5, bias_6, bias_7, bias_8);
+    Fill_weights(Layer1_Weights_CPU, Layer2_Weights_CPU, Layer3_Weights_CPU,
+                 Layer4_Weights_CPU, Layer5_Weights_CPU, Layer6_Weights_CPU,
+                 Layer7_Weights_CPU, Layer8_Weights_CPU);
+
+}
+
+
 void conv_layer1() {
 
     cl_int r_offset;
@@ -471,6 +500,28 @@ void conv_layer1() {
 
     dump_GPU_array_to_file(Layer1_Norm_GPU, (L1_OUT * L1_FMAP), "Layer1_Norm_GPU_1.txt");
 
+    build_kernels();
+
+    err = clSetKernelArg(kernel_l1_conv, 0, sizeof(cl_mem), &Layer1_bias_GPU);
+    if (err < 0) {
+        printf("Couldn't create a kernel argument Layer1_bias_GPU\n");
+        exit(1);
+    }
+    err = clSetKernelArg(kernel_l1_conv, 1, sizeof(cl_mem), &Layer1_Neurons_GPU);
+    if (err < 0) {
+        printf("Couldn't create a kernel argument Layer1_Neurons_GPU err=%d\n", err);
+        exit(1);
+    }
+    err = clSetKernelArg(kernel_l1_conv, 2, sizeof(cl_mem), &Layer1_Weights_GPU);
+    if (err < 0) {
+        printf("Couldn't create a kernel argument Layer1_Weights_GPU");
+        exit(1);
+    }
+    err = clSetKernelArg(kernel_l1_conv, 3, sizeof(cl_mem), &Layer1_Norm_GPU);
+    if (err < 0) {
+        printf("Couldn't create a kernel argument Layer1_Norm_GPU");
+        exit(1);
+    }
     r_offset = 0;
     c_offset = 32;
 
@@ -487,9 +538,11 @@ void conv_layer1() {
     }
 
     local_size[0] = 32;
-    local_size[1] = 32;
+    local_size[1] = 23;
     global_size[0] = 96*local_size[0];
     global_size[1] = 1*local_size[1];
+
+
     /* Enqueue kernel */
     err = clEnqueueNDRangeKernel(queue, kernel_l1_conv, 2, NULL, global_size,
                                  local_size, 0, NULL, NULL);
@@ -500,6 +553,29 @@ void conv_layer1() {
 
     dump_GPU_array_to_file(Layer1_Norm_GPU, (L1_OUT * L1_FMAP), "Layer1_Norm_GPU_2.txt");
 
+    //build_kernels();
+/*
+    err = clSetKernelArg(kernel_l1_conv, 0, sizeof(cl_mem), &Layer1_bias_GPU);
+    if (err < 0) {
+        printf("Couldn't create a kernel argument Layer1_bias_GPU\n");
+        exit(1);
+    }
+    err = clSetKernelArg(kernel_l1_conv, 1, sizeof(cl_mem), &Layer1_Neurons_GPU);
+    if (err < 0) {
+        printf("Couldn't create a kernel argument Layer1_Neurons_GPU err=%d\n", err);
+        exit(1);
+    }
+    err = clSetKernelArg(kernel_l1_conv, 2, sizeof(cl_mem), &Layer1_Weights_GPU);
+    if (err < 0) {
+        printf("Couldn't create a kernel argument Layer1_Weights_GPU");
+        exit(1);
+    }
+    err = clSetKernelArg(kernel_l1_conv, 3, sizeof(cl_mem), &Layer1_Norm_GPU);
+    if (err < 0) {
+        printf("Couldn't create a kernel argument Layer1_Norm_GPU");
+        exit(1);
+    }
+*/
     r_offset = 32;
     c_offset = 0;
 
@@ -517,11 +593,12 @@ void conv_layer1() {
     }
 
     printf("2\n");
-    local_size[0] = 32;
+    local_size[0] = 23;
     local_size[1] = 32;
     global_size[0] = 96*local_size[0];
     global_size[1] = 1*local_size[1];
 
+//    build_kernels();
     /* Enqueue kernel */
     err = clEnqueueNDRangeKernel(queue, kernel_l1_conv, 2, NULL, global_size,
                                  local_size, 0, NULL, NULL);
@@ -530,7 +607,30 @@ void conv_layer1() {
         exit(1);
     }
     printf("3\n");
-    //dump_GPU_array_to_file(Layer1_Norm_GPU, (L1_OUT * L1_FMAP), "Layer1_Norm_GPU_3.txt");
+    /*
+    dump_GPU_array_to_file(Layer1_Norm_GPU, (L1_OUT * L1_FMAP), "Layer1_Norm_GPU_3.txt");
+
+    err = clSetKernelArg(kernel_l1_conv, 0, sizeof(cl_mem), &Layer1_bias_GPU);
+    if (err < 0) {
+        printf("Couldn't create a kernel argument Layer1_bias_GPU\n");
+        exit(1);
+    }
+    err = clSetKernelArg(kernel_l1_conv, 1, sizeof(cl_mem), &Layer1_Neurons_GPU);
+    if (err < 0) {
+        printf("Couldn't create a kernel argument Layer1_Neurons_GPU err=%d\n", err);
+        exit(1);
+    }
+    err = clSetKernelArg(kernel_l1_conv, 2, sizeof(cl_mem), &Layer1_Weights_GPU);
+    if (err < 0) {
+        printf("Couldn't create a kernel argument Layer1_Weights_GPU");
+        exit(1);
+    }
+    err = clSetKernelArg(kernel_l1_conv, 3, sizeof(cl_mem), &Layer1_Norm_GPU);
+    if (err < 0) {
+        printf("Couldn't create a kernel argument Layer1_Norm_GPU");
+        exit(1);
+    }
+*/
     r_offset = 32;
     c_offset = 32;
 
@@ -547,11 +647,12 @@ void conv_layer1() {
         exit(1);
     }
 
-    local_size[0] = 32;
-    local_size[1] = 32;
+    local_size[0] = 23;
+    local_size[1] = 23;
     global_size[0] = 96*local_size[0];
     global_size[1] = 1*local_size[1];
 
+   // build_kernels();
     /* Enqueue kernel */
     err = clEnqueueNDRangeKernel(queue, kernel_l1_conv, 2, NULL, global_size,
                                  local_size, 0, NULL, NULL);
@@ -560,39 +661,11 @@ void conv_layer1() {
         exit(1);
     }
     printf("5\n");
-    //dump_GPU_array_to_file(Layer1_Norm_GPU, (L1_OUT * L1_FMAP), "Layer1_Norm_GPU_4.txt");
+    dump_GPU_array_to_file(Layer1_Norm_GPU, (L1_OUT * L1_FMAP), "Layer1_Norm_GPU_4.txt");
     printf("6\n");
 
 }
 
-void allocate_mem() {
-
-    /* Read Input File 227*227*3 */
-    Layer1_Neurons_CPU = (float *) malloc(INPUT_SIZE * sizeof(float));
-
-    Layer1_Weights_CPU = (float *) malloc(sizeof(float) * (L1_KERNEL_SIZE * L1_OUT));
-    Layer2_Weights_CPU = (float *) malloc(sizeof(float) * (L2_KERNEL_SIZE * L2_OUT));
-    Layer3_Weights_CPU = (float *) malloc(sizeof(float) * (L3_KERNEL_SIZE * L3_OUT));
-    Layer4_Weights_CPU = (float *) malloc(sizeof(float) * (L4_KERNEL_SIZE * L4_OUT));
-    Layer5_Weights_CPU = (float *) malloc(sizeof(float) * (L5_KERNEL_SIZE * L5_OUT));
-    Layer6_Weights_CPU = (float *) malloc(sizeof(float) * (4096 * 256 * 6 * 6));
-    Layer7_Weights_CPU = (float *) malloc(sizeof(float) * (4096 * 4096));
-    Layer8_Weights_CPU = (float *) malloc(sizeof(float) * (4096 * 1000));
-    fc9_Neurons_CPU = (float *) malloc(sizeof(float) * (1000));
-
-}
-
-void init_data() {
-
-    readIn(Layer1_Neurons_CPU);
-
-    /* Fill Bias and Weights */
-    Fill_bias(bias_1, bias_2, bias_3, bias_4, bias_5, bias_6, bias_7, bias_8);
-    Fill_weights(Layer1_Weights_CPU, Layer2_Weights_CPU, Layer3_Weights_CPU,
-                 Layer4_Weights_CPU, Layer5_Weights_CPU, Layer6_Weights_CPU,
-                 Layer7_Weights_CPU, Layer8_Weights_CPU);
-
-}
 
 void normalise_layer1() {
 
@@ -613,7 +686,6 @@ void normalise_layer1() {
        */
     cl_int r_offset;
     cl_int c_offset;
-
 
     err = clSetKernelArg(kernel_l1_norm, 0, sizeof(cl_mem), &Layer1_Norm_GPU);
     if (err < 0) {
@@ -672,8 +744,8 @@ void normalise_layer1() {
         exit(1);
     }
 
-    r_offset = 32;
-    c_offset = 32;
+    r_offset = 0;
+    c_offset = 0;
 
     err = clSetKernelArg(kernel_l1_norm, 2, sizeof(cl_int), &r_offset);
     if (err < 0) {
@@ -699,7 +771,6 @@ void normalise_layer1() {
         printf("Couldn't enqueue the kernel_l1_norm\n");
         exit(1);
     }
-
 
     r_offset = 0;
     c_offset = 32;
@@ -791,6 +862,7 @@ void normalise_layer1() {
     }
 
     dump_GPU_array_to_file(Layer1_pool_GPU, (L1_OUT * L1_FMAP), "Layer1_pool_GPU.txt");
+    printf("normalise_layer1 finished\n");
 }
 
 void max_pool_layer1() {
@@ -802,6 +874,7 @@ void max_pool_layer1() {
        dim3 pool1_Thread(27,27);
        executepoolingCuda<<<pool1_Block,pool1_Thread>>>(Layer1_pool_GPU,Layer2_Neurons_GPU,96,27,27,3,2,55,55);
        */
+    printf("max_pool_layer1 start\n");
     cl_int out = 96;
     cl_int out_fr = 27;
     cl_int out_fc = 27;
@@ -892,6 +965,7 @@ void max_pool_layer1() {
     }
 
     dump_GPU_array_to_file(Layer2_Neurons_GPU, (L1_OUT * POOL1_FMAP), "Layer2_Neurons_GPU.txt");
+
 }
 
 void cleanup_mem() {
@@ -956,12 +1030,13 @@ void conv_layer2() {
 
 
 /*
-
-	execute3DconvolutionCuda<<<Layer2_Block,Layer2_Thread>>>(Layer2_bias_GPU,Layer2_Neurons_GPU,Layer2_Weights_GPU,Layer2_Norm_GPU,128,27,27,1,5,2,48,2);
+	execute3DconvolutionCuda<<<Layer2_Block,Layer2_Thread>>>(Layer2_bias_GPU,
+     Layer2_Neurons_GPU,Layer2_Weights_GPU,Layer2_Norm_GPU,128,27,27,1,5,2,48,2);
 __kernel void execute3Dconvolution(__global float *bias, __global float *Layer2_Neurons_GPU,
 					__global float *Layer2_Weights_GPU,__global float *Layer3_Neurons_GPU,
 					int out, int fr, int fc, int stride_width, int kernel_mask,
 					int pad ,int in_output, int group)
+
 */
 
     err = clSetKernelArg(kernel_conv3d, 0, sizeof(cl_mem), &Layer2_bias_GPU);
@@ -1036,21 +1111,15 @@ __kernel void execute3Dconvolution(__global float *bias, __global float *Layer2_
         exit(1);
     }
 
-/*
-	execute3DconvolutionCuda<<<Layer2_Block,Layer2_Thread>>>(Layer2_bias_GPU,Layer2_Neurons_GPU,Layer2_Weights_GPU,Layer2_Norm_GPU,128,27,27,1,5,2,48,2);
-__kernel void execute3Dconvolution(__global float *bias, __global float *Layer2_Neurons_GPU,
-					__global float *Layer2_Weights_GPU,__global float *Layer3_Neurons_GPU,
-					int out, int fr, int fc, int stride_width, int kernel_mask,
-					int pad ,int in_output, int group)
 
-*/
+
 
     /* Group = 2 and each group is 128*27*27 */
 
     local_size[0] = 27;
     local_size[1] = 27;
     global_size[0] = 128*local_size[0];
-    global_size[1] = 128*local_size[1];
+    global_size[1] = 1*local_size[1];
 
     /* Enqueue kernel */
     err = clEnqueueNDRangeKernel(queue, kernel_conv3d, 2, NULL, global_size,
@@ -1059,6 +1128,9 @@ __kernel void execute3Dconvolution(__global float *bias, __global float *Layer2_
         printf("Couldn't enqueue the kernel_conv3d\n");
         exit(1);
     }
+
+    dump_GPU_array_to_file(Layer2_Norm_GPU, (L2_OUT * L2_FMAP), "Layer2_Norm_GPU_3dcov.txt");
+
 
 /*
 	execute3Dconvolutiongroup2Cuda<<<Layer2_Block,Layer2_Thread>>>(Layer2_bias_GPU,Layer2_Neurons_GPU,Layer2_Weights_GPU,Layer2_Norm_GPU,128,27,27,1,5,2,48,2);
@@ -1150,7 +1222,7 @@ __kernel void execute3Dconvolutiongroup2(__global float *bias,__global float *La
         printf("Couldn't enqueue the kernel_conv3d_g2\n");
         exit(1);
     }
-
+    dump_GPU_array_to_file(Layer2_Norm_GPU, (L2_OUT * L2_FMAP), "Layer2_Norm_GPU_3dcovg2.txt");
 }
 
 void normalise_layer2() {
@@ -1298,7 +1370,7 @@ __kernel void executepooling(__global float *Layer2_Neurons_GPU, __global float 
         printf("Couldn't enqueue the kernel_pool\n");
         exit(1);
     }
-
+    dump_GPU_array_to_file(Layer3_Neurons_GPU, (L2_OUT * POOL2_FMAP), "Layer3_Neurons_GPU_pool.txt");
 }
 
 void conv_layer3() {
@@ -2367,14 +2439,18 @@ void collect_results() {
     //float *fc9_Neurons_CPU = (float *)malloc(sizeof(float) * (1000));
     //cudaMemcpy(fc9_Neurons_CPU,Layer9_Neurons_GPU, sizeof(float)*(1000), cudaMemcpyDeviceToHost);
 
+    printf("Copying data from GPU\n");
     err = clEnqueueReadBuffer(queue, Layer9_Neurons_GPU, CL_TRUE, 0, sizeof(float) * 1000,
-                              (void *) fc9_Neurons_CPU, 0, NULL, NULL);
+                              fc9_Neurons_CPU, 0, NULL, NULL);
 
     if (err < 0) {
         printf("Couldn't clEnqueueReadBuffer for results\n");
         exit(1);
     }
 
+    dump_CPU_array_to_file(fc9_Neurons_CPU, 1000, "final_results.txt");
+
+    printf("Finding highest prob. prediction\n");
     /* Check the output */
     float max = 0.0;
     int index = 0;
