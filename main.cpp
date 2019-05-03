@@ -104,6 +104,8 @@ cl_mem Layer7_bias_GPU, Layer7_Weights_GPU, Layer8_Neurons_GPU;
 /* for layer 8*/
 cl_mem Layer8_bias_GPU, Layer9_Neurons_GPU, Layer8_Weights_GPU;
 
+char *input_file;
+
 /* Find a GPU or CPU associated with the first available platform */
 cl_device_id create_device() {
 
@@ -333,49 +335,49 @@ void Fill_weights(float *Layer1_Weights_CPU, float *Layer2_Weights_CPU,
                   float *Layer3_Weights_CPU, float *Layer4_Weights_CPU,
                   float *Layer5_Weights_CPU, float *Layer6_Weights_CPU,
                   float *Layer7_Weights_CPU, float *Layer8_Weights_CPU) {
-    printf(".");
+    printf("\n\t weights for layer 1");
     extract_weights("data/conv1.txt", Layer1_Weights_CPU, false);
-    printf(".");
+    printf("\n\t weights for layer 2");
     extract_weights("data/conv2.txt", Layer2_Weights_CPU, false);
-    printf(".");
+    printf("\n\t weights for layer 3");
     extract_weights("data/conv3.txt", Layer3_Weights_CPU, false);
-    printf(".");
+    printf("\n\t weights for layer 4");
     extract_weights("data/conv4.txt", Layer4_Weights_CPU, false);
-    printf(".");
+    printf("\n\t weights for layer 5");
     extract_weights("data/conv5.txt", Layer5_Weights_CPU, false);
-    printf(".");
+    printf("\n\t weights for layer 6");
     extract_weights("data/fc6.txt", Layer6_Weights_CPU, false);
-    printf(".");
+    printf("\n\t weights for layer 7");
     extract_weights("data/fc7.txt", Layer7_Weights_CPU, false);
-    printf(".");
+    printf("\n\t weights for layer 8");
     extract_weights("data/fc8.txt", Layer8_Weights_CPU, false);
-    printf(".");
 }
 
 void Fill_bias(float *bias_1, float *bias_2, float *bias_3,
                float *bias_4, float *bias_5, float *bias_6,
                float *bias_7, float *bias_8) {
-    printf(".");
+    printf("\n\t bias for layer 1");
     extract_weights("data/bias1.txt", bias_1, true);
-    printf(".");
+    printf("\n\t bias for layer 2");
     extract_weights("data/bias2.txt", bias_2, true);
-    printf(".");
+    printf("\n\t bias for layer 3");
     extract_weights("data/bias3.txt", bias_3, true);
-    printf(".");
+    printf("\n\t bias for layer 4");
     extract_weights("data/bias4.txt", bias_4, true);
-    printf(".");
+    printf("\n\t bias for layer 5");
     extract_weights("data/bias5.txt", bias_5, true);
-    printf(".");
+    printf("\n\t bias for layer 6");
     extract_weights("data/bias6.txt", bias_6, true);
-    printf(".");
+    printf("\n\t bias for layer 7");
     extract_weights("data/bias7.txt", bias_7, true);
-    printf(".");
+    printf("\n\t bias for layer 8");
     extract_weights("data/bias8.txt", bias_8, true);
-    printf(".");
 }
 
-void readIn(float *layer1) {
-    FILE *fp = fopen("data/input.txt", "rb");
+void readIn(float *layer1, char *input_file) {
+    //FILE *fp = fopen("data/input.txt", "rb");
+    FILE *fp = fopen(input_file, "rb");
+    printf("Loading input from %s\n", input_file);
     size_t len;
     char delim[1];
     delim[0] = '\n';
@@ -383,16 +385,15 @@ void readIn(float *layer1) {
     char *token;
     char *line = NULL;
     if (fp != NULL) {
-        {
-            while ((getline(&line, &len, fp)) != -1) {
-                token = strtok(line, delim);
-                layer1[count] = atof(token);
-                count++;
-            }
+        while ((getline(&line, &len, fp)) != -1) {
+            token = strtok(line, delim);
+            layer1[count] = atof(token);
+            count++;
         }
         fclose(fp);
     } else {
-        printf("input file Not FOUND\n");
+        printf("input file %s Not FOUND\n", input_file);
+        exit(-1);
     }
 }
 
@@ -400,7 +401,6 @@ void allocate_mem() {
 
     /* Read Input File 227*227*3 */
     Layer1_Neurons_CPU = (float *) malloc(INPUT_SIZE * sizeof(float));
-
     Layer1_Weights_CPU = (float *) malloc(sizeof(float) * (L1_KERNEL_SIZE * L1_OUT));
     Layer2_Weights_CPU = (float *) malloc(sizeof(float) * (L2_KERNEL_SIZE * L2_OUT));
     Layer3_Weights_CPU = (float *) malloc(sizeof(float) * (L3_KERNEL_SIZE * L3_OUT));
@@ -414,10 +414,7 @@ void allocate_mem() {
 }
 
 void init_data() {
-
-    printf("Loading input\n");
-    readIn(Layer1_Neurons_CPU);
-
+    readIn(Layer1_Neurons_CPU, input_file);
     /* Fill Bias and Weights */
     printf("Loading Bias values");
     Fill_bias(bias_1, bias_2, bias_3, bias_4, bias_5, bias_6, bias_7, bias_8);
@@ -425,7 +422,7 @@ void init_data() {
     Fill_weights(Layer1_Weights_CPU, Layer2_Weights_CPU, Layer3_Weights_CPU,
                  Layer4_Weights_CPU, Layer5_Weights_CPU, Layer6_Weights_CPU,
                  Layer7_Weights_CPU, Layer8_Weights_CPU);
-    printf("\nWeights and Bias loaded successfully\n");
+    printf("\n\t Weights and Bias loaded successfully\n");
 }
 
 
@@ -2186,12 +2183,12 @@ void collect_results() {
         exit(1);
     }
     end = get_time_us();
-    printf("Copying data from GPU took %ld us\n", end - start);
+    printf("\tCopying data from GPU took %ld us\n", end - start);
 
 #ifdef DEBUG_AN
     dump_CPU_array_to_file(fc9_Neurons_CPU, 1000, "final_results.txt");
 #endif
-    printf("Finding highest prob. prediction\n");
+    printf("Finding highest probability prediction\n");
     /* Check the output */
     float max = 0.0;
     int index = 0;
@@ -2201,24 +2198,25 @@ void collect_results() {
             index = i;
         }
     }
-    printf("INDEX = %d\n", index);
+    printf("=========================\n");
+    printf("Prediction Index = %d\n", index);
+    printf("=========================\n");
 
 }
 
-
-int main() {
-
+void init_opencl() {
     /* Create device and context */
-    long start;
-    long end;
     device = create_device();
+    if (!device) {
+        printf("Couldn't create a context\n");
+        exit(1);
+    }
     context = clCreateContext(NULL, 1, &device, NULL, NULL, &err);
     if (err < 0) {
         printf("Couldn't create a context\n");
         exit(1);
     }
     allocate_mem();
-    init_data();
     /* Build program */
     program = build_program(context, device, PROGRAM_FILE);
     /* Create a command queue */
@@ -2228,63 +2226,103 @@ int main() {
         exit(1);
     }
 
+    /* build OpenCL kernels */
     build_kernels();
+}
 
+int parse_input_param(int argc, char **argv) {
+
+    if (argc == 2) {
+        input_file = argv[1];
+        return 0;
+    }
+    return -1;
+}
+
+void show_usage(char *base) {
+    printf("Usage: %s <input_filename>\n", base);
+}
+
+int main(int argc, char **argv) {
+
+    /* variables for time measurements */
+    long start, start_an;
+    long end;
+
+    if (parse_input_param(argc, argv) < 0) {
+        show_usage(argv[0]);
+        exit(-1);
+    }
+
+    /* OpenCl initialization stuff */
+    init_opencl();
+
+    /* load bias and weights */
+    init_data();
+
+    /* kick-off Alex Net layers */
+    printf("\n========= Executing AlexNet =========\n");
     printf("Starting Layer1\n");
     start = get_time_us();
     conv_layer1();
     normalise_layer1();
     max_pool_layer1();
     end = get_time_us();
-    printf("Layer1 took %ld us\n", end - start);
+    printf("\tLayer1 took %ld us\n", end - start);
 
     printf("Starting Layer2\n");
     start = get_time_us();
+    start_an = start;
     conv_layer2();
     normalise_layer2();
     max_pool_layer2();
     end = get_time_us();
-    printf("Layer2 took %ld us\n", end - start);
+    printf("\tLayer2 took %ld us\n", end - start);
 
     printf("Starting Layer3\n");
     start = get_time_us();
     conv_layer3();
     end = get_time_us();
-    printf("Layer3 took %ld us\n", end - start);
+    printf("\tLayer3 took %ld us\n", end - start);
 
     printf("Starting Layer4\n");
     start = get_time_us();
     conv_layer4();
     end = get_time_us();
-    printf("Layer4 took %ld us\n", end - start);
+    printf("\tLayer4 took %ld us\n", end - start);
 
     printf("Starting Layer5\n");
     start = get_time_us();
     conv_layer5();
     end = get_time_us();
-    printf("Layer5 took %ld us\n", end - start);
+    printf("\tLayer5 took %ld us\n", end - start);
 
     printf("Starting Layer6\n");
     start = get_time_us();
     conv_layer6();
     end = get_time_us();
-    printf("Layer6 took %ld us\n", end - start);
+    printf("\tLayer6 took %ld us\n", end - start);
 
     printf("Starting Layer7\n");
     conv_layer7();
     end = get_time_us();
-    printf("Layer7 took %ld us\n", end - start);
+    printf("\tLayer7 took %ld us\n", end - start);
 
     printf("Starting Layer8\n");
     start = get_time_us();
     conv_layer8();
     end = get_time_us();
-    printf("Layer8 took %ld us\n", end - start);
+    printf("\tLayer8 took %ld us\n", end - start);
 
-    printf("Checking for results\n");
+    end = get_time_us();
+    printf("All layers took total %ld us\n", end - start_an);
+
+    /* Checking for results */
     collect_results();
 
+    /* release GPU and CPU resources */
     cleanup_mem();
+
     return 0;
 }
 
