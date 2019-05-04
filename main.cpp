@@ -2172,9 +2172,17 @@ long get_time_us() {
 }
 
 void collect_results() {
-    long start, end;
+    unsigned long start, end;
+    start = get_time_us();
+    printf("Staring CL finish\n");
+    clFinish(queue);
+    clFlush(queue);
+    end = get_time_us();
+    printf("\tCL finished, took %ld us\n", end - start);
+
     printf("Copying data from GPU\n");
     start = get_time_us();
+
     err = clEnqueueReadBuffer(queue, Layer9_Neurons_GPU, CL_TRUE, 0, sizeof(float) * 1000,
                               fc9_Neurons_CPU, 0, NULL, NULL);
 
@@ -2246,8 +2254,8 @@ void show_usage(char *base) {
 int main(int argc, char **argv) {
 
     /* variables for time measurements */
-    long start, start_an;
-    long end;
+    unsigned long start, start_an;
+    unsigned long end, total;
 
     if (parse_input_param(argc, argv) < 0) {
         show_usage(argv[0]);
@@ -2264,6 +2272,7 @@ int main(int argc, char **argv) {
     printf("\n========= Executing AlexNet =========\n");
     printf("Starting Layer1\n");
     start = get_time_us();
+    start_an = start;
     conv_layer1();
     normalise_layer1();
     max_pool_layer1();
@@ -2272,7 +2281,6 @@ int main(int argc, char **argv) {
 
     printf("Starting Layer2\n");
     start = get_time_us();
-    start_an = start;
     conv_layer2();
     normalise_layer2();
     max_pool_layer2();
@@ -2304,6 +2312,7 @@ int main(int argc, char **argv) {
     printf("\tLayer6 took %ld us\n", end - start);
 
     printf("Starting Layer7\n");
+    start = get_time_us();
     conv_layer7();
     end = get_time_us();
     printf("\tLayer7 took %ld us\n", end - start);
@@ -2314,8 +2323,8 @@ int main(int argc, char **argv) {
     end = get_time_us();
     printf("\tLayer8 took %ld us\n", end - start);
 
-    end = get_time_us();
-    printf("All layers took total %ld us\n", end - start_an);
+    total = end - start_an;
+    printf("All layers took total %ld us\n", total);
 
     /* Checking for results */
     collect_results();
