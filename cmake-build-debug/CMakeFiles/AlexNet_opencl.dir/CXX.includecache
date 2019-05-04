@@ -19,6 +19,8 @@ time.h
 -
 CL/cl.h
 -
+sys/time.h
+-
 
 /opt/intel/system_studio_2019/include/math.h
 ../ucrt/math.h

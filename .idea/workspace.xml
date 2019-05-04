@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
+    <generated>
+      <config projectName="AlexNet_opencl" targetName="AlexNet_opencl" />
+    </generated>
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a7253787-de79-46cc-a37e-1f71f38b0def" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/AlexNet_opencl" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/AlexNet_opencl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AlexNet_opencl.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AlexNet_opencl.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AlexNet_opencl.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AlexNet_opencl.dir/main.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Layer1_Norm_GPU.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Layer1_pool_GPU.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Layer1_pool_GPU.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Layer2_Neurons_GPU.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Layer2_Neurons_GPU.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/data/fc6.org.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/data/fc6.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/data/fc6.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/data/fc7.org.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/data/fc7.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/data/fc7.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="132">
+              <caret line="6" column="36" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/main.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="422">
+              <caret line="2325" column="27" selection-start-line="2325" selection-start-column="27" selection-end-line="2325" selection-end-column="27" />
+              <folding>
+                <element signature="e#86#103#0" expanded="true" />
+                <element signature="e#5119#6810#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cmake-build-debug/alexnet_opencl.cl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4158">
+              <caret line="189" column="28" selection-start-line="189" selection-start-column="28" selection-end-line="189" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>err = clSetKernelArg(kernel_conv3d_g2, 5, sizeof(cl_int), &amp;fr);</find>
+      <find>kernel_conv3d_g2</find>
+      <find>kernel_pool</find>
+      <find>bool</find>
+      <find>Layer7_Weights_GPU</find>
+      <find>Layer1_Weights_CPU</find>
+      <find>dump_CPU</find>
+      <find>executeFirstLayer</find>
+      <find>dump_CPU_array_to_file</find>
+      <find>get_glo</find>
+      <find>sizeof</find>
+      <find>build_program</find>
+      <find>clCreateProgramWithSource</find>
+      <find>dump_GPU_array_to_file</find>
+      <find>clSetKernelArg</find>
+      <find>Layer1_pool_GPU</find>
+      <find>Layer2_Neurons_GPU</find>
+      <find>kernel_l1_conv</find>
+      <find>r_offset</find>
+      <find>L1_CONV_KERNEL_FUNC</find>
+      <find>Layer1_Norm_GPU_</find>
+      <find>kernel_l1_norm</find>
+      <find>kernel_conv3d</find>
+      <find>CONV3D_KERNEL_FUNC</find>
+      <find>execute3Dconvolution</find>
+      <find>kernel</find>
+      <find>Layer2_Norm_GPU_3dcov.txt</find>
+      <find>init_data</find>
+      <find>got</find>
+      <find>read</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>\n&quot;);</replace>
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/conv_layer1.cl" />
+        <option value="$PROJECT_DIR$/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/alexnet_opencl.cl" />
+        <option value="$PROJECT_DIR$/cmake-build-debug/alexnet_opencl.cl" />
+        <option value="$PROJECT_DIR$/main.cpp" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectConfigurationFiles">
+    <option name="files">
+      <list>
+        <option value="$PROJECT_DIR$/.idea/vcs.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="67" />
+    <option name="y" value="25" />
+    <option name="width" value="927" />
+    <option name="height" value="1055" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="AlexNet_opencl" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AlexNet_opencl" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/cmake-build-debug/alexnet_opencl.cl" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="AlexNet_opencl" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="AlexNet_opencl" TARGET_NAME="AlexNet_opencl" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="AlexNet_opencl" RUN_TARGET_NAME="AlexNet_opencl">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a7253787-de79-46cc-a37e-1f71f38b0def" name="Default Changelist" comment="" />
+      <created>1556326642647</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1556326642647</updated>
+      <workItem from="1556326644116" duration="234000" />
+      <workItem from="1556419220267" duration="11871000" />
+      <workItem from="1556473596191" duration="6654000" />
+      <workItem from="1556736177866" duration="2036000" />
+      <workItem from="1556741852056" duration="3775000" />
+      <workItem from="1556764145811" duration="1080000" />
+      <workItem from="1556770537120" duration="6425000" />
+      <workItem from="1556846215579" duration="12553000" />
+      <workItem from="1557001611192" duration="4400000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="49028000" />
+  </component>
+  <component name="TodoView" selected-index="1">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.28648648" visible="true" weight="0.21859436" />
+      <window_info id="Structure" order="1" sideWeight="0.7135135" side_tool="true" visible="true" weight="0.21859436" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.05837838" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39978448" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3286638" />
+      <window_info anchor="bottom" id="Database Changes" order="7" />
+      <window_info anchor="bottom" id="Messages" order="8" weight="0.18702702" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="11" />
+      <window_info anchor="bottom" id="CMake" order="12" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/conv_layer1_cl.cpp" />
+    <entry file="file://$PROJECT_DIR$/alexnet_opencl.cl" />
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="6" column="36" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/alexnet_opencl.cl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4158">
+          <caret line="189" column="28" selection-start-line="189" selection-start-column="28" selection-end-line="189" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="422">
+          <caret line="2325" column="27" selection-start-line="2325" selection-start-column="27" selection-end-line="2325" selection-end-column="27" />
+          <folding>
+            <element signature="e#86#103#0" expanded="true" />
+            <element signature="e#5119#6810#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
