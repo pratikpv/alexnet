@@ -45,7 +45,6 @@
 
 /* OpenCL structures */
 cl_command_queue queue;
-cl_device_id device;
 cl_context context;
 cl_program program;
 cl_kernel kernel_l1_conv;
@@ -109,27 +108,7 @@ char *input_file;
 /* Find a GPU or CPU associated with the first available platform */
 cl_device_id create_device() {
 
-    cl_platform_id platform;
-    cl_device_id dev;
 
-    /* Identify a platform */
-    err = clGetPlatformIDs(1, &platform, NULL);
-    if (err < 0) {
-        printf("Couldn't identify a platform");
-        exit(1);
-    }
-
-    /* Access a device */
-    err = clGetDeviceIDs(platform, CL_DEVICE_TYPE_GPU, 1, &dev, NULL);
-    if (err == CL_DEVICE_NOT_FOUND) {
-        err = clGetDeviceIDs(platform, CL_DEVICE_TYPE_CPU, 1, &dev, NULL);
-    }
-    if (err < 0) {
-        printf("Couldn't access any devices");
-        exit(1);
-    }
-
-    return dev;
 }
 
 /* Create program from a file and compile it */
@@ -413,6 +392,63 @@ void allocate_mem() {
 
 }
 
+
+void cleanup_mem() {
+
+    /* Deallocate resources */
+    clReleaseKernel(kernel_l1_conv);
+    clReleaseKernel(kernel_l1_norm);
+    clReleaseKernel(kernel_pool);
+    clReleaseKernel(kernel_conv3d);
+    clReleaseKernel(kernel_conv3d_g2);
+    clReleaseKernel(kernel_normlrn);
+    clReleaseKernel(kernel_fully_connected);
+    clReleaseMemObject(Layer1_bias_GPU);
+    clReleaseMemObject(Layer1_Weights_GPU);
+    clReleaseMemObject(Layer1_Neurons_GPU);
+    clReleaseMemObject(Layer1_Norm_GPU);
+    clReleaseMemObject(Layer1_pool_GPU);
+    clReleaseMemObject(Layer2_Neurons_GPU);
+    clReleaseMemObject(Layer2_bias_GPU);
+    clReleaseMemObject(Layer2_Weights_GPU);
+    clReleaseMemObject(Layer2_Norm_GPU);
+    clReleaseMemObject(Layer2_pool_GPU);
+    clReleaseMemObject(Layer3_Neurons_GPU);
+    clReleaseMemObject(Layer3_bias_GPU);
+    clReleaseMemObject(Layer3_Weights_GPU);
+    clReleaseMemObject(Layer4_Neurons_GPU);
+    clReleaseMemObject(Layer4_bias_GPU);
+    clReleaseMemObject(Layer4_Weights_GPU);
+    clReleaseMemObject(Layer5_Neurons_GPU);
+    clReleaseMemObject(Layer5_bias_GPU);
+    clReleaseMemObject(Layer5_Weights_GPU);
+    clReleaseMemObject(Layer5_pool_GPU);
+    clReleaseMemObject(Layer6_Neurons_GPU);
+    clReleaseMemObject(Layer6_bias_GPU);
+    clReleaseMemObject(Layer6_Weights_GPU);
+    clReleaseMemObject(Layer7_Neurons_GPU);
+    clReleaseMemObject(Layer7_bias_GPU);
+    clReleaseMemObject(Layer7_Weights_GPU);
+    clReleaseMemObject(Layer8_Neurons_GPU);
+    clReleaseMemObject(Layer8_bias_GPU);
+    clReleaseMemObject(Layer9_Neurons_GPU);
+    clReleaseMemObject(Layer8_Weights_GPU);
+    clReleaseCommandQueue(queue);
+    clReleaseProgram(program);
+    clReleaseContext(context);
+    free(Layer1_Neurons_CPU);
+    free(Layer1_Weights_CPU);
+    free(Layer2_Weights_CPU);
+    free(Layer3_Weights_CPU);
+    free(Layer4_Weights_CPU);
+    free(Layer5_Weights_CPU);
+    free(Layer6_Weights_CPU);
+    free(Layer7_Weights_CPU);
+    free(Layer8_Weights_CPU);
+    free(fc9_Neurons_CPU);
+}
+
+
 void init_data() {
     readIn(Layer1_Neurons_CPU, input_file);
     /* Fill Bias and Weights */
@@ -513,28 +549,7 @@ void conv_layer1() {
 #ifdef DEBUG_AN
     dump_GPU_array_to_file(Layer1_Norm_GPU, (L1_OUT * L1_FMAP), "Layer1_Norm_GPU_1.txt");
 #endif
-    build_kernels();
 
-    err = clSetKernelArg(kernel_l1_conv, 0, sizeof(cl_mem), &Layer1_bias_GPU);
-    if (err < 0) {
-        printf("Couldn't create a kernel argument Layer1_bias_GPU\n");
-        exit(1);
-    }
-    err = clSetKernelArg(kernel_l1_conv, 1, sizeof(cl_mem), &Layer1_Neurons_GPU);
-    if (err < 0) {
-        printf("Couldn't create a kernel argument Layer1_Neurons_GPU err=%d\n", err);
-        exit(1);
-    }
-    err = clSetKernelArg(kernel_l1_conv, 2, sizeof(cl_mem), &Layer1_Weights_GPU);
-    if (err < 0) {
-        printf("Couldn't create a kernel argument Layer1_Weights_GPU");
-        exit(1);
-    }
-    err = clSetKernelArg(kernel_l1_conv, 3, sizeof(cl_mem), &Layer1_Norm_GPU);
-    if (err < 0) {
-        printf("Couldn't create a kernel argument Layer1_Norm_GPU");
-        exit(1);
-    }
     r_offset = 0;
     c_offset = 32;
 
@@ -865,61 +880,6 @@ void max_pool_layer1() {
 #endif
 }
 
-void cleanup_mem() {
-
-    /* Deallocate resources */
-    clReleaseKernel(kernel_l1_conv);
-    clReleaseKernel(kernel_l1_norm);
-    clReleaseKernel(kernel_pool);
-    clReleaseKernel(kernel_conv3d);
-    clReleaseKernel(kernel_conv3d_g2);
-    clReleaseKernel(kernel_normlrn);
-    clReleaseKernel(kernel_fully_connected);
-    clReleaseMemObject(Layer1_bias_GPU);
-    clReleaseMemObject(Layer1_Weights_GPU);
-    clReleaseMemObject(Layer1_Neurons_GPU);
-    clReleaseMemObject(Layer1_Norm_GPU);
-    clReleaseMemObject(Layer1_pool_GPU);
-    clReleaseMemObject(Layer2_Neurons_GPU);
-    clReleaseMemObject(Layer2_bias_GPU);
-    clReleaseMemObject(Layer2_Weights_GPU);
-    clReleaseMemObject(Layer2_Norm_GPU);
-    clReleaseMemObject(Layer2_pool_GPU);
-    clReleaseMemObject(Layer3_Neurons_GPU);
-    clReleaseMemObject(Layer3_bias_GPU);
-    clReleaseMemObject(Layer3_Weights_GPU);
-    clReleaseMemObject(Layer4_Neurons_GPU);
-    clReleaseMemObject(Layer4_bias_GPU);
-    clReleaseMemObject(Layer4_Weights_GPU);
-    clReleaseMemObject(Layer5_Neurons_GPU);
-    clReleaseMemObject(Layer5_bias_GPU);
-    clReleaseMemObject(Layer5_Weights_GPU);
-    clReleaseMemObject(Layer5_pool_GPU);
-    clReleaseMemObject(Layer6_Neurons_GPU);
-    clReleaseMemObject(Layer6_bias_GPU);
-    clReleaseMemObject(Layer6_Weights_GPU);
-    clReleaseMemObject(Layer7_Neurons_GPU);
-    clReleaseMemObject(Layer7_bias_GPU);
-    clReleaseMemObject(Layer7_Weights_GPU);
-    clReleaseMemObject(Layer8_Neurons_GPU);
-    clReleaseMemObject(Layer8_bias_GPU);
-    clReleaseMemObject(Layer9_Neurons_GPU);
-    clReleaseMemObject(Layer8_Weights_GPU);
-    clReleaseCommandQueue(queue);
-    clReleaseProgram(program);
-    clReleaseContext(context);
-    free(Layer1_Neurons_CPU);
-    free(Layer1_Weights_CPU);
-    free(Layer2_Weights_CPU);
-    free(Layer3_Weights_CPU);
-    free(Layer4_Weights_CPU);
-    free(Layer5_Weights_CPU);
-    free(Layer6_Weights_CPU);
-    free(Layer7_Weights_CPU);
-    free(Layer8_Weights_CPU);
-    free(fc9_Neurons_CPU);
-}
-
 void conv_layer2() {
 
     cl_int out = 128;
@@ -931,7 +891,6 @@ void conv_layer2() {
     cl_int in_output = 48;
     cl_int group = 2;
 
-
     Layer2_bias_GPU = clCreateBuffer(context, CL_MEM_READ_WRITE | CL_MEM_COPY_HOST_PTR,
                                      sizeof(float) * L2_OUT, bias_2, &err);
     if (err < 0) {
@@ -939,14 +898,12 @@ void conv_layer2() {
         exit(1);
     }
 
-
     Layer2_Weights_GPU = clCreateBuffer(context, CL_MEM_READ_WRITE | CL_MEM_COPY_HOST_PTR,
                                         sizeof(float) * L2_KERNEL_SIZE * L2_OUT, Layer2_Weights_CPU, &err);
     if (err < 0) {
         printf("Couldn't create a buffer Layer2_Weights_GPU\n");
         exit(1);
     }
-
 
     Layer2_Norm_GPU = clCreateBuffer(context, CL_MEM_READ_WRITE,
                                      sizeof(float) * (L2_OUT * L2_FMAP), NULL, &err);
@@ -1138,7 +1095,6 @@ void normalise_layer2() {
         exit(1);
     }
 
-
     err = clSetKernelArg(kernel_normlrn, 0, sizeof(cl_mem), &Layer2_Norm_GPU);
     if (err < 0) {
         printf("Couldn't create a kernel argument Layer2_Norm_GPU\n");
@@ -1241,8 +1197,6 @@ void max_pool_layer2() {
     local_size[1] = 13;
     global_size[0] = 256 * local_size[0];
     global_size[1] = 1 * local_size[1];
-
-
 
     /* Enqueue kernel */
     err = clEnqueueNDRangeKernel(queue, kernel_pool, 2, NULL, global_size,
@@ -1387,14 +1341,12 @@ void conv_layer4() {
         exit(1);
     }
 
-
     Layer4_Weights_GPU = clCreateBuffer(context, CL_MEM_READ_WRITE | CL_MEM_COPY_HOST_PTR,
                                         sizeof(float) * L4_KERNEL_SIZE * L4_OUT, Layer4_Weights_CPU, &err);
     if (err < 0) {
         printf("Couldn't create a buffer Layer4_Weights_GPU\n");
         exit(1);
     }
-
 
     Layer5_Neurons_GPU = clCreateBuffer(context, CL_MEM_READ_WRITE,
                                         sizeof(float) * (L4_OUT * L4_FMAP), NULL, &err);
@@ -1497,7 +1449,6 @@ void conv_layer4() {
         exit(1);
     }
 
-
     out = 192;
     fr = 13;
     fc = 13;
@@ -1599,14 +1550,12 @@ void conv_layer5() {
         exit(1);
     }
 
-
     Layer5_Weights_GPU = clCreateBuffer(context, CL_MEM_READ_WRITE | CL_MEM_COPY_HOST_PTR,
                                         sizeof(float) * L5_KERNEL_SIZE * L5_OUT, Layer5_Weights_CPU, &err);
     if (err < 0) {
         printf("Couldn't create a buffer Layer5_Weights_GPU\n");
         exit(1);
     }
-
 
     Layer5_pool_GPU = clCreateBuffer(context, CL_MEM_READ_WRITE,
                                      sizeof(float) * (L5_OUT * L5_FMAP), NULL, &err);
@@ -1881,8 +1830,6 @@ void conv_layer5() {
         printf("Couldn't enqueue the kernel_pool\n");
         exit(1);
     }
-
-
 }
 
 void conv_layer6() {
@@ -1895,14 +1842,12 @@ void conv_layer6() {
         exit(1);
     }
 
-
     Layer6_Weights_GPU = clCreateBuffer(context, CL_MEM_READ_WRITE | CL_MEM_COPY_HOST_PTR,
                                         sizeof(float) * 4096 * 256 * 6 * 6, Layer6_Weights_CPU, &err);
     if (err < 0) {
         printf("Couldn't create a buffer Layer6_Weights_GPU\n");
         exit(1);
     }
-
 
     Layer7_Neurons_GPU = clCreateBuffer(context, CL_MEM_READ_WRITE,
                                         sizeof(float) * (4096), NULL, &err);
@@ -1976,7 +1921,6 @@ void conv_layer6() {
         printf("Couldn't enqueue the kernel_fully_connected\n");
         exit(1);
     }
-
 }
 
 void conv_layer7() {
@@ -1989,14 +1933,12 @@ void conv_layer7() {
         exit(1);
     }
 
-
     Layer7_Weights_GPU = clCreateBuffer(context, CL_MEM_READ_WRITE | CL_MEM_COPY_HOST_PTR,
                                         sizeof(float) * 4096 * 4096, Layer7_Weights_CPU, &err);
     if (err < 0) {
         printf("Couldn't create a buffer Layer7_Weights_GPU\n");
         exit(1);
     }
-
 
     Layer8_Neurons_GPU = clCreateBuffer(context, CL_MEM_READ_WRITE,
                                         sizeof(float) * (4096), NULL, &err);
@@ -2071,7 +2013,6 @@ void conv_layer7() {
         printf("Couldn't enqueue the kernel_fully_connected\n");
         exit(1);
     }
-
 }
 
 void conv_layer8() {
@@ -2082,7 +2023,6 @@ void conv_layer8() {
         printf("Couldn't create a buffer Layer8_bias_GPU\n");
         exit(1);
     }
-
 
     Layer8_Weights_GPU = clCreateBuffer(context, CL_MEM_READ_WRITE | CL_MEM_COPY_HOST_PTR,
                                         sizeof(float) * 4096 * 1000, Layer8_Weights_CPU, &err);
@@ -2167,6 +2107,7 @@ void conv_layer8() {
 
 long get_time_us() {
     struct timeval current_time;
+
     gettimeofday(&current_time, NULL);
     return current_time.tv_sec * (int) 1e6 + current_time.tv_usec;
 }
@@ -2207,14 +2148,50 @@ void collect_results() {
         }
     }
     printf("=========================\n");
-    printf("Prediction Index = %d\n", index);
+    printf("Predicted Class id is = %d\n", index);
     printf("=========================\n");
+}
 
+int parse_input_param(int argc, char **argv) {
+
+    if (argc == 2) {
+        input_file = argv[1];
+        return 0;
+    }
+    return -1;
 }
 
 void init_opencl() {
-    /* Create device and context */
-    device = create_device();
+
+    cl_device_id device;
+    cl_platform_id platform;
+    size_t valueSize;
+    int i, j;
+    char *value;
+
+    /* Identify a platform */
+    err = clGetPlatformIDs(1, &platform, NULL);
+    if (err < 0) {
+        printf("Couldn't identify a platform");
+        exit(1);
+    }
+
+    /* Access a device */
+    err = clGetDeviceIDs(platform, CL_DEVICE_TYPE_GPU, 1, &device, NULL);
+    if (err == CL_DEVICE_NOT_FOUND) {
+        err = clGetDeviceIDs(platform, CL_DEVICE_TYPE_CPU, 1, &device, NULL);
+        if (err == CL_DEVICE_NOT_FOUND) {
+            printf("Couldn't access any devices");
+            exit(1);
+        }
+    }
+
+    clGetDeviceInfo(device, CL_DEVICE_NAME, 0, NULL, &valueSize);
+    value = (char *) malloc(valueSize);
+    clGetDeviceInfo(device, CL_DEVICE_NAME, valueSize, value, NULL);
+    printf("Device: %s\n", value);
+    free(value);
+
     if (!device) {
         printf("Couldn't create a context\n");
         exit(1);
@@ -2238,17 +2215,10 @@ void init_opencl() {
     build_kernels();
 }
 
-int parse_input_param(int argc, char **argv) {
-
-    if (argc == 2) {
-        input_file = argv[1];
-        return 0;
-    }
-    return -1;
-}
-
 void show_usage(char *base) {
-    printf("Usage: %s <input_filename>\n", base);
+    printf("Usage: %s <input_filename>\n"
+           "input_filename is the txt file which represents"
+           " the 3 channel pixel values of an image\n", base);
 }
 
 int main(int argc, char **argv) {
