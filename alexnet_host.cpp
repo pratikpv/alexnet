@@ -1,3 +1,11 @@
+/*
+    OpenCL implementation of AlexNet: Host side code
+    Project Group ID: 8
+    Member name: Pratikkumar Prajapati (012541477)
+    Member name: Siddharth Chawla(012451855)
+    For CMPE214 (Spring 2019), under guidance of Dr. Hyeran Jeon <hyeran.jeon@sjsu.edu>
+*/
+
 #pragma clang diagnostic push
 #pragma ide diagnostic ignored "modernize-use-nullptr"
 
