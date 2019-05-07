@@ -29,6 +29,8 @@
 #define true 1
 #define false 0
 //#define DEBUG_AN 0
+//#define SCRUB_GPUS
+
 
 #define L1_KERNEL_SIZE 11*11*3
 #define L1_OUT 96
@@ -112,12 +114,6 @@ cl_mem Layer7_bias_GPU, Layer7_Weights_GPU, Layer8_Neurons_GPU;
 cl_mem Layer8_bias_GPU, Layer9_Neurons_GPU, Layer8_Weights_GPU;
 
 char *input_file;
-
-/* Find a GPU or CPU associated with the first available platform */
-cl_device_id create_device() {
-
-
-}
 
 /* Create program from a file and compile it */
 cl_program build_program(cl_context ctx, cl_device_id dev, const char *filename) {
@@ -362,7 +358,7 @@ void Fill_bias(float *bias_1, float *bias_2, float *bias_3,
 }
 
 void readIn(float *layer1, char *input_file) {
-    //FILE *fp = fopen("data/input.txt", "rb");
+
     FILE *fp = fopen(input_file, "rb");
     printf("Loading input from %s\n", input_file);
     size_t len;
@@ -478,21 +474,21 @@ void conv_layer1() {
     dump_CPU_array_to_file(bias_1, 96, "Layer1_bias_CPU_p.txt");
 #endif
     /*Layer1 */
-    Layer1_bias_GPU = clCreateBuffer(context, CL_MEM_READ_WRITE | CL_MEM_COPY_HOST_PTR,
+    Layer1_bias_GPU = clCreateBuffer(context, CL_MEM_READ_ONLY | CL_MEM_COPY_HOST_PTR,
                                      sizeof(float) * L1_OUT, bias_1, &err);
     if (err < 0) {
         printf("Couldn't create a buffer Layer1_bias_GPU");
         exit(1);
     }
 
-    Layer1_Neurons_GPU = clCreateBuffer(context, CL_MEM_READ_WRITE | CL_MEM_COPY_HOST_PTR,
+    Layer1_Neurons_GPU = clCreateBuffer(context, CL_MEM_READ_ONLY | CL_MEM_COPY_HOST_PTR,
                                         sizeof(float) * INPUT_SIZE, Layer1_Neurons_CPU, &err);
     if (err < 0) {
         printf("Couldn't create a buffer Layer1_Neurons_GPU");
         exit(1);
     }
 
-    Layer1_Weights_GPU = clCreateBuffer(context, CL_MEM_READ_WRITE | CL_MEM_COPY_HOST_PTR,
+    Layer1_Weights_GPU = clCreateBuffer(context, CL_MEM_READ_ONLY | CL_MEM_COPY_HOST_PTR,
                                         sizeof(float) * L1_KERNEL_SIZE * L1_OUT, Layer1_Weights_CPU, &err);
     if (err < 0) {
         printf("Couldn't create a buffer Layer1_Weights_GPU");
@@ -753,8 +749,6 @@ void normalise_layer1() {
     global_size[0] = 96 * local_size[0];
     global_size[1] = 1 * local_size[1];
 
-
-
     /* Enqueue kernel */
     err = clEnqueueNDRangeKernel(queue, kernel_l1_norm, 2, NULL, global_size,
                                  local_size, 0, NULL, NULL);
@@ -809,7 +803,7 @@ void max_pool_layer1() {
     cl_int in_fr = 55;
     cl_int in_fc = 55;
 
-    Layer2_Neurons_GPU = clCreateBuffer(context, CL_MEM_READ_WRITE,
+    Layer2_Neurons_GPU = clCreateBuffer(context, CL_MEM_READ_ONLY,
                                         sizeof(float) * (L1_OUT * POOL1_FMAP), NULL, &err);
     if (err < 0) {
         printf("Couldn't create a buffer Layer2_Neurons_GPU\n");
@@ -899,14 +893,14 @@ void conv_layer2() {
     cl_int in_output = 48;
     cl_int group = 2;
 
-    Layer2_bias_GPU = clCreateBuffer(context, CL_MEM_READ_WRITE | CL_MEM_COPY_HOST_PTR,
+    Layer2_bias_GPU = clCreateBuffer(context, CL_MEM_READ_ONLY | CL_MEM_COPY_HOST_PTR,
                                      sizeof(float) * L2_OUT, bias_2, &err);
     if (err < 0) {
         printf("Couldn't create a buffer Layer2_bias_GPU\n");
         exit(1);
     }
 
-    Layer2_Weights_GPU = clCreateBuffer(context, CL_MEM_READ_WRITE | CL_MEM_COPY_HOST_PTR,
+    Layer2_Weights_GPU = clCreateBuffer(context, CL_MEM_READ_ONLY | CL_MEM_COPY_HOST_PTR,
                                         sizeof(float) * L2_KERNEL_SIZE * L2_OUT, Layer2_Weights_CPU, &err);
     if (err < 0) {
         printf("Couldn't create a buffer Layer2_Weights_GPU\n");
@@ -1220,7 +1214,7 @@ void max_pool_layer2() {
 
 void conv_layer3() {
 
-    Layer3_bias_GPU = clCreateBuffer(context, CL_MEM_READ_WRITE | CL_MEM_COPY_HOST_PTR,
+    Layer3_bias_GPU = clCreateBuffer(context, CL_MEM_READ_ONLY | CL_MEM_COPY_HOST_PTR,
                                      sizeof(float) * L3_OUT, bias_3, &err);
     if (err < 0) {
         printf("Couldn't create a buffer Layer3_bias_GPU\n");
@@ -1228,7 +1222,7 @@ void conv_layer3() {
     }
 
 
-    Layer3_Weights_GPU = clCreateBuffer(context, CL_MEM_READ_WRITE | CL_MEM_COPY_HOST_PTR,
+    Layer3_Weights_GPU = clCreateBuffer(context, CL_MEM_READ_ONLY | CL_MEM_COPY_HOST_PTR,
                                         sizeof(float) * L3_KERNEL_SIZE * L3_OUT, Layer3_Weights_CPU, &err);
     if (err < 0) {
         printf("Couldn't create a buffer Layer3_Weights_GPU\n");
@@ -1342,14 +1336,14 @@ void conv_layer3() {
 
 void conv_layer4() {
 
-    Layer4_bias_GPU = clCreateBuffer(context, CL_MEM_READ_WRITE | CL_MEM_COPY_HOST_PTR,
+    Layer4_bias_GPU = clCreateBuffer(context, CL_MEM_READ_ONLY | CL_MEM_COPY_HOST_PTR,
                                      sizeof(float) * L4_OUT, bias_4, &err);
     if (err < 0) {
         printf("Couldn't create a buffer Layer4_bias_GPU\n");
         exit(1);
     }
 
-    Layer4_Weights_GPU = clCreateBuffer(context, CL_MEM_READ_WRITE | CL_MEM_COPY_HOST_PTR,
+    Layer4_Weights_GPU = clCreateBuffer(context, CL_MEM_READ_ONLY | CL_MEM_COPY_HOST_PTR,
                                         sizeof(float) * L4_KERNEL_SIZE * L4_OUT, Layer4_Weights_CPU, &err);
     if (err < 0) {
         printf("Couldn't create a buffer Layer4_Weights_GPU\n");
@@ -1551,14 +1545,14 @@ void conv_layer4() {
 void conv_layer5() {
 
     /* Fifth Layer convolution + ReLU + pooling */
-    Layer5_bias_GPU = clCreateBuffer(context, CL_MEM_READ_WRITE | CL_MEM_COPY_HOST_PTR,
+    Layer5_bias_GPU = clCreateBuffer(context, CL_MEM_READ_ONLY | CL_MEM_COPY_HOST_PTR,
                                      sizeof(float) * L5_OUT, bias_5, &err);
     if (err < 0) {
         printf("Couldn't create a buffer Layer5_bias_GPU\n");
         exit(1);
     }
 
-    Layer5_Weights_GPU = clCreateBuffer(context, CL_MEM_READ_WRITE | CL_MEM_COPY_HOST_PTR,
+    Layer5_Weights_GPU = clCreateBuffer(context, CL_MEM_READ_ONLY | CL_MEM_COPY_HOST_PTR,
                                         sizeof(float) * L5_KERNEL_SIZE * L5_OUT, Layer5_Weights_CPU, &err);
     if (err < 0) {
         printf("Couldn't create a buffer Layer5_Weights_GPU\n");
@@ -1843,14 +1837,14 @@ void conv_layer5() {
 void conv_layer6() {
 
     /* Sixth Layer Fully connected + ReLU */
-    Layer6_bias_GPU = clCreateBuffer(context, CL_MEM_READ_WRITE | CL_MEM_COPY_HOST_PTR,
+    Layer6_bias_GPU = clCreateBuffer(context, CL_MEM_READ_ONLY | CL_MEM_COPY_HOST_PTR,
                                      sizeof(float) * 4096, bias_6, &err);
     if (err < 0) {
         printf("Couldn't create a buffer Layer6_bias_GPU\n");
         exit(1);
     }
 
-    Layer6_Weights_GPU = clCreateBuffer(context, CL_MEM_READ_WRITE | CL_MEM_COPY_HOST_PTR,
+    Layer6_Weights_GPU = clCreateBuffer(context, CL_MEM_READ_ONLY | CL_MEM_COPY_HOST_PTR,
                                         sizeof(float) * 4096 * 256 * 6 * 6, Layer6_Weights_CPU, &err);
     if (err < 0) {
         printf("Couldn't create a buffer Layer6_Weights_GPU\n");
@@ -1934,14 +1928,14 @@ void conv_layer6() {
 void conv_layer7() {
 
     /* Seventh Layer Fully connected + ReLU */
-    Layer7_bias_GPU = clCreateBuffer(context, CL_MEM_READ_WRITE | CL_MEM_COPY_HOST_PTR,
+    Layer7_bias_GPU = clCreateBuffer(context, CL_MEM_READ_ONLY | CL_MEM_COPY_HOST_PTR,
                                      sizeof(float) * 4096, bias_7, &err);
     if (err < 0) {
         printf("Couldn't create a buffer Layer7_bias_GPU\n");
         exit(1);
     }
 
-    Layer7_Weights_GPU = clCreateBuffer(context, CL_MEM_READ_WRITE | CL_MEM_COPY_HOST_PTR,
+    Layer7_Weights_GPU = clCreateBuffer(context, CL_MEM_READ_ONLY | CL_MEM_COPY_HOST_PTR,
                                         sizeof(float) * 4096 * 4096, Layer7_Weights_CPU, &err);
     if (err < 0) {
         printf("Couldn't create a buffer Layer7_Weights_GPU\n");
@@ -2025,14 +2019,14 @@ void conv_layer7() {
 
 void conv_layer8() {
 
-    Layer8_bias_GPU = clCreateBuffer(context, CL_MEM_READ_WRITE | CL_MEM_COPY_HOST_PTR,
+    Layer8_bias_GPU = clCreateBuffer(context, CL_MEM_READ_ONLY | CL_MEM_COPY_HOST_PTR,
                                      sizeof(float) * 1000, bias_8, &err);
     if (err < 0) {
         printf("Couldn't create a buffer Layer8_bias_GPU\n");
         exit(1);
     }
 
-    Layer8_Weights_GPU = clCreateBuffer(context, CL_MEM_READ_WRITE | CL_MEM_COPY_HOST_PTR,
+    Layer8_Weights_GPU = clCreateBuffer(context, CL_MEM_READ_ONLY | CL_MEM_COPY_HOST_PTR,
                                         sizeof(float) * 4096 * 1000, Layer8_Weights_CPU, &err);
     if (err < 0) {
         printf("Couldn't create a buffer Layer8_Weights_GPU\n");
@@ -2113,11 +2107,11 @@ void conv_layer8() {
     }
 }
 
-long get_time_us() {
+unsigned long get_time_us() {
     struct timeval current_time;
 
     gettimeofday(&current_time, NULL);
-    return current_time.tv_sec * (int) 1e6 + current_time.tv_usec;
+    return (unsigned long) (current_time.tv_sec * (unsigned long) 1e6 + current_time.tv_usec);
 }
 
 void collect_results() {
@@ -2173,9 +2167,76 @@ void init_opencl() {
 
     cl_device_id device;
     cl_platform_id platform;
-    size_t valueSize;
-    int i, j;
     char *value;
+    size_t valueSize;
+
+#ifdef SCRUB_GPUS
+    int i, j;
+    int selected_dev_index = -1;
+    cl_uint platformCount;
+
+    cl_platform_id *platforms;
+    cl_device_id *devices;
+    cl_uint deviceCount;
+
+    clGetPlatformIDs(0, NULL, &platformCount);
+    platforms = (cl_platform_id *) malloc(sizeof(cl_platform_id) * platformCount);
+    clGetPlatformIDs(platformCount, platforms, NULL);
+
+    for (i = 0; i < platformCount; i++) {
+
+        // get all devices
+        clGetDeviceIDs(platforms[i], CL_DEVICE_TYPE_ALL, 0, NULL, &deviceCount);
+        devices = (cl_device_id *) malloc(sizeof(cl_device_id) * deviceCount);
+        clGetDeviceIDs(platforms[i], CL_DEVICE_TYPE_ALL, deviceCount, devices, NULL);
+
+        // for each device print critical attributes
+        for (j = 0; j < deviceCount; j++) {
+
+            // print device name
+            clGetDeviceInfo(devices[j], CL_DEVICE_NAME, 0, NULL, &valueSize);
+            value = (char *) malloc(valueSize);
+            clGetDeviceInfo(devices[j], CL_DEVICE_NAME, valueSize, value, NULL);
+
+            if ((strcmp(value, "Intel(R) Gen9 HD Graphics NEO") == 0) &&
+                (selected_dev_index < 0)) {
+                selected_dev_index = i;
+                //printf("%d. found intel Device: %s\n", j + 1, value);
+            }
+
+            printf("%d. Device: %s\n", j + 1, value);
+            free(value);
+
+            // print hardware device version
+            clGetDeviceInfo(devices[j], CL_DEVICE_VERSION, 0, NULL, &valueSize);
+            value = (char *) malloc(valueSize);
+            clGetDeviceInfo(devices[j], CL_DEVICE_VERSION, valueSize, value, NULL);
+            printf(" %d.%d Hardware version: %s\n", j + 1, 1, value);
+            free(value);
+
+            // print software driver version
+            clGetDeviceInfo(devices[j], CL_DRIVER_VERSION, 0, NULL, &valueSize);
+            value = (char *) malloc(valueSize);
+            clGetDeviceInfo(devices[j], CL_DRIVER_VERSION, valueSize, value, NULL);
+            printf(" %d.%d Software version: %s\n", j + 1, 2, value);
+            free(value);
+
+            // print c version supported by compiler for device
+            clGetDeviceInfo(devices[j], CL_DEVICE_OPENCL_C_VERSION, 0, NULL, &valueSize);
+            value = (char *) malloc(valueSize);
+            clGetDeviceInfo(devices[j], CL_DEVICE_OPENCL_C_VERSION, valueSize, value, NULL);
+            printf(" %d.%d OpenCL C version: %s\n", j + 1, 3, value);
+            free(value);
+
+        }
+    }
+
+
+    if (selected_dev_index >= 0) {
+        platform = platforms[selected_dev_index];
+    }
+
+#else
 
     /* Identify a platform */
     err = clGetPlatformIDs(1, &platform, NULL);
@@ -2193,6 +2254,7 @@ void init_opencl() {
             exit(1);
         }
     }
+#endif
 
     clGetDeviceInfo(device, CL_DEVICE_NAME, 0, NULL, &valueSize);
     value = (char *) malloc(valueSize);
@@ -2201,9 +2263,10 @@ void init_opencl() {
     free(value);
 
     if (!device) {
-        printf("Couldn't create a context\n");
+        printf("Couldn't get device\n");
         exit(1);
     }
+
     context = clCreateContext(NULL, 1, &device, NULL, NULL, &err);
     if (err < 0) {
         printf("Couldn't create a context\n");
@@ -2221,6 +2284,11 @@ void init_opencl() {
 
     /* build OpenCL kernels */
     build_kernels();
+
+#ifdef SCRUB_GPUS
+    //free(devices);
+    // free(platforms);
+#endif
 }
 
 void show_usage(char *base) {
