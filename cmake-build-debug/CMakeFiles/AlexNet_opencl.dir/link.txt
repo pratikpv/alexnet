@@ -1,1 +1,0 @@
-/usr/bin/c++     CMakeFiles/AlexNet_opencl.dir/main.cpp.o  -o AlexNet_opencl -Wl,-rpath,/opt/intel/system_studio_2019/opencl/SDK/lib64 /opt/intel/system_studio_2019/opencl/SDK/lib64/libOpenCL.so 

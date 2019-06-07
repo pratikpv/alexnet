@@ -271,6 +271,15 @@ void build_kernels() {
 
 }
 
+unsigned long get_time_us() {
+    struct timeval current_time;
+
+    gettimeofday(&current_time, NULL);
+    return (unsigned long)
+            (current_time.tv_sec * (unsigned long) 1e6 +
+             (unsigned long) current_time.tv_usec);
+}
+
 void extract_weights(const char *pFileName, float *layer_weights, int bias) {
     FILE *pFile1 = fopen(pFileName, "rb");
     char delim[2];
@@ -318,49 +327,69 @@ void Fill_weights(float *Layer1_Weights_CPU, float *Layer2_Weights_CPU,
                   float *Layer3_Weights_CPU, float *Layer4_Weights_CPU,
                   float *Layer5_Weights_CPU, float *Layer6_Weights_CPU,
                   float *Layer7_Weights_CPU, float *Layer8_Weights_CPU) {
-    printf("\n\t weights for layer 1");
+    printf("Loading Weights for layer 1,");
+    fflush(stdout);
     extract_weights("data/conv1.txt", Layer1_Weights_CPU, false);
-    printf("\n\t weights for layer 2");
+    printf(" layer 2,");
+    fflush(stdout);
     extract_weights("data/conv2.txt", Layer2_Weights_CPU, false);
-    printf("\n\t weights for layer 3");
+    printf(" layer 3,");
+    fflush(stdout);
     extract_weights("data/conv3.txt", Layer3_Weights_CPU, false);
-    printf("\n\t weights for layer 4");
+    printf(" layer 4,");
+    fflush(stdout);
     extract_weights("data/conv4.txt", Layer4_Weights_CPU, false);
-    printf("\n\t weights for layer 5");
+    printf(" layer 5,");
+    fflush(stdout);
     extract_weights("data/conv5.txt", Layer5_Weights_CPU, false);
-    printf("\n\t weights for layer 6");
+    printf(" layer 6,");
+    fflush(stdout);
     extract_weights("data/fc6.txt", Layer6_Weights_CPU, false);
-    printf("\n\t weights for layer 7");
+    printf(" layer 7,");
+    fflush(stdout);
     extract_weights("data/fc7.txt", Layer7_Weights_CPU, false);
-    printf("\n\t weights for layer 8");
+    printf(" layer 8");
+    fflush(stdout);
     extract_weights("data/fc8.txt", Layer8_Weights_CPU, false);
+    printf("... Done\n");
+    fflush(stdout);
 }
 
 void Fill_bias(float *bias_1, float *bias_2, float *bias_3,
                float *bias_4, float *bias_5, float *bias_6,
                float *bias_7, float *bias_8) {
-    printf("\n\t bias for layer 1");
+    printf("Loading Bias values for layer1,");
+    fflush(stdout);
     extract_weights("data/bias1.txt", bias_1, true);
-    printf("\n\t bias for layer 2");
+    printf(" layer 2,");
+    fflush(stdout);
     extract_weights("data/bias2.txt", bias_2, true);
-    printf("\n\t bias for layer 3");
+    printf(" layer 3,");
+    fflush(stdout);
     extract_weights("data/bias3.txt", bias_3, true);
-    printf("\n\t bias for layer 4");
+    printf(" layer 4,");
+    fflush(stdout);
     extract_weights("data/bias4.txt", bias_4, true);
-    printf("\n\t bias for layer 5");
+    printf(" layer 5,");
+    fflush(stdout);
     extract_weights("data/bias5.txt", bias_5, true);
-    printf("\n\t bias for layer 6");
+    printf(" layer 6,");
+    fflush(stdout);
     extract_weights("data/bias6.txt", bias_6, true);
-    printf("\n\t bias for layer 7");
+    printf(" layer 7,");
+    fflush(stdout);
     extract_weights("data/bias7.txt", bias_7, true);
-    printf("\n\t bias for layer 8");
+    printf(" layer 8");
+    fflush(stdout);
     extract_weights("data/bias8.txt", bias_8, true);
+    printf(" ... Done\n");
+    fflush(stdout);
 }
 
 void readIn(float *layer1, char *input_file) {
 
     FILE *fp = fopen(input_file, "rb");
-    printf("Loading input from %s\n", input_file);
+    printf("Loading input from %s", input_file);
     size_t len;
     char delim[1];
     delim[0] = '\n';
@@ -374,6 +403,7 @@ void readIn(float *layer1, char *input_file) {
             count++;
         }
         fclose(fp);
+        printf("...Done\n");
     } else {
         printf("input file %s Not FOUND\n", input_file);
         exit(-1);
@@ -456,20 +486,20 @@ void cleanup_mem() {
 void init_data() {
     readIn(Layer1_Neurons_CPU, input_file);
     /* Fill Bias and Weights */
-    printf("Loading Bias values");
     Fill_bias(bias_1, bias_2, bias_3, bias_4, bias_5, bias_6, bias_7, bias_8);
-    printf("\nLoading Weights values");
     Fill_weights(Layer1_Weights_CPU, Layer2_Weights_CPU, Layer3_Weights_CPU,
                  Layer4_Weights_CPU, Layer5_Weights_CPU, Layer6_Weights_CPU,
                  Layer7_Weights_CPU, Layer8_Weights_CPU);
-    printf("\n\t Weights and Bias loaded successfully\n");
 }
 
 
-void conv_layer1() {
+void conv_layer1(unsigned long *execution_time) {
 
     cl_int r_offset;
     cl_int c_offset;
+
+    unsigned long start, end;
+    *execution_time = 0;
 #ifdef DEBUG_AN
     dump_CPU_array_to_file(bias_1, 96, "Layer1_bias_CPU_p.txt");
 #endif
@@ -544,12 +574,16 @@ void conv_layer1() {
     global_size[1] = 1 * local_size[1];
 
     /* Enqueue kernel */
+    start = get_time_us();
     err = clEnqueueNDRangeKernel(queue, kernel_l1_conv, 2, NULL, global_size,
                                  local_size, 0, NULL, NULL);
     if (err < 0) {
         printf("Couldn't enqueue the kernel_l1_conv %d\n", err);
         exit(1);
     }
+
+    end = get_time_us();
+    *execution_time += (end - start);
 #ifdef DEBUG_AN
     dump_GPU_array_to_file(Layer1_Norm_GPU, (L1_OUT * L1_FMAP), "Layer1_Norm_GPU_1.txt");
 #endif
@@ -576,12 +610,15 @@ void conv_layer1() {
 
 
     /* Enqueue kernel */
+    start = get_time_us();
     err = clEnqueueNDRangeKernel(queue, kernel_l1_conv, 2, NULL, global_size,
                                  local_size, 0, NULL, NULL);
     if (err < 0) {
         printf("Couldn't enqueue the kernel_l1_conv\n");
         exit(1);
     }
+    end = get_time_us();
+    *execution_time += (end - start);
 
 #ifdef DEBUG_AN
     dump_GPU_array_to_file(Layer1_Norm_GPU, (L1_OUT * L1_FMAP), "Layer1_Norm_GPU_2.txt");
@@ -607,12 +644,15 @@ void conv_layer1() {
     global_size[1] = 1 * local_size[1];
 
     /* Enqueue kernel */
+    start = get_time_us();
     err = clEnqueueNDRangeKernel(queue, kernel_l1_conv, 2, NULL, global_size,
                                  local_size, 0, NULL, NULL);
     if (err < 0) {
         printf("Couldn't enqueue the kernel_l1_conv");
         exit(1);
     }
+    end = get_time_us();
+    *execution_time += (end - start);
 
     r_offset = 32;
     c_offset = 32;
@@ -635,23 +675,27 @@ void conv_layer1() {
     global_size[1] = 1 * local_size[1];
 
     /* Enqueue kernel */
+    start = get_time_us();
     err = clEnqueueNDRangeKernel(queue, kernel_l1_conv, 2, NULL, global_size,
                                  local_size, 0, NULL, NULL);
     if (err < 0) {
         printf("Couldn't enqueue the kernel_l1_conv\n");
         exit(1);
     }
+    end = get_time_us();
+    *execution_time += (end - start);
 #ifdef DEBUG_AN
     dump_GPU_array_to_file(Layer1_Norm_GPU, (L1_OUT * L1_FMAP), "Layer1_Norm_GPU_4.txt");
 #endif
 }
 
 
-void normalise_layer1() {
+void normalise_layer1(unsigned long *execution_time) {
 
     cl_int r_offset;
     cl_int c_offset;
-
+    unsigned long start, end;
+    *execution_time = 0;
     err = clSetKernelArg(kernel_l1_norm, 0, sizeof(cl_mem), &Layer1_Norm_GPU);
     if (err < 0) {
         printf("Couldn't create a kernel argument Layer1_Norm_GPU\n");
@@ -692,12 +736,15 @@ void normalise_layer1() {
     global_size[1] = 1 * local_size[1];
 
     /* Enqueue kernel */
+    start = get_time_us();
     err = clEnqueueNDRangeKernel(queue, kernel_l1_norm, 2, NULL, global_size,
                                  local_size, 0, NULL, NULL);
     if (err < 0) {
         printf("Couldn't enqueue the kernel_l1_norm\n");
         exit(1);
     }
+    end = get_time_us();
+    *execution_time += (end - start);
 
     r_offset = 0;
     c_offset = 32;
@@ -721,13 +768,15 @@ void normalise_layer1() {
 
 
     /* Enqueue kernel */
+    start = get_time_us();
     err = clEnqueueNDRangeKernel(queue, kernel_l1_norm, 2, NULL, global_size,
                                  local_size, 0, NULL, NULL);
     if (err < 0) {
         printf("Couldn't enqueue the kernel_l1_norm\n");
         exit(1);
     }
-
+    end = get_time_us();
+    *execution_time += (end - start);
 
     r_offset = 32;
     c_offset = 0;
@@ -750,12 +799,15 @@ void normalise_layer1() {
     global_size[1] = 1 * local_size[1];
 
     /* Enqueue kernel */
+    start = get_time_us();
     err = clEnqueueNDRangeKernel(queue, kernel_l1_norm, 2, NULL, global_size,
                                  local_size, 0, NULL, NULL);
     if (err < 0) {
         printf("Couldn't enqueue the kernel_l1_norm\n");
         exit(1);
     }
+    end = get_time_us();
+    *execution_time += (end - start);
 
     r_offset = 32;
     c_offset = 32;
@@ -779,22 +831,27 @@ void normalise_layer1() {
 
 
     /* Enqueue kernel */
+    start = get_time_us();
     err = clEnqueueNDRangeKernel(queue, kernel_l1_norm, 2, NULL, global_size,
                                  local_size, 0, NULL, NULL);
     if (err < 0) {
         printf("Couldn't enqueue the kernel_l1_norm\n");
         exit(1);
     }
+    end = get_time_us();
+    *execution_time += (end - start);
+
 #ifdef DEBUG_AN
     dump_GPU_array_to_file(Layer1_pool_GPU, (L1_OUT * L1_FMAP), "Layer1_pool_GPU.txt");
 #endif
 
 }
 
-void max_pool_layer1() {
+void max_pool_layer1(unsigned long *execution_time) {
 
     /* Max Pool */
-
+    unsigned long start, end;
+    *execution_time = 0;
     cl_int out = 96;
     cl_int out_fr = 27;
     cl_int out_fc = 27;
@@ -870,20 +927,24 @@ void max_pool_layer1() {
     global_size[1] = 1 * local_size[1];
 
     /* Enqueue kernel */
+    start = get_time_us();
     err = clEnqueueNDRangeKernel(queue, kernel_pool, 2, NULL, global_size,
                                  local_size, 0, NULL, NULL);
     if (err < 0) {
         printf("Couldn't enqueue the kernel_pool\n");
         exit(1);
     }
+    end = get_time_us();
+    *execution_time += (end - start);
 
 #ifdef DEBUG_AN
     dump_GPU_array_to_file(Layer2_Neurons_GPU, (L1_OUT * POOL1_FMAP), "Layer2_Neurons_GPU.txt");
 #endif
 }
 
-void conv_layer2() {
-
+void conv_layer2(unsigned long *execution_time) {
+    unsigned long start, end;
+    *execution_time = 0;
     cl_int out = 128;
     cl_int fr = 27;
     cl_int fc = 27;
@@ -994,12 +1055,15 @@ void conv_layer2() {
     global_size[1] = 1 * local_size[1];
 
     /* Enqueue kernel */
+    start = get_time_us();
     err = clEnqueueNDRangeKernel(queue, kernel_conv3d, 2, NULL, global_size,
                                  local_size, 0, NULL, NULL);
     if (err < 0) {
         printf("Couldn't enqueue the kernel_conv3d\n");
         exit(1);
     }
+    end = get_time_us();
+    *execution_time += (end - start);
 
 #ifdef DEBUG_AN
     dump_GPU_array_to_file(Layer2_Norm_GPU, (L2_OUT * L2_FMAP), "Layer2_Norm_GPU_3dcov.txt");
@@ -1077,19 +1141,24 @@ void conv_layer2() {
     }
 
     /* Enqueue kernel */
+    start = get_time_us();
     err = clEnqueueNDRangeKernel(queue, kernel_conv3d_g2, 2, NULL, global_size,
                                  local_size, 0, NULL, NULL);
     if (err < 0) {
         printf("Couldn't enqueue the kernel_conv3d_g2\n");
         exit(1);
     }
+    end = get_time_us();
+    *execution_time += (end - start);
+
 #ifdef DEBUG_AN
     dump_GPU_array_to_file(Layer2_Norm_GPU, (L2_OUT * L2_FMAP), "Layer2_Norm_GPU_3dcovg2.txt");
 #endif
 }
 
-void normalise_layer2() {
-
+void normalise_layer2(unsigned long *execution_time) {
+    unsigned long start, end;
+    *execution_time = 0;
     Layer2_pool_GPU = clCreateBuffer(context, CL_MEM_READ_WRITE,
                                      sizeof(float) * (L2_OUT * L2_FMAP), NULL, &err);
     if (err < 0) {
@@ -1114,17 +1183,21 @@ void normalise_layer2() {
     global_size[1] = 1 * local_size[1];
 
     /* Enqueue kernel */
+    start = get_time_us();
     err = clEnqueueNDRangeKernel(queue, kernel_normlrn, 2, NULL, global_size,
                                  local_size, 0, NULL, NULL);
     if (err < 0) {
         printf("Couldn't enqueue the kernel_normlrn\n");
         exit(1);
     }
+    end = get_time_us();
+    *execution_time += (end - start);
 
 }
 
-void max_pool_layer2() {
-
+void max_pool_layer2(unsigned long *execution_time) {
+    unsigned long start, end;
+    *execution_time = 0;
     /* Max Pool */
     Layer3_Neurons_GPU = clCreateBuffer(context, CL_MEM_READ_WRITE,
                                         sizeof(float) * (L2_OUT * POOL2_FMAP), NULL, &err);
@@ -1201,19 +1274,24 @@ void max_pool_layer2() {
     global_size[1] = 1 * local_size[1];
 
     /* Enqueue kernel */
+    start = get_time_us();
     err = clEnqueueNDRangeKernel(queue, kernel_pool, 2, NULL, global_size,
                                  local_size, 0, NULL, NULL);
     if (err < 0) {
         printf("Couldn't enqueue the kernel_pool\n");
         exit(1);
     }
+    end = get_time_us();
+    *execution_time += (end - start);
+
 #ifdef DEBUG_AN
     dump_GPU_array_to_file(Layer3_Neurons_GPU, (L2_OUT * POOL2_FMAP), "Layer3_Neurons_GPU_pool.txt");
 #endif
 }
 
-void conv_layer3() {
-
+void conv_layer3(unsigned long *execution_time) {
+    unsigned long start, end;
+    *execution_time = 0;
     Layer3_bias_GPU = clCreateBuffer(context, CL_MEM_READ_ONLY | CL_MEM_COPY_HOST_PTR,
                                      sizeof(float) * L3_OUT, bias_3, &err);
     if (err < 0) {
@@ -1325,17 +1403,21 @@ void conv_layer3() {
     }
 
     /* Enqueue kernel */
+    start = get_time_us();
     err = clEnqueueNDRangeKernel(queue, kernel_conv3d, 2, NULL, global_size,
                                  local_size, 0, NULL, NULL);
     if (err < 0) {
         printf("Couldn't enqueue the kernel_conv3d\n");
         exit(1);
     }
+    end = get_time_us();
+    *execution_time += (end - start);
 
 }
 
-void conv_layer4() {
-
+void conv_layer4(unsigned long *execution_time) {
+    unsigned long start, end;
+    *execution_time = 0;
     Layer4_bias_GPU = clCreateBuffer(context, CL_MEM_READ_ONLY | CL_MEM_COPY_HOST_PTR,
                                      sizeof(float) * L4_OUT, bias_4, &err);
     if (err < 0) {
@@ -1444,12 +1526,15 @@ void conv_layer4() {
     }
 
     /* Enqueue kernel */
+    start = get_time_us();
     err = clEnqueueNDRangeKernel(queue, kernel_conv3d, 2, NULL, global_size,
                                  local_size, 0, NULL, NULL);
     if (err < 0) {
         printf("Couldn't enqueue the kernel_conv3d\n");
         exit(1);
     }
+    end = get_time_us();
+    *execution_time += (end - start);
 
     out = 192;
     fr = 13;
@@ -1533,17 +1618,21 @@ void conv_layer4() {
     }
 
     /* Enqueue kernel */
+    start = get_time_us();
     err = clEnqueueNDRangeKernel(queue, kernel_conv3d_g2, 2, NULL, global_size,
                                  local_size, 0, NULL, NULL);
     if (err < 0) {
         printf("Couldn't enqueue the kernel_conv3d_g2\n");
         exit(1);
     }
+    end = get_time_us();
+    *execution_time += (end - start);
 
 }
 
-void conv_layer5() {
-
+void conv_layer5(unsigned long *execution_time) {
+    unsigned long start, end;
+    *execution_time = 0;
     /* Fifth Layer convolution + ReLU + pooling */
     Layer5_bias_GPU = clCreateBuffer(context, CL_MEM_READ_ONLY | CL_MEM_COPY_HOST_PTR,
                                      sizeof(float) * L5_OUT, bias_5, &err);
@@ -1653,12 +1742,16 @@ void conv_layer5() {
     }
 
     /* Enqueue kernel */
+    start = get_time_us();
     err = clEnqueueNDRangeKernel(queue, kernel_conv3d, 2, NULL, global_size,
                                  local_size, 0, NULL, NULL);
     if (err < 0) {
         printf("Couldn't enqueue the kernel_conv3d\n");
         exit(1);
     }
+    end = get_time_us();
+    *execution_time += (end - start);
+
 
     out = 128;
     fr = 13;
@@ -1742,14 +1835,15 @@ void conv_layer5() {
     }
 
     /* Enqueue kernel */
+    start = get_time_us();
     err = clEnqueueNDRangeKernel(queue, kernel_conv3d_g2, 2, NULL, global_size,
                                  local_size, 0, NULL, NULL);
     if (err < 0) {
         printf("Couldn't enqueue the kernel_conv3d_g2\n");
         exit(1);
     }
-
-    /*cudaMalloc((void**) &Layer6_Neurons_GPU,sizeof(float)*L5_OUT * POOL3_FMAP);*/
+    end = get_time_us();
+    *execution_time += (end - start);
 
     Layer6_Neurons_GPU = clCreateBuffer(context, CL_MEM_READ_WRITE,
                                         sizeof(float) * (L5_OUT * POOL3_FMAP), NULL, &err);
@@ -1771,6 +1865,7 @@ void conv_layer5() {
     cl_int in_fr = 13;
     cl_int in_fc = 13;
 
+    start = get_time_us();
     err = clSetKernelArg(kernel_pool, 0, sizeof(cl_mem), &Layer5_pool_GPU);
     if (err < 0) {
         printf("Couldn't create a kernel argument Layer5_pool_GPU\n");
@@ -1826,16 +1921,21 @@ void conv_layer5() {
     }
 
     /* Enqueue kernel */
+    start = get_time_us();
     err = clEnqueueNDRangeKernel(queue, kernel_pool, 2, NULL, global_size,
                                  local_size, 0, NULL, NULL);
     if (err < 0) {
         printf("Couldn't enqueue the kernel_pool\n");
         exit(1);
     }
+    end = get_time_us();
+    *execution_time += (end - start);
+
 }
 
-void conv_layer6() {
-
+void conv_layer6(unsigned long *execution_time) {
+    unsigned long start, end;
+    *execution_time = 0;
     /* Sixth Layer Fully connected + ReLU */
     Layer6_bias_GPU = clCreateBuffer(context, CL_MEM_READ_ONLY | CL_MEM_COPY_HOST_PTR,
                                      sizeof(float) * 4096, bias_6, &err);
@@ -1917,16 +2017,21 @@ void conv_layer6() {
     }
 
     /* Enqueue kernel */
+    start = get_time_us();
     err = clEnqueueNDRangeKernel(queue, kernel_fully_connected, 2, NULL, global_size,
                                  local_size, 0, NULL, NULL);
     if (err < 0) {
         printf("Couldn't enqueue the kernel_fully_connected\n");
         exit(1);
     }
+    end = get_time_us();
+    *execution_time += (end - start);
+
 }
 
-void conv_layer7() {
-
+void conv_layer7(unsigned long *execution_time) {
+    unsigned long start, end;
+    *execution_time = 0;
     /* Seventh Layer Fully connected + ReLU */
     Layer7_bias_GPU = clCreateBuffer(context, CL_MEM_READ_ONLY | CL_MEM_COPY_HOST_PTR,
                                      sizeof(float) * 4096, bias_7, &err);
@@ -2009,16 +2114,21 @@ void conv_layer7() {
     }
 
     /* Enqueue kernel */
+    start = get_time_us();
     err = clEnqueueNDRangeKernel(queue, kernel_fully_connected, 2, NULL, global_size,
                                  local_size, 0, NULL, NULL);
     if (err < 0) {
         printf("Couldn't enqueue the kernel_fully_connected\n");
         exit(1);
     }
+    end = get_time_us();
+    *execution_time += (end - start);
+
 }
 
-void conv_layer8() {
-
+void conv_layer8(unsigned long *execution_time) {
+    unsigned long start, end;
+    *execution_time = 0;
     Layer8_bias_GPU = clCreateBuffer(context, CL_MEM_READ_ONLY | CL_MEM_COPY_HOST_PTR,
                                      sizeof(float) * 1000, bias_8, &err);
     if (err < 0) {
@@ -2099,20 +2209,18 @@ void conv_layer8() {
     }
 
     /* Enqueue kernel */
+    start = get_time_us();
     err = clEnqueueNDRangeKernel(queue, kernel_fully_connected, 2, NULL, global_size,
                                  local_size, 0, NULL, NULL);
     if (err < 0) {
         printf("Couldn't enqueue the kernel_fully_connected\n");
         exit(1);
     }
+    end = get_time_us();
+    *execution_time += (end - start);
+
 }
 
-unsigned long get_time_us() {
-    struct timeval current_time;
-
-    gettimeofday(&current_time, NULL);
-    return (unsigned long) (current_time.tv_sec * (unsigned long) 1e6 + current_time.tv_usec);
-}
 
 void collect_results() {
     unsigned long start, end;
@@ -2300,14 +2408,15 @@ void show_usage(char *base) {
 int main(int argc, char **argv) {
 
     /* variables for time measurements */
-    unsigned long start, start_an;
-    unsigned long end, total;
+    unsigned long start_total, layer_count, end_total, execution_time;
+
 
     if (parse_input_param(argc, argv) < 0) {
         show_usage(argv[0]);
         exit(-1);
     }
 
+    start_total = get_time_us();
     /* OpenCl initialization stuff */
     init_opencl();
 
@@ -2316,67 +2425,64 @@ int main(int argc, char **argv) {
 
     /* kick-off Alex Net layers */
     printf("\n========= Executing AlexNet =========\n");
+
     printf("Starting Layer1\n");
-    start = get_time_us();
-    start_an = start;
-    conv_layer1();
-    normalise_layer1();
-    max_pool_layer1();
-    end = get_time_us();
-    printf("\tLayer1 took %ld us\n", end - start);
+    layer_count = 0;
+    conv_layer1(&execution_time);
+    layer_count += execution_time;
+    printf("\t Layer1 Conv took %ld us\n", execution_time);
+    normalise_layer1(&execution_time);
+    layer_count += execution_time;
+    printf("\t Layer1 Norm took %ld us\n", execution_time);
+    max_pool_layer1(&execution_time);
+    layer_count += execution_time;
+    printf("\t Layer1 Max Pool took %ld us\n", execution_time);
+    printf("\t ----------------------------\n");
+    printf("\t Layer1 took %ld us\n", layer_count);
 
     printf("Starting Layer2\n");
-    start = get_time_us();
-    conv_layer2();
-    normalise_layer2();
-    max_pool_layer2();
-    end = get_time_us();
-    printf("\tLayer2 took %ld us\n", end - start);
+    layer_count = 0;
+    conv_layer2(&execution_time);
+    layer_count += execution_time;
+    printf("\t Layer2 Conv took %ld us\n", execution_time);
+    normalise_layer2(&execution_time);
+    printf("\t Layer2 Norm took %ld us\n", execution_time);
+    max_pool_layer2(&execution_time);
+    printf("\t Layer2 Max Pool took %ld us\n", execution_time);
+    printf("\t ----------------------------\n");
+    printf("\t Layer2 took %ld us\n", layer_count);
 
     printf("Starting Layer3\n");
-    start = get_time_us();
-    conv_layer3();
-    end = get_time_us();
-    printf("\tLayer3 took %ld us\n", end - start);
+    conv_layer3(&execution_time);
+    printf("\t Layer3 took %ld us\n", execution_time);
 
     printf("Starting Layer4\n");
-    start = get_time_us();
-    conv_layer4();
-    end = get_time_us();
-    printf("\tLayer4 took %ld us\n", end - start);
+    conv_layer4(&execution_time);
+    printf("\t Layer4 took %ld us\n", execution_time);
 
     printf("Starting Layer5\n");
-    start = get_time_us();
-    conv_layer5();
-    end = get_time_us();
-    printf("\tLayer5 took %ld us\n", end - start);
+    conv_layer5(&execution_time);
+    printf("\t Layer5 took %ld us\n", execution_time);
 
     printf("Starting Layer6\n");
-    start = get_time_us();
-    conv_layer6();
-    end = get_time_us();
-    printf("\tLayer6 took %ld us\n", end - start);
+    conv_layer6(&execution_time);
+    printf("\t Layer6 took %ld us\n", execution_time);
 
     printf("Starting Layer7\n");
-    start = get_time_us();
-    conv_layer7();
-    end = get_time_us();
-    printf("\tLayer7 took %ld us\n", end - start);
+    conv_layer7(&execution_time);
+    printf("\t Layer7 took %ld us\n", execution_time);
 
     printf("Starting Layer8\n");
-    start = get_time_us();
-    conv_layer8();
-    end = get_time_us();
-    printf("\tLayer8 took %ld us\n", end - start);
-
-    total = end - start_an;
-    printf("All layers took total %ld us\n", total);
+    conv_layer8(&execution_time);
+    printf("\t Layer8 took %ld us\n", execution_time);
 
     /* Checking for results */
     collect_results();
 
     /* release GPU and CPU resources */
     cleanup_mem();
+    end_total = get_time_us();
+    printf("AlexNet total took %ld us using OpenCL\n", end_total - start_total);
 
     return 0;
 }

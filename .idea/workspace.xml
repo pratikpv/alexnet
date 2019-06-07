@@ -12,17 +12,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a7253787-de79-46cc-a37e-1f71f38b0def" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/alexnet_host.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/alexnet_host.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/AlexNet_opencl" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/AlexNet_opencl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/AlexNet_opencl.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/AlexNet_opencl.cbp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AlexNet_opencl.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AlexNet_opencl.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AlexNet_opencl.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AlexNet_opencl.dir/main.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Layer1_Norm_GPU.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Layer1_pool_GPU.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Layer1_pool_GPU.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Layer2_Neurons_GPU.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Layer2_Neurons_GPU.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/data/fc6.org.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/data/fc6.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/data/fc6.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/data/fc7.org.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/data/fc7.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/data/fc7.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AlexNet_opencl.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AlexNet_opencl.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AlexNet_opencl.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AlexNet_opencl.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AlexNet_opencl.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AlexNet_opencl.dir/cmake_clean.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AlexNet_opencl.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AlexNet_opencl.dir/depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AlexNet_opencl.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AlexNet_opencl.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AlexNet_opencl.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AlexNet_opencl.dir/flags.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AlexNet_opencl.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AlexNet_opencl.dir/link.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/AlexNet_opencl.dir/main.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/alexnet_opencl.cl" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/alexnet_opencl.cl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -40,20 +48,30 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="6" column="36" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
+            <state relative-caret-position="22">
+              <caret line="1" column="22" selection-start-line="1" selection-start-column="22" selection-end-line="1" selection-end-column="22" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/main.cpp">
+        <entry file="file://$PROJECT_DIR$/alexnet_host.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="422">
-              <caret line="2325" column="27" selection-start-line="2325" selection-start-column="27" selection-end-line="2325" selection-end-column="27" />
+            <state relative-caret-position="456">
+              <caret line="2259" column="42" lean-forward="true" selection-start-line="2259" selection-start-column="4" selection-end-line="2259" selection-end-column="42" />
               <folding>
-                <element signature="e#86#103#0" expanded="true" />
-                <element signature="e#5119#6810#0" expanded="true" />
+                <element signature="e#354#371#0" expanded="true" />
+                <element signature="e#15273#15333#0" expanded="true" />
+                <element signature="e#18087#18172#0" expanded="true" />
+                <element signature="e#19006#19091#0" expanded="true" />
+                <element signature="e#20711#20796#0" expanded="true" />
+                <element signature="e#24730#24813#0" expanded="true" />
+                <element signature="e#27350#27442#0" expanded="true" />
+                <element signature="e#31157#31246#0" expanded="true" />
+                <element signature="e#33749#33840#0" expanded="true" />
+                <element signature="e#37484#37581#0" expanded="true" />
+                <element signature="e#66374#68902#0" expanded="true" />
+                <element signature="e#70291#70331#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -62,8 +80,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cmake-build-debug/alexnet_opencl.cl">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4158">
-              <caret line="189" column="28" selection-start-line="189" selection-start-column="28" selection-end-line="189" selection-end-column="28" />
+            <state relative-caret-position="242">
+              <caret line="11" selection-start-line="11" selection-end-line="11" />
             </state>
           </provider>
         </entry>
@@ -72,13 +90,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>err = clSetKernelArg(kernel_conv3d_g2, 5, sizeof(cl_int), &amp;fr);</find>
-      <find>kernel_conv3d_g2</find>
-      <find>kernel_pool</find>
-      <find>bool</find>
-      <find>Layer7_Weights_GPU</find>
-      <find>Layer1_Weights_CPU</find>
-      <find>dump_CPU</find>
       <find>executeFirstLayer</find>
       <find>dump_CPU_array_to_file</find>
       <find>get_glo</find>
@@ -89,7 +100,6 @@
       <find>clSetKernelArg</find>
       <find>Layer1_pool_GPU</find>
       <find>Layer2_Neurons_GPU</find>
-      <find>kernel_l1_conv</find>
       <find>r_offset</find>
       <find>L1_CONV_KERNEL_FUNC</find>
       <find>Layer1_Norm_GPU_</find>
@@ -102,9 +112,22 @@
       <find>init_data</find>
       <find>got</find>
       <find>read</find>
+      <find>start_an</find>
+      <find>build_kernels</find>
+      <find>kernel_l1_conv</find>
+      <find>Couldn't enqueue the kernel_l1_conv</find>
+      <find>CL_MEM_READ_WRITE</find>
+      <find>executeFCLayer</find>
+      <find>\n\t weights for</find>
+      <find>clEnqueueNDRangeKernel</find>
     </findStrings>
     <replaceStrings>
       <replace>\n&quot;);</replace>
+      <replace>_ms</replace>
+      <replace>ms\n</replace>
+      <replace>CL_MEM_READ_ONLY</replace>
+      <replace>execution_time</replace>
+      <replace>&amp;execution_time</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -116,8 +139,10 @@
         <option value="$PROJECT_DIR$/conv_layer1.cl" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/alexnet_opencl.cl" />
-        <option value="$PROJECT_DIR$/cmake-build-debug/alexnet_opencl.cl" />
         <option value="$PROJECT_DIR$/main.cpp" />
+        <option value="$PROJECT_DIR$/alexnet.cpp" />
+        <option value="$PROJECT_DIR$/cmake-build-debug/alexnet_opencl.cl" />
+        <option value="$PROJECT_DIR$/alexnet_host.cpp" />
       </list>
     </option>
   </component>
@@ -131,7 +156,7 @@
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="67" />
     <option name="y" value="25" />
-    <option name="width" value="927" />
+    <option name="width" value="1853" />
     <option name="height" value="1055" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -155,6 +180,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/cmake-build-debug/alexnet_opencl.cl" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -198,12 +224,16 @@
       <workItem from="1556764145811" duration="1080000" />
       <workItem from="1556770537120" duration="6425000" />
       <workItem from="1556846215579" duration="12553000" />
-      <workItem from="1557001611192" duration="4400000" />
+      <workItem from="1557001611192" duration="6955000" />
+      <workItem from="1557018426012" duration="38000" />
+      <workItem from="1557025763905" duration="14666000" />
+      <workItem from="1557120566129" duration="1199000" />
+      <workItem from="1557196411795" duration="7441000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49028000" />
+    <option name="totallyTimeSpent" value="74927000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -218,11 +248,11 @@
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.28648648" visible="true" weight="0.21859436" />
-      <window_info id="Structure" order="1" sideWeight="0.7135135" side_tool="true" visible="true" weight="0.21859436" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.28216216" visible="true" weight="0.22966242" />
+      <window_info active="true" id="Structure" order="1" sideWeight="0.7178378" side_tool="true" visible="true" weight="0.22966242" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32972974" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.05837838" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39978448" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -248,25 +278,35 @@
     <entry file="file://$PROJECT_DIR$/alexnet_opencl.cl" />
     <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="6" column="36" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
+        <state relative-caret-position="22">
+          <caret line="1" column="22" selection-start-line="1" selection-start-column="22" selection-end-line="1" selection-end-column="22" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cmake-build-debug/alexnet_opencl.cl">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4158">
-          <caret line="189" column="28" selection-start-line="189" selection-start-column="28" selection-end-line="189" selection-end-column="28" />
+        <state relative-caret-position="242">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.cpp">
+    <entry file="file://$PROJECT_DIR$/alexnet_host.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="422">
-          <caret line="2325" column="27" selection-start-line="2325" selection-start-column="27" selection-end-line="2325" selection-end-column="27" />
+        <state relative-caret-position="456">
+          <caret line="2259" column="42" lean-forward="true" selection-start-line="2259" selection-start-column="4" selection-end-line="2259" selection-end-column="42" />
           <folding>
-            <element signature="e#86#103#0" expanded="true" />
-            <element signature="e#5119#6810#0" expanded="true" />
+            <element signature="e#354#371#0" expanded="true" />
+            <element signature="e#15273#15333#0" expanded="true" />
+            <element signature="e#18087#18172#0" expanded="true" />
+            <element signature="e#19006#19091#0" expanded="true" />
+            <element signature="e#20711#20796#0" expanded="true" />
+            <element signature="e#24730#24813#0" expanded="true" />
+            <element signature="e#27350#27442#0" expanded="true" />
+            <element signature="e#31157#31246#0" expanded="true" />
+            <element signature="e#33749#33840#0" expanded="true" />
+            <element signature="e#37484#37581#0" expanded="true" />
+            <element signature="e#66374#68902#0" expanded="true" />
+            <element signature="e#70291#70331#0" expanded="true" />
           </folding>
         </state>
       </provider>

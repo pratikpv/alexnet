@@ -1,3 +1,0 @@
-/home/pratik/data/CLionProjects/AlexNet_opencl/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/pratik/data/CLionProjects/AlexNet_opencl/cmake-build-debug/CMakeFiles/AlexNet_opencl.dir
-/home/pratik/data/CLionProjects/AlexNet_opencl/cmake-build-debug/CMakeFiles/edit_cache.dir
