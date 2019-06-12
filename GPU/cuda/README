@@ -1,0 +1,44 @@
+###############################################################
+README to run application with gpgpu-sim
+###############################################################
+
+##############################################################
+Installation
+##############################################################
+
+1. Install CUDA 4.2  ( https://developer.nvidia.com/cuda-toolkit-42-archive)
+2. Install CUDA ToolKit (https://developer.nvidia.com/cuda-toolkit-42-archive)
+3. Install gpgpu-sim   (https://github.com/gpgpu-sim/gpgpu-sim_distribution)
+
+#############################################################
+Setting up paths 
+############################################################
+
+1. Go to the directory where gpgpu-sim is downloaded
+2. Run the following commands , but make sure the paths are relevant to the system
+ 
+export CUDA_INSTALL_PATH=/usr/local/cuda
+export PATH=/usr/local/bin:$PATH
+export LD_LIBRARY_PATH=/usr/local/cuda/lib:$LD_LIBRARY_PATH
+
+3.Run source setup_environment
+4 make ( Build the gpgpu-sim )
+#############################################################
+Build
+#############################################################
+sh build.sh
+
+
+############################################################
+Run
+############################################################
+./AN 1   (1 is the number of image to be tested )
+
+###########################################################
+CPU only /GPU
+##########################################################
+Build the source code with #ifdef CPU for CPU enabled code
+By default it is disabled
+
+
+
