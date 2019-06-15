@@ -1,0 +1,138 @@
+(base) pratik@pratik-Inspiron-7559:~/data/bin$ ssh 012541477@coe-hpc.sjsu.edu
+Password: 
+Last failed login: Mon May  6 22:14:07 PDT 2019 from 10.31.25.110 on ssh:notty
+There was 1 failed login attempt since the last successful login.
+Last login: Mon May  6 22:11:08 2019 from 10.31.25.110
+[012541477@coe-hpc1 ~]$ ls
+AlexNet_cuda  AlexNet_opencl  cmpe214  data  load_gpu_node.sh
+[012541477@coe-hpc1 ~]$ 
+Message from syslogd@c3 at May  6 22:20:20 ...
+ kernel: NMI watchdog: BUG: soft lockup - CPU#30 stuck for 23s! [172.16.3.50-man:186843]
+cat load_gpu_node.sh 
+srun -p gpu --gres=gpu --pty /bin/bash
+[012541477@coe-hpc1 ~]$ ./load_gpu_node.sh 
+[012541477@g4 ~]$ ls
+AlexNet_cuda  AlexNet_opencl  cmpe214  data  load_gpu_node.sh
+[012541477@g4 ~]$ whoami
+012541477
+[012541477@g4 ~]$ pwd
+/home/012541477
+[012541477@g4 ~]$ 
+AlexNet_cuda  AlexNet_opencl  cmpe214  data  load_gpu_node.sh
+[012541477@g4 ~]$ cd AlexNet_opencl/
+[012541477@g4 AlexNet_opencl]$ ls
+alexnet_host.cpp  alexnet_host.o  Alexnet_opencl  alexnet_opencl.cl  data  inc  lib  Makefile
+[012541477@g4 AlexNet_opencl]$ make clean
+rm -f *.o Alexnet_opencl
+[012541477@g4 AlexNet_opencl]$ make
+g++  -I.//inc -I.  -c alexnet_host.cpp -o alexnet_host.o 
+g++  -I.//inc -I. -o Alexnet_opencl alexnet_host.o -L.//lib -lOpenCL
+[012541477@g4 AlexNet_opencl]$ vim Makefile 
+[012541477@g4 AlexNet_opencl]$ ls
+alexnet_host.cpp  alexnet_host.o  Alexnet_opencl  alexnet_opencl.cl  data  inc  lib  Makefile
+[012541477@g4 AlexNet_opencl]$ vim alexnet_host.cpp 
+[012541477@g4 AlexNet_opencl]$ vim alexnet_opencl.cl 
+[012541477@g4 AlexNet_opencl]$ ls
+alexnet_host.cpp  alexnet_host.o  Alexnet_opencl  alexnet_opencl.cl  data  inc  lib  Makefile
+[012541477@g4 AlexNet_opencl]$ ls data/
+bias1.txt  bias3.txt  bias5.txt  bias7.txt  conv1.txt  conv3.txt  conv5.txt  fc7.txt    input.txt  
+bias2.txt  bias4.txt  bias6.txt  bias8.txt  conv2.txt  conv4.txt  fc6.txt    fc8.txt    
+[012541477@g4 AlexNet_opencl]$ ls data/^C
+[012541477@g4 AlexNet_opencl]$ ./Alexnet_opencl data/input.txt 
+Device: Tesla P100-PCIE-12GB
+Loading input from data/input.txt...Done
+Loading Bias values for layer1, layer 2, layer 3, layer 4, layer 5, layer 6, layer 7, layer 8 ... Done
+Loading Weights for layer 1, layer 2, layer 3, layer 4, layer 5, layer 6, layer 7, layer 8... Done
+
+========= Executing AlexNet =========
+Starting Layer1
+	 Layer1 Conv took 792 us
+	 Layer1 Norm took 199 us
+	 Layer1 Max Pool took 31 us
+	 ----------------------------
+	 Layer1 took 1022 us
+Starting Layer2
+	 Layer2 Conv took 2910 us
+	 Layer2 Norm took 183 us
+	 Layer2 Max Pool took 26 us
+	 ----------------------------
+	 Layer2 took 2910 us
+Starting Layer3
+	 Layer3 took 1079 us
+Starting Layer4
+	 Layer4 took 563 us
+Starting Layer5
+	 Layer5 took 1064 us
+Starting Layer6
+	 Layer6 took 31215 us
+Starting Layer7
+	 Layer7 took 8579 us
+Starting Layer8
+
+Message from syslogd@c3 at May  6 22:22:12 ...
+ kernel: NMI watchdog: BUG: soft lockup - CPU#30 stuck for 22s! [172.16.3.50-man:186843]
+	 Layer8 took 10695391 us
+Staring CL finish
+	CL finished, took 658 us
+Copying data from GPU
+	Copying data from GPU took 37 us
+Finding highest probability prediction
+=========================
+Predicted Class id is = 285
+=========================
+AlexNet total took 23036915 us using OpenCL
+[012541477@g4 AlexNet_opencl]$ cd ..
+[012541477@g4 ~]$ ls
+AlexNet_cuda  AlexNet_opencl  cmpe214  data  load_gpu_node.sh
+[012541477@g4 ~]$ cd AlexNet_cuda/
+[012541477@g4 AlexNet_cuda]$ ls
+alexnet_host.cu  AN  an_kernel.cu  build.sh  data
+[012541477@g4 AlexNet_cuda]$ rm AN 
+[012541477@g4 AlexNet_cuda]$ cat build.sh 
+nvcc alexnet_host.cu -o AN 
+[012541477@g4 AlexNet_cuda]$ ./build.sh 
+[012541477@g4 AlexNet_cuda]$ ls
+alexnet_host.cu  AN  an_kernel.cu  build.sh  data
+[012541477@g4 AlexNet_cuda]$ vim alexnet_host.cu 
+[012541477@g4 AlexNet_cuda]$ vim an_kernel.cu 
+[012541477@g4 AlexNet_cuda]$ ls
+alexnet_host.cu  AN  an_kernel.cu  build.sh  data
+[012541477@g4 AlexNet_cuda]$ ./AN 1
+[012541477@g4 AlexNet_cuda]$ ./AN 1
+Loading input
+Loading bias values
+Loading weights
+
+Message from syslogd@c3 at May  6 22:23:20 ...
+ kernel: NMI watchdog: BUG: soft lockup - CPU#30 stuck for 22s! [172.16.3.50-man:186843]
+
+========= Executing AlexNet =========
+Starting Layer1
+	 Layer1 Conv took 54 us
+	 Layer1 Norm took 22 us
+	 Layer1 Max Pool took 31 us
+	 ----------------------------
+	 Layer1 took 107 us
+Starting Layer2
+	 Layer2 Conv took 13 us
+	 Layer2 Norm took 10 us
+	 Layer2 Max Pool took 9 us
+	 ----------------------------
+	 Layer2 took 32 us
+Starting Layer3
+	 Layer3 took 7 us
+Starting Layer4
+	Layer4 took 13 us
+Starting Layer5
+	 Layer5 took 22 us
+Starting Layer6
+	 Layer6 took 17 us
+Starting Layer7
+	 Layer7 took 15 us
+Starting Layer8
+	 Layer8 took 8 us
+=========================
+INDEX = 285
+=========================
+AlexNet total took 11933444 us using cuda
+[012541477@g4 AlexNet_cuda]$ 
