@@ -1,0 +1,28 @@
+#-----------------------------------------------------------
+# Vivado v2016.4 (64-bit)
+# SW Build 1756540 on Mon Jan 23 19:11:23 MST 2017
+# IP Build 1755317 on Mon Jan 23 20:30:07 MST 2017
+# Start of session at: Tue May 07 12:08:51 2019
+# Process ID: 12788
+# Current directory: C:/Users/RA_prof_Jeon/siddharth/HLS/layer1_con_p3/solution1/impl/ip
+# Command line: vivado.exe -notrace -mode batch -source run_ippack.tcl
+# Log file: C:/Users/RA_prof_Jeon/siddharth/HLS/layer1_con_p3/solution1/impl/ip/vivado.log
+# Journal file: C:/Users/RA_prof_Jeon/siddharth/HLS/layer1_con_p3/solution1/impl/ip\vivado.jou
+#-----------------------------------------------------------
+source run_ippack.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2016.4/data/ip'.
+WARNING: [IP_Flow 19-4832] The IP name 'executeFirstLayer1_p3_ap_fadd_2_full_dsp_32' you have specified is long. The Windows operating system has path length limitations. It is recommended you use shorter names to reduce the likelihood of issues.
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'executeFirstLayer1_p3_ap_fadd_2_full_dsp_32'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'executeFirstLayer1_p3_ap_fadd_2_full_dsp_32'...
+WARNING: [IP_Flow 19-4832] The IP name 'executeFirstLayer1_p3_ap_fcmp_0_no_dsp_32' you have specified is long. The Windows operating system has path length limitations. It is recommended you use shorter names to reduce the likelihood of issues.
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'executeFirstLayer1_p3_ap_fcmp_0_no_dsp_32'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'executeFirstLayer1_p3_ap_fcmp_0_no_dsp_32'...
+WARNING: [IP_Flow 19-4832] The IP name 'executeFirstLayer1_p3_ap_fmul_1_max_dsp_32' you have specified is long. The Windows operating system has path length limitations. It is recommended you use shorter names to reduce the likelihood of issues.
+INFO: [IP_Flow 19-1686] Generating 'Synthesis' target for IP 'executeFirstLayer1_p3_ap_fmul_1_max_dsp_32'...
+INFO: [IP_Flow 19-1686] Generating 'Simulation' target for IP 'executeFirstLayer1_p3_ap_fmul_1_max_dsp_32'...
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2016.4/data/ip'.
+INFO: [Common 17-206] Exiting Vivado at Tue May 07 12:09:01 2019...

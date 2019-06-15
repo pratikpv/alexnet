@@ -1,0 +1,763 @@
+
+*** Running vivado
+    with args -log design_1_executeFirstLayer_0_1.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_executeFirstLayer_0_1.tcl
+
+
+****** Vivado v2016.4 (64-bit)
+  **** SW Build 1756540 on Mon Jan 23 19:11:23 MST 2017
+  **** IP Build 1755317 on Mon Jan 23 20:30:07 MST 2017
+    ** Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+
+source design_1_executeFirstLayer_0_1.tcl -notrace
+Command: synth_design -top design_1_executeFirstLayer_0_1 -part xc7z045ffg900-2 -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z045'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z045'
+INFO: [Common 17-1223] The version limit for your license is '2019.02' and will expire in -66 days. A version limit expiration means that, although you may be able to continue to use the current version of tools or IP with this license, you will not be eligible for any updates or new releases.
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 1900 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:09 . Memory (MB): peak = 344.316 ; gain = 133.973
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'design_1_executeFirstLayer_0_1' [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ip/design_1_executeFirstLayer_0_1/synth/design_1_executeFirstLayer_0_1.v:58]
+INFO: [Synth 8-638] synthesizing module 'executeFirstLayer' [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer.v:12]
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "none" *) [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer.v:668]
+INFO: [Synth 8-638] synthesizing module 'executeFirstLayer_control_s_axi' [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer_control_s_axi.v:9]
+INFO: [Synth 8-155] case statement is not full and has no default [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer_control_s_axi.v:250]
+INFO: [Synth 8-256] done synthesizing module 'executeFirstLayer_control_s_axi' (1#1) [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer_control_s_axi.v:9]
+INFO: [Synth 8-638] synthesizing module 'executeFirstLayer_gmem_m_axi' [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer_gmem_m_axi.v:10]
+INFO: [Synth 8-638] synthesizing module 'executeFirstLayer_gmem_m_axi_throttl' [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer_gmem_m_axi.v:687]
+INFO: [Synth 8-256] done synthesizing module 'executeFirstLayer_gmem_m_axi_throttl' (2#1) [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer_gmem_m_axi.v:687]
+INFO: [Synth 8-638] synthesizing module 'executeFirstLayer_gmem_m_axi_write' [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer_gmem_m_axi.v:1491]
+INFO: [Synth 8-638] synthesizing module 'executeFirstLayer_gmem_m_axi_fifo' [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer_gmem_m_axi.v:397]
+INFO: [Synth 8-256] done synthesizing module 'executeFirstLayer_gmem_m_axi_fifo' (3#1) [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer_gmem_m_axi.v:397]
+INFO: [Synth 8-638] synthesizing module 'executeFirstLayer_gmem_m_axi_fifo__parameterized0' [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer_gmem_m_axi.v:397]
+INFO: [Synth 8-256] done synthesizing module 'executeFirstLayer_gmem_m_axi_fifo__parameterized0' (3#1) [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer_gmem_m_axi.v:397]
+INFO: [Synth 8-638] synthesizing module 'executeFirstLayer_gmem_m_axi_buffer' [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer_gmem_m_axi.v:506]
+INFO: [Synth 8-256] done synthesizing module 'executeFirstLayer_gmem_m_axi_buffer' (4#1) [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer_gmem_m_axi.v:506]
+INFO: [Synth 8-638] synthesizing module 'executeFirstLayer_gmem_m_axi_fifo__parameterized1' [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer_gmem_m_axi.v:397]
+INFO: [Synth 8-256] done synthesizing module 'executeFirstLayer_gmem_m_axi_fifo__parameterized1' (4#1) [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer_gmem_m_axi.v:397]
+INFO: [Synth 8-638] synthesizing module 'executeFirstLayer_gmem_m_axi_fifo__parameterized2' [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer_gmem_m_axi.v:397]
+INFO: [Synth 8-256] done synthesizing module 'executeFirstLayer_gmem_m_axi_fifo__parameterized2' (4#1) [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer_gmem_m_axi.v:397]
+WARNING: [Synth 8-3848] Net AWREGION in module/entity executeFirstLayer_gmem_m_axi_write does not have driver. [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer_gmem_m_axi.v:1523]
+WARNING: [Synth 8-3848] Net WID in module/entity executeFirstLayer_gmem_m_axi_write does not have driver. [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer_gmem_m_axi.v:1528]
+WARNING: [Synth 8-3848] Net WUSER in module/entity executeFirstLayer_gmem_m_axi_write does not have driver. [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer_gmem_m_axi.v:1532]
+INFO: [Synth 8-256] done synthesizing module 'executeFirstLayer_gmem_m_axi_write' (5#1) [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer_gmem_m_axi.v:1491]
+INFO: [Synth 8-638] synthesizing module 'executeFirstLayer_gmem_m_axi_read' [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer_gmem_m_axi.v:739]
+INFO: [Synth 8-638] synthesizing module 'executeFirstLayer_gmem_m_axi_fifo__parameterized3' [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer_gmem_m_axi.v:397]
+INFO: [Synth 8-256] done synthesizing module 'executeFirstLayer_gmem_m_axi_fifo__parameterized3' (5#1) [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer_gmem_m_axi.v:397]
+INFO: [Synth 8-638] synthesizing module 'executeFirstLayer_gmem_m_axi_buffer__parameterized0' [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer_gmem_m_axi.v:506]
+INFO: [Synth 8-256] done synthesizing module 'executeFirstLayer_gmem_m_axi_buffer__parameterized0' (5#1) [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer_gmem_m_axi.v:506]
+INFO: [Synth 8-638] synthesizing module 'executeFirstLayer_gmem_m_axi_reg_slice' [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer_gmem_m_axi.v:293]
+INFO: [Synth 8-256] done synthesizing module 'executeFirstLayer_gmem_m_axi_reg_slice' (6#1) [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer_gmem_m_axi.v:293]
+INFO: [Synth 8-638] synthesizing module 'executeFirstLayer_gmem_m_axi_fifo__parameterized4' [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer_gmem_m_axi.v:397]
+INFO: [Synth 8-256] done synthesizing module 'executeFirstLayer_gmem_m_axi_fifo__parameterized4' (6#1) [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer_gmem_m_axi.v:397]
+WARNING: [Synth 8-3848] Net ARREGION in module/entity executeFirstLayer_gmem_m_axi_read does not have driver. [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer_gmem_m_axi.v:770]
+INFO: [Synth 8-256] done synthesizing module 'executeFirstLayer_gmem_m_axi_read' (7#1) [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer_gmem_m_axi.v:739]
+INFO: [Synth 8-256] done synthesizing module 'executeFirstLayer_gmem_m_axi' (8#1) [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer_gmem_m_axi.v:10]
+INFO: [Synth 8-638] synthesizing module 'executeFirstLayerbkb' [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayerbkb.v:11]
+INFO: [Synth 8-638] synthesizing module 'executeFirstLayer_ap_fadd_2_full_dsp_32' [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/ip/executeFirstLayer_ap_fadd_2_full_dsp_32.vhd:72]
+INFO: [Synth 8-3491] module 'floating_point_v7_1_3' declared at 'c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/ad02/hdl/floating_point_v7_1_vh_rfs.vhd:91604' bound to instance 'U0' of component 'floating_point_v7_1_3' [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/ip/executeFirstLayer_ap_fadd_2_full_dsp_32.vhd:198]
+INFO: [Synth 8-256] done synthesizing module 'executeFirstLayer_ap_fadd_2_full_dsp_32' (26#1) [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/ip/executeFirstLayer_ap_fadd_2_full_dsp_32.vhd:72]
+INFO: [Synth 8-256] done synthesizing module 'executeFirstLayerbkb' (27#1) [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayerbkb.v:11]
+INFO: [Synth 8-638] synthesizing module 'executeFirstLayercud' [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayercud.v:11]
+INFO: [Synth 8-638] synthesizing module 'executeFirstLayer_ap_fmul_1_max_dsp_32' [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/ip/executeFirstLayer_ap_fmul_1_max_dsp_32.vhd:72]
+INFO: [Synth 8-3491] module 'floating_point_v7_1_3' declared at 'c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/ad02/hdl/floating_point_v7_1_vh_rfs.vhd:91604' bound to instance 'U0' of component 'floating_point_v7_1_3' [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/ip/executeFirstLayer_ap_fmul_1_max_dsp_32.vhd:198]
+INFO: [Synth 8-256] done synthesizing module 'executeFirstLayer_ap_fmul_1_max_dsp_32' (35#1) [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/ip/executeFirstLayer_ap_fmul_1_max_dsp_32.vhd:72]
+INFO: [Synth 8-256] done synthesizing module 'executeFirstLayercud' (36#1) [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayercud.v:11]
+INFO: [Synth 8-638] synthesizing module 'executeFirstLayerdEe' [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayerdEe.v:11]
+INFO: [Synth 8-638] synthesizing module 'executeFirstLayer_ap_fcmp_0_no_dsp_32' [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/ip/executeFirstLayer_ap_fcmp_0_no_dsp_32.vhd:72]
+INFO: [Synth 8-3491] module 'floating_point_v7_1_3' declared at 'c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/ad02/hdl/floating_point_v7_1_vh_rfs.vhd:91604' bound to instance 'U0' of component 'floating_point_v7_1_3' [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/ip/executeFirstLayer_ap_fcmp_0_no_dsp_32.vhd:197]
+INFO: [Synth 8-256] done synthesizing module 'executeFirstLayer_ap_fcmp_0_no_dsp_32' (40#1) [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/ip/executeFirstLayer_ap_fcmp_0_no_dsp_32.vhd:72]
+INFO: [Synth 8-256] done synthesizing module 'executeFirstLayerdEe' (41#1) [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayerdEe.v:11]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer.v:3101]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer.v:3109]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer.v:3257]
+WARNING: [Synth 8-589] replacing case/wildcard equality operator === with logical equality operator == [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer.v:3261]
+INFO: [Synth 8-256] done synthesizing module 'executeFirstLayer' (42#1) [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer.v:12]
+INFO: [Synth 8-256] done synthesizing module 'design_1_executeFirstLayer_0_1' (43#1) [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ip/design_1_executeFirstLayer_0_1/synth/design_1_executeFirstLayer_0_1.v:58]
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized281 has unconnected port CLK
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized281 has unconnected port CE
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized281 has unconnected port SCLR
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized281 has unconnected port SSET
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized281 has unconnected port SINIT
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized279 has unconnected port CLK
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized279 has unconnected port CE
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized279 has unconnected port SCLR
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized279 has unconnected port SSET
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized279 has unconnected port SINIT
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized277 has unconnected port CLK
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized277 has unconnected port CE
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized277 has unconnected port SCLR
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized277 has unconnected port SSET
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized277 has unconnected port SINIT
+WARNING: [Synth 8-3331] design compare_eq_im__parameterized5 has unconnected port CARRYS_OUT[0]
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized273 has unconnected port CLK
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized273 has unconnected port CE
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized273 has unconnected port SCLR
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized273 has unconnected port SSET
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized273 has unconnected port SINIT
+WARNING: [Synth 8-3331] design compare_ne_im has unconnected port CARRYS_OUT[0]
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized275 has unconnected port CLK
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized275 has unconnected port CE
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized275 has unconnected port SCLR
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized275 has unconnected port SSET
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized275 has unconnected port SINIT
+WARNING: [Synth 8-3331] design compare_eq_im__parameterized4 has unconnected port CARRYS_OUT[0]
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized271 has unconnected port CLK
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized271 has unconnected port CE
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized271 has unconnected port SCLR
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized271 has unconnected port SSET
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized271 has unconnected port SINIT
+WARNING: [Synth 8-3331] design compare_eq_im__parameterized3 has unconnected port CARRYS_OUT[0]
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized289 has unconnected port CLK
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized289 has unconnected port CE
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized289 has unconnected port SCLR
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized289 has unconnected port SSET
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized289 has unconnected port SINIT
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized287 has unconnected port CLK
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized287 has unconnected port CE
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized287 has unconnected port SCLR
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized287 has unconnected port SSET
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized287 has unconnected port SINIT
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized285 has unconnected port CLK
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized285 has unconnected port CE
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized285 has unconnected port SCLR
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized285 has unconnected port SSET
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized285 has unconnected port SINIT
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized283 has unconnected port CLK
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized283 has unconnected port CE
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized283 has unconnected port SCLR
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized283 has unconnected port SSET
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized283 has unconnected port SINIT
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized303 has unconnected port CLK
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized303 has unconnected port CE
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized303 has unconnected port SCLR
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized303 has unconnected port SSET
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized303 has unconnected port SINIT
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized301 has unconnected port CLK
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized301 has unconnected port CE
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized301 has unconnected port SCLR
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized301 has unconnected port SSET
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized301 has unconnected port SINIT
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized299 has unconnected port CLK
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized299 has unconnected port CE
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized299 has unconnected port SCLR
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized299 has unconnected port SSET
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized299 has unconnected port SINIT
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized297 has unconnected port CLK
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized297 has unconnected port CE
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized297 has unconnected port SCLR
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized297 has unconnected port SSET
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized297 has unconnected port SINIT
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized295 has unconnected port CLK
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized295 has unconnected port CE
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized295 has unconnected port SCLR
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized295 has unconnected port SSET
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized295 has unconnected port SINIT
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized293 has unconnected port CLK
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized293 has unconnected port CE
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized293 has unconnected port SCLR
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized293 has unconnected port SSET
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized293 has unconnected port SINIT
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized291 has unconnected port CLK
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized291 has unconnected port CE
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized291 has unconnected port SCLR
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized291 has unconnected port SSET
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized291 has unconnected port SINIT
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized269 has unconnected port CLK
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized269 has unconnected port CE
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized269 has unconnected port SCLR
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized269 has unconnected port SSET
+WARNING: [Synth 8-3331] design xbip_pipe_v3_0_3_viv__parameterized269 has unconnected port SINIT
+WARNING: [Synth 8-3331] design floating_point_v7_1_3_viv__parameterized3 has unconnected port m_axis_result_tuser[0]
+WARNING: [Synth 8-3331] design floating_point_v7_1_3_viv__parameterized3 has unconnected port m_axis_result_tlast
+WARNING: [Synth 8-3331] design floating_point_v7_1_3_viv__parameterized3 has unconnected port aclken
+WARNING: [Synth 8-3331] design floating_point_v7_1_3_viv__parameterized3 has unconnected port aresetn
+WARNING: [Synth 8-3331] design floating_point_v7_1_3_viv__parameterized3 has unconnected port s_axis_a_tuser[0]
+WARNING: [Synth 8-3331] design floating_point_v7_1_3_viv__parameterized3 has unconnected port s_axis_a_tlast
+INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 548.402 ; gain = 338.059
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:16 ; elapsed = 00:00:19 . Memory (MB): peak = 548.402 ; gain = 338.059
+---------------------------------------------------------------------------------
+INFO: [Netlist 29-17] Analyzing 160 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Device 21-403] Loading part xc7z045ffg900-2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ip/design_1_executeFirstLayer_0_1/constraints/executeFirstLayer_ooc.xdc] for cell 'inst'
+Finished Parsing XDC File [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ip/design_1_executeFirstLayer_0_1/constraints/executeFirstLayer_ooc.xdc] for cell 'inst'
+Parsing XDC File [C:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.runs/design_1_executeFirstLayer_0_1_synth_1/dont_touch.xdc]
+Finished Parsing XDC File [C:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.runs/design_1_executeFirstLayer_0_1_synth_1/dont_touch.xdc]
+Completed Processing XDC Constraints
+
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 11 instances were transformed.
+  FDE => FDRE: 11 instances
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.790 . Memory (MB): peak = 952.039 ; gain = 7.320
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 952.039 ; gain = 741.695
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z045ffg900-2
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 952.039 ; gain = 741.695
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property DONT_TOUCH = true for inst. (constraint file  auto generated constraint, line ).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:32 ; elapsed = 00:00:35 . Memory (MB): peak = 952.039 ; gain = 741.695
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer_gmem_m_axi.v:485]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer_gmem_m_axi.v:485]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer_gmem_m_axi.v:589]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer_gmem_m_axi.v:485]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer_gmem_m_axi.v:485]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer_gmem_m_axi.v:485]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer_gmem_m_axi.v:589]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer_gmem_m_axi.v:485]
+INFO: [Synth 8-5546] ROM "exp_all_one_ip" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "exp_all_zero_ip" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "exp_over_int" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "ip_sig" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "exp_over_int" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "ip_sig" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "det_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "exp_all_one_ip" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "exp_all_zero_ip" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "exp_all_one_ip" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "exp_all_zero_ip" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "exp_just_over_sig" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "flow_sig" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "flow_sig" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "exp_just_over_sig" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "flow_sig" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "flow_sig" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "state_int_up" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "op_tdata" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-4471] merging register 'tmp_4_cast_reg_1003_reg[30:30]' into 'tmp_3_cast_reg_996_reg[30:30]' [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer.v:3059]
+INFO: [Synth 8-4471] merging register 'tmp_5_cast_reg_1010_reg[30:30]' into 'tmp_3_cast_reg_996_reg[30:30]' [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer.v:3071]
+INFO: [Synth 8-4471] merging register 'gmem_addr_reg_1015_reg[31:31]' into 'tmp_3_cast_reg_996_reg[30:30]' [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer.v:3267]
+INFO: [Synth 8-4471] merging register 'phi_mul_cast_reg_1090_reg[13:13]' into 'tmp_3_cast_reg_996_reg[30:30]' [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer.v:3145]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer.v:3257]
+INFO: [Synth 8-41] '+' operator could not be merged with '+' operator due to loss of accuracy [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer.v:3071]
+INFO: [Synth 8-41] '+' operator could not be merged with '+' operator due to loss of accuracy [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer.v:3055]
+INFO: [Synth 8-41] '+' operator could not be merged with '+' operator due to loss of accuracy [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer.v:3051]
+INFO: [Synth 8-41] '+' operator could not be merged with '+' operator due to loss of accuracy [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer.v:3063]
+INFO: [Synth 8-41] '+' operator could not be merged with '+' operator due to loss of accuracy [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer.v:3059]
+INFO: [Synth 8-41] '+' operator could not be merged with '+' operator due to loss of accuracy [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer.v:3067]
+INFO: [Synth 8-41] '+' operator could not be merged with '+' operator due to loss of accuracy [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer.v:3147]
+INFO: [Synth 8-41] '+' operator could not be merged with '+' operator due to loss of accuracy [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer.v:3047]
+INFO: [Synth 8-41] '+' operator could not be merged with '+' operator due to loss of accuracy [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer.v:3071]
+INFO: [Synth 8-41] '+' operator could not be merged with '+' operator due to loss of accuracy [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer.v:3055]
+INFO: [Synth 8-41] '+' operator could not be merged with '+' operator due to loss of accuracy [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer.v:3051]
+INFO: [Synth 8-41] '+' operator could not be merged with '+' operator due to loss of accuracy [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer.v:3063]
+INFO: [Synth 8-41] '+' operator could not be merged with '+' operator due to loss of accuracy [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer.v:3059]
+INFO: [Synth 8-41] '+' operator could not be merged with '+' operator due to loss of accuracy [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer.v:3067]
+INFO: [Synth 8-41] '+' operator could not be merged with '+' operator due to loss of accuracy [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer.v:3147]
+INFO: [Synth 8-41] '+' operator could not be merged with '+' operator due to loss of accuracy [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer.v:3047]
+WARNING: [Synth 8-3936] Found unconnected internal register 'arg_c_offset_reg_986_reg' and it is trimmed from '32' to '30' bits. [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer.v:1262]
+WARNING: [Synth 8-3936] Found unconnected internal register 'arg_r_offset_reg_980_reg' and it is trimmed from '32' to '30' bits. [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer.v:1263]
+INFO: [Synth 8-41] '+' operator could not be merged with '+' operator due to loss of accuracy [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer.v:3055]
+INFO: [Synth 8-41] '+' operator could not be merged with '+' operator due to loss of accuracy [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer.v:3051]
+INFO: [Synth 8-41] '+' operator could not be merged with '+' operator due to loss of accuracy [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer.v:3071]
+INFO: [Synth 8-41] '+' operator could not be merged with '+' operator due to loss of accuracy [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer.v:3063]
+INFO: [Synth 8-41] '+' operator could not be merged with '+' operator due to loss of accuracy [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer.v:3059]
+INFO: [Synth 8-41] '+' operator could not be merged with '+' operator due to loss of accuracy [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer.v:3067]
+INFO: [Synth 8-41] '+' operator could not be merged with '+' operator due to loss of accuracy [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer.v:3147]
+INFO: [Synth 8-41] '+' operator could not be merged with '+' operator due to loss of accuracy [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer.v:3047]
+INFO: [Synth 8-4471] merging register 'tmp_7_reg_991_reg[29:0]' into 'arg_c_offset_reg_986_reg[29:0]' [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer.v:1268]
+INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
+INFO: [Synth 8-5544] ROM "exitcond5_fu_576_p2" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "exitcond_flatten_fu_423_p2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "exitcond_fu_637_p2" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "tmp_s_fu_435_p2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "notrhs_fu_917_p2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "exitcond5_fu_576_p2" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "exitcond_flatten_fu_423_p2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "exitcond_fu_637_p2" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "tmp_s_fu_435_p2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "notrhs_fu_917_p2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "ap_NS_fsm" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "ap_NS_fsm" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "ap_NS_fsm" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "ap_NS_fsm" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "ap_NS_fsm" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "ap_NS_fsm" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "ap_NS_fsm" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "ap_NS_fsm" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "ap_NS_fsm" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "ap_NS_fsm" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "ap_NS_fsm" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "ap_NS_fsm" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "ap_NS_fsm" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "ap_NS_fsm" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "ap_NS_fsm" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "ap_NS_fsm" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "ap_NS_fsm" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "ap_NS_fsm" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "ap_NS_fsm" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "ap_NS_fsm" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-4490] FSM extraction disabled for register 'ap_CS_fsm_reg' through user attribute
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:52 ; elapsed = 00:00:56 . Memory (MB): peak = 952.039 ; gain = 741.695
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 900 (col length:140)
+BRAMs: 1090 (col length: RAMB18 140 RAMB36 70)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5546] ROM "ADDSUB_OP.ADDSUB/SPEED_OP.DSP.OP/DSP48E1_BODY.EXP/COND_DET_A/exp_all_one_ip" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "ADDSUB_OP.ADDSUB/SPEED_OP.DSP.OP/DSP48E1_BODY.EXP/COND_DET_A/exp_all_zero_ip" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "ADDSUB_OP.ADDSUB/SPEED_OP.DSP.OP/DSP48E1_BODY.EXP/COND_DET_B/exp_all_one_ip" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "ADDSUB_OP.ADDSUB/SPEED_OP.DSP.OP/DSP48E1_BODY.EXP/COND_DET_B/exp_all_zero_ip" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "ADDSUB_OP.ADDSUB/SPEED_OP.DSP.OP/DSP48E1_BODY.EXP/exp_over_int" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "ADDSUB_OP.ADDSUB/SPEED_OP.DSP.OP/DSP48E1_BODY.EXP/ip_sig" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "MULT.OP/EXP/COND_DET_A/exp_all_one_ip" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "MULT.OP/EXP/COND_DET_A/exp_all_zero_ip" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "MULT.OP/EXP/COND_DET_B/exp_all_one_ip" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "MULT.OP/EXP/COND_DET_B/exp_all_zero_ip" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "MULT.OP/EXP/exp_just_over_sig" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "MULT.OP/EXP/flow_sig" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "MULT.OP/EXP/flow_sig" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-41] '+' operator could not be merged with '+' operator due to loss of accuracy [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer.v:3055]
+INFO: [Synth 8-41] '+' operator could not be merged with '+' operator due to loss of accuracy [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer.v:3047]
+INFO: [Synth 8-41] '+' operator could not be merged with '+' operator due to loss of accuracy [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer.v:3051]
+INFO: [Synth 8-41] '+' operator could not be merged with '+' operator due to loss of accuracy [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer.v:3059]
+INFO: [Synth 8-41] '+' operator could not be merged with '+' operator due to loss of accuracy [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer.v:3063]
+INFO: [Synth 8-41] '+' operator could not be merged with '+' operator due to loss of accuracy [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer.v:3067]
+INFO: [Synth 8-41] '+' operator could not be merged with '+' operator due to loss of accuracy [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer.v:3147]
+INFO: [Synth 8-41] '+' operator could not be merged with '+' operator due to loss of accuracy [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer.v:3071]
+INFO: [Synth 8-41] '+' operator could not be merged with '+' operator due to loss of accuracy [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/aac4/hdl/verilog/executeFirstLayer.v:3145]
+INFO: [Synth 8-5546] ROM "notrhs_fu_917_p2" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/\tmp_1_mid2_reg_1058_reg[1] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (inst/\tmp_29_reg_1080_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/\tmp_3_cast_reg_996_reg[30] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/\tmp_10_reg_1070_reg[6] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/\tmp_10_reg_1070_reg[7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/\tmp_10_reg_1070_reg[8] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/\tmp_10_reg_1070_reg[9] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/\tmp_10_reg_1070_reg[10] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/\tmp_10_reg_1070_reg[11] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/\tmp_10_reg_1070_reg[12] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/\tmp_10_reg_1070_reg[13] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/\tmp_10_reg_1070_reg[14] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/\tmp_10_reg_1070_reg[15] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/\tmp_10_reg_1070_reg[16] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/\tmp_10_reg_1070_reg[17] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/\tmp_10_reg_1070_reg[18] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/\tmp_10_reg_1070_reg[19] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/\tmp_10_reg_1070_reg[20] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/\tmp_10_reg_1070_reg[21] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/\tmp_10_reg_1070_reg[22] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/\tmp_10_reg_1070_reg[23] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/\tmp_10_reg_1070_reg[24] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/\tmp_10_reg_1070_reg[25] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/\tmp_10_reg_1070_reg[26] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/\tmp_10_reg_1070_reg[27] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/\tmp_10_reg_1070_reg[28] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/\tmp_10_reg_1070_reg[29] )
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/start_addr_reg[0]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/start_addr_reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/executeFirstLayer_gmem_m_axi_U/\bus_read/start_addr_reg[1] )
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/start_addr_reg[0]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/start_addr_reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/executeFirstLayer_gmem_m_axi_U/\bus_write/start_addr_reg[1] )
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/buff_wdata/q_tmp_reg[32]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/buff_wdata/q_tmp_reg[35]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/buff_wdata/q_tmp_reg[33]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/buff_wdata/q_tmp_reg[35]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/buff_wdata/q_tmp_reg[34]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/buff_wdata/q_tmp_reg[35]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/could_multi_bursts.arlen_buf_reg[4]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/could_multi_bursts.arlen_buf_reg[5]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/could_multi_bursts.arlen_buf_reg[5]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/could_multi_bursts.arlen_buf_reg[6]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/could_multi_bursts.arlen_buf_reg[6]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/could_multi_bursts.arlen_buf_reg[7]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/executeFirstLayer_gmem_m_axi_U/\bus_read/could_multi_bursts.arlen_buf_reg[7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/executeFirstLayer_gmem_m_axi_U/\bus_write/could_multi_bursts.awlen_buf_reg[4] )
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/could_multi_bursts.awlen_buf_reg[5]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/could_multi_bursts.awlen_buf_reg[6]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/could_multi_bursts.awlen_buf_reg[6]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/could_multi_bursts.awlen_buf_reg[7]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/executeFirstLayer_gmem_m_axi_U/\bus_write/could_multi_bursts.awlen_buf_reg[7] )
+INFO: [Synth 8-3886] merging instance 'inst/tmp_28_reg_1075_reg[1]' (FDE) to 'inst/tmp_29_reg_1080_reg[1]'
+WARNING: [Synth 8-3332] Sequential element (bus_write/could_multi_bursts.awlen_buf_reg[7]) is unused and will be removed from module executeFirstLayer_gmem_m_axi.
+WARNING: [Synth 8-3332] Sequential element (bus_write/could_multi_bursts.awlen_buf_reg[4]) is unused and will be removed from module executeFirstLayer_gmem_m_axi.
+WARNING: [Synth 8-3332] Sequential element (bus_write/fifo_wreq/q_reg[31]) is unused and will be removed from module executeFirstLayer_gmem_m_axi.
+WARNING: [Synth 8-3332] Sequential element (bus_write/fifo_wreq/q_reg[30]) is unused and will be removed from module executeFirstLayer_gmem_m_axi.
+WARNING: [Synth 8-3332] Sequential element (bus_write/fifo_resp_to_user/q_reg[1]) is unused and will be removed from module executeFirstLayer_gmem_m_axi.
+WARNING: [Synth 8-3332] Sequential element (bus_write/fifo_resp_to_user/q_reg[0]) is unused and will be removed from module executeFirstLayer_gmem_m_axi.
+WARNING: [Synth 8-3332] Sequential element (bus_write/start_addr_reg[1]) is unused and will be removed from module executeFirstLayer_gmem_m_axi.
+WARNING: [Synth 8-3332] Sequential element (bus_write/start_addr_buf_reg[1]) is unused and will be removed from module executeFirstLayer_gmem_m_axi.
+WARNING: [Synth 8-3332] Sequential element (bus_write/start_addr_buf_reg[0]) is unused and will be removed from module executeFirstLayer_gmem_m_axi.
+WARNING: [Synth 8-3332] Sequential element (bus_write/align_len_reg[1]) is unused and will be removed from module executeFirstLayer_gmem_m_axi.
+WARNING: [Synth 8-3332] Sequential element (bus_write/align_len_reg[0]) is unused and will be removed from module executeFirstLayer_gmem_m_axi.
+WARNING: [Synth 8-3332] Sequential element (bus_write/end_addr_buf_reg[1]) is unused and will be removed from module executeFirstLayer_gmem_m_axi.
+WARNING: [Synth 8-3332] Sequential element (bus_write/end_addr_buf_reg[0]) is unused and will be removed from module executeFirstLayer_gmem_m_axi.
+WARNING: [Synth 8-3332] Sequential element (bus_write/sect_addr_buf_reg[1]) is unused and will be removed from module executeFirstLayer_gmem_m_axi.
+WARNING: [Synth 8-3332] Sequential element (bus_write/sect_addr_buf_reg[0]) is unused and will be removed from module executeFirstLayer_gmem_m_axi.
+WARNING: [Synth 8-3332] Sequential element (bus_write/bresp_tmp_reg[1]) is unused and will be removed from module executeFirstLayer_gmem_m_axi.
+WARNING: [Synth 8-3332] Sequential element (bus_write/bresp_tmp_reg[0]) is unused and will be removed from module executeFirstLayer_gmem_m_axi.
+WARNING: [Synth 8-3332] Sequential element (bus_read/fifo_rreq/q_reg[31]) is unused and will be removed from module executeFirstLayer_gmem_m_axi.
+WARNING: [Synth 8-3332] Sequential element (bus_read/fifo_rreq/q_reg[30]) is unused and will be removed from module executeFirstLayer_gmem_m_axi.
+WARNING: [Synth 8-3332] Sequential element (bus_read/buff_rdata/q_tmp_reg[33]) is unused and will be removed from module executeFirstLayer_gmem_m_axi.
+WARNING: [Synth 8-3332] Sequential element (bus_read/buff_rdata/q_tmp_reg[32]) is unused and will be removed from module executeFirstLayer_gmem_m_axi.
+WARNING: [Synth 8-3332] Sequential element (bus_read/buff_rdata/dout_buf_reg[33]) is unused and will be removed from module executeFirstLayer_gmem_m_axi.
+WARNING: [Synth 8-3332] Sequential element (bus_read/buff_rdata/dout_buf_reg[32]) is unused and will be removed from module executeFirstLayer_gmem_m_axi.
+WARNING: [Synth 8-3332] Sequential element (bus_read/bus_equal_gen.resp_buf_reg[1]) is unused and will be removed from module executeFirstLayer_gmem_m_axi.
+WARNING: [Synth 8-3332] Sequential element (bus_read/bus_equal_gen.resp_buf_reg[0]) is unused and will be removed from module executeFirstLayer_gmem_m_axi.
+WARNING: [Synth 8-3332] Sequential element (bus_read/rs_rdata/data_p2_reg[33]) is unused and will be removed from module executeFirstLayer_gmem_m_axi.
+WARNING: [Synth 8-3332] Sequential element (bus_read/rs_rdata/data_p2_reg[32]) is unused and will be removed from module executeFirstLayer_gmem_m_axi.
+WARNING: [Synth 8-3332] Sequential element (bus_read/rs_rdata/data_p1_reg[33]) is unused and will be removed from module executeFirstLayer_gmem_m_axi.
+WARNING: [Synth 8-3332] Sequential element (bus_read/rs_rdata/data_p1_reg[32]) is unused and will be removed from module executeFirstLayer_gmem_m_axi.
+WARNING: [Synth 8-3332] Sequential element (bus_read/start_addr_reg[1]) is unused and will be removed from module executeFirstLayer_gmem_m_axi.
+WARNING: [Synth 8-3332] Sequential element (bus_read/start_addr_buf_reg[1]) is unused and will be removed from module executeFirstLayer_gmem_m_axi.
+WARNING: [Synth 8-3332] Sequential element (bus_read/start_addr_buf_reg[0]) is unused and will be removed from module executeFirstLayer_gmem_m_axi.
+WARNING: [Synth 8-3332] Sequential element (bus_read/align_len_reg[1]) is unused and will be removed from module executeFirstLayer_gmem_m_axi.
+WARNING: [Synth 8-3332] Sequential element (bus_read/align_len_reg[0]) is unused and will be removed from module executeFirstLayer_gmem_m_axi.
+WARNING: [Synth 8-3332] Sequential element (bus_read/end_addr_buf_reg[1]) is unused and will be removed from module executeFirstLayer_gmem_m_axi.
+WARNING: [Synth 8-3332] Sequential element (bus_read/end_addr_buf_reg[0]) is unused and will be removed from module executeFirstLayer_gmem_m_axi.
+WARNING: [Synth 8-3332] Sequential element (bus_read/could_multi_bursts.arlen_buf_reg[7]) is unused and will be removed from module executeFirstLayer_gmem_m_axi.
+WARNING: [Synth 8-3332] Sequential element (bus_read/sect_addr_buf_reg[1]) is unused and will be removed from module executeFirstLayer_gmem_m_axi.
+WARNING: [Synth 8-3332] Sequential element (bus_read/sect_addr_buf_reg[0]) is unused and will be removed from module executeFirstLayer_gmem_m_axi.
+INFO: [Synth 8-3332] Sequential element (i_nd_to_rdy/opt_has_pipe.i_pipe[2].pipe_reg[2][0]) is unused and will be removed from module floating_point_v7_1_3_viv.
+INFO: [Synth 8-3332] Sequential element (ADDSUB_OP.ADDSUB/SPEED_OP.DSP.OP/DSP48E1_BODY.NORM_RND/FULL_USAGE_DSP.LOD/NORM_DELAY/i_pipe/opt_has_pipe.first_q_reg[0]) is unused and will be removed from module floating_point_v7_1_3_viv.
+WARNING: [Synth 8-3332] Sequential element (ap_CS_fsm_reg[325]) is unused and will be removed from module executeFirstLayer.
+WARNING: [Synth 8-3332] Sequential element (tmp_10_reg_1070_reg[29]) is unused and will be removed from module executeFirstLayer.
+WARNING: [Synth 8-3332] Sequential element (tmp_10_reg_1070_reg[28]) is unused and will be removed from module executeFirstLayer.
+WARNING: [Synth 8-3332] Sequential element (tmp_10_reg_1070_reg[27]) is unused and will be removed from module executeFirstLayer.
+WARNING: [Synth 8-3332] Sequential element (tmp_10_reg_1070_reg[26]) is unused and will be removed from module executeFirstLayer.
+WARNING: [Synth 8-3332] Sequential element (tmp_10_reg_1070_reg[25]) is unused and will be removed from module executeFirstLayer.
+WARNING: [Synth 8-3332] Sequential element (tmp_10_reg_1070_reg[24]) is unused and will be removed from module executeFirstLayer.
+WARNING: [Synth 8-3332] Sequential element (tmp_10_reg_1070_reg[23]) is unused and will be removed from module executeFirstLayer.
+WARNING: [Synth 8-3332] Sequential element (tmp_10_reg_1070_reg[22]) is unused and will be removed from module executeFirstLayer.
+WARNING: [Synth 8-3332] Sequential element (tmp_10_reg_1070_reg[21]) is unused and will be removed from module executeFirstLayer.
+WARNING: [Synth 8-3332] Sequential element (tmp_10_reg_1070_reg[20]) is unused and will be removed from module executeFirstLayer.
+WARNING: [Synth 8-3332] Sequential element (tmp_10_reg_1070_reg[19]) is unused and will be removed from module executeFirstLayer.
+WARNING: [Synth 8-3332] Sequential element (tmp_10_reg_1070_reg[18]) is unused and will be removed from module executeFirstLayer.
+WARNING: [Synth 8-3332] Sequential element (tmp_10_reg_1070_reg[17]) is unused and will be removed from module executeFirstLayer.
+WARNING: [Synth 8-3332] Sequential element (tmp_10_reg_1070_reg[16]) is unused and will be removed from module executeFirstLayer.
+WARNING: [Synth 8-3332] Sequential element (tmp_10_reg_1070_reg[15]) is unused and will be removed from module executeFirstLayer.
+WARNING: [Synth 8-3332] Sequential element (tmp_10_reg_1070_reg[14]) is unused and will be removed from module executeFirstLayer.
+WARNING: [Synth 8-3332] Sequential element (tmp_10_reg_1070_reg[13]) is unused and will be removed from module executeFirstLayer.
+WARNING: [Synth 8-3332] Sequential element (tmp_10_reg_1070_reg[12]) is unused and will be removed from module executeFirstLayer.
+WARNING: [Synth 8-3332] Sequential element (tmp_10_reg_1070_reg[11]) is unused and will be removed from module executeFirstLayer.
+WARNING: [Synth 8-3332] Sequential element (tmp_10_reg_1070_reg[10]) is unused and will be removed from module executeFirstLayer.
+WARNING: [Synth 8-3332] Sequential element (tmp_10_reg_1070_reg[9]) is unused and will be removed from module executeFirstLayer.
+WARNING: [Synth 8-3332] Sequential element (tmp_10_reg_1070_reg[8]) is unused and will be removed from module executeFirstLayer.
+WARNING: [Synth 8-3332] Sequential element (tmp_10_reg_1070_reg[7]) is unused and will be removed from module executeFirstLayer.
+WARNING: [Synth 8-3332] Sequential element (tmp_10_reg_1070_reg[6]) is unused and will be removed from module executeFirstLayer.
+WARNING: [Synth 8-3332] Sequential element (tmp_3_cast_reg_996_reg[30]) is unused and will be removed from module executeFirstLayer.
+WARNING: [Synth 8-3332] Sequential element (arg_Layer2_Neurons_G_reg_1119_reg[30]) is unused and will be removed from module executeFirstLayer.
+WARNING: [Synth 8-3332] Sequential element (arg_Layer1_Weights_G_4_reg_1162_reg[30]) is unused and will be removed from module executeFirstLayer.
+WARNING: [Synth 8-3332] Sequential element (tmp_1_mid2_reg_1058_reg[1]) is unused and will be removed from module executeFirstLayer.
+WARNING: [Synth 8-3332] Sequential element (arg_Layer1_Neurons_G_4_reg_1157_reg[30]) is unused and will be removed from module executeFirstLayer.
+WARNING: [Synth 8-3332] Sequential element (arg_Layer1_Weights_G_2_reg_1152_reg[30]) is unused and will be removed from module executeFirstLayer.
+WARNING: [Synth 8-3332] Sequential element (tmp_29_reg_1080_reg[0]) is unused and will be removed from module executeFirstLayer.
+WARNING: [Synth 8-3332] Sequential element (arg_Layer1_Neurons_G_2_reg_1147_reg[30]) is unused and will be removed from module executeFirstLayer.
+WARNING: [Synth 8-3332] Sequential element (arg_Layer1_Weights_G_reg_1142_reg[30]) is unused and will be removed from module executeFirstLayer.
+WARNING: [Synth 8-3332] Sequential element (arg_Layer1_Neurons_G_reg_1137_reg[30]) is unused and will be removed from module executeFirstLayer.
+WARNING: [Synth 8-3332] Sequential element (gmem_addr_reg_1015_reg[30]) is unused and will be removed from module executeFirstLayer.
+INFO: [Synth 8-3886] merging instance 'inst/tmp_28_reg_1075_reg[0]' (FDE) to 'inst/tmp_31_reg_1085_reg[0]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/fifo_rreq/q_reg[63]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/fifo_rreq/q_reg[62]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/fifo_rreq/q_reg[61]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/fifo_rreq/q_reg[62]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/fifo_rreq/q_reg[62]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/fifo_rreq/q_reg[60]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/fifo_rreq/q_reg[60]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/fifo_rreq/q_reg[59]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/fifo_rreq/q_reg[59]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/fifo_rreq/q_reg[58]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/fifo_rreq/q_reg[58]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/fifo_rreq/q_reg[57]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/fifo_rreq/q_reg[57]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/fifo_rreq/q_reg[56]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/fifo_rreq/q_reg[56]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/fifo_rreq/q_reg[55]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/fifo_rreq/q_reg[55]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/fifo_rreq/q_reg[54]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/fifo_rreq/q_reg[54]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/fifo_rreq/q_reg[53]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/fifo_rreq/q_reg[53]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/fifo_rreq/q_reg[52]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/fifo_rreq/q_reg[52]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/fifo_rreq/q_reg[51]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/fifo_rreq/q_reg[51]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/fifo_rreq/q_reg[50]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/fifo_rreq/q_reg[50]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/fifo_rreq/q_reg[49]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/fifo_rreq/q_reg[49]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/fifo_rreq/q_reg[48]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/fifo_rreq/q_reg[48]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/fifo_rreq/q_reg[47]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/fifo_rreq/q_reg[47]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/fifo_rreq/q_reg[46]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/fifo_rreq/q_reg[46]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/fifo_rreq/q_reg[45]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/fifo_rreq/q_reg[45]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/fifo_rreq/q_reg[44]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/fifo_rreq/q_reg[44]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/fifo_rreq/q_reg[43]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/fifo_rreq/q_reg[43]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/fifo_rreq/q_reg[42]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/fifo_rreq/q_reg[42]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/fifo_rreq/q_reg[41]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/fifo_rreq/q_reg[41]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/fifo_rreq/q_reg[40]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/fifo_rreq/q_reg[40]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/fifo_rreq/q_reg[39]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/fifo_rreq/q_reg[39]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/fifo_rreq/q_reg[38]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/fifo_rreq/q_reg[38]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/fifo_rreq/q_reg[37]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/fifo_rreq/q_reg[37]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/fifo_rreq/q_reg[36]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/fifo_rreq/q_reg[36]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/fifo_rreq/q_reg[35]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/fifo_rreq/q_reg[35]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/fifo_rreq/q_reg[34]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/fifo_rreq/q_reg[34]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/fifo_rreq/q_reg[33]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/fifo_wreq/q_reg[63]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/fifo_wreq/q_reg[33]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/fifo_wreq/q_reg[61]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/fifo_wreq/q_reg[33]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/fifo_wreq/q_reg[62]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/fifo_wreq/q_reg[33]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/fifo_wreq/q_reg[60]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/fifo_wreq/q_reg[33]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/fifo_wreq/q_reg[59]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/fifo_wreq/q_reg[33]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/fifo_wreq/q_reg[58]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/fifo_wreq/q_reg[33]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/fifo_wreq/q_reg[57]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/fifo_wreq/q_reg[33]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/fifo_wreq/q_reg[56]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/fifo_wreq/q_reg[33]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/fifo_wreq/q_reg[55]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/fifo_wreq/q_reg[33]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/fifo_wreq/q_reg[54]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/fifo_wreq/q_reg[33]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/fifo_wreq/q_reg[53]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/fifo_wreq/q_reg[33]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/fifo_wreq/q_reg[52]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/fifo_wreq/q_reg[33]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/fifo_wreq/q_reg[51]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/fifo_wreq/q_reg[33]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/fifo_wreq/q_reg[50]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/fifo_wreq/q_reg[33]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/fifo_wreq/q_reg[49]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/fifo_wreq/q_reg[33]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/fifo_wreq/q_reg[48]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/fifo_wreq/q_reg[33]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/fifo_wreq/q_reg[47]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/fifo_wreq/q_reg[33]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/fifo_wreq/q_reg[46]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/fifo_wreq/q_reg[33]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/fifo_wreq/q_reg[45]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/fifo_wreq/q_reg[33]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/fifo_wreq/q_reg[44]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/fifo_wreq/q_reg[33]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/fifo_wreq/q_reg[43]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/fifo_wreq/q_reg[33]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/fifo_wreq/q_reg[42]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/fifo_wreq/q_reg[33]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/fifo_wreq/q_reg[41]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/fifo_wreq/q_reg[33]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/fifo_wreq/q_reg[40]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/fifo_wreq/q_reg[33]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/fifo_wreq/q_reg[39]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/fifo_wreq/q_reg[33]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/fifo_wreq/q_reg[38]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/fifo_wreq/q_reg[33]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/fifo_wreq/q_reg[37]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/fifo_wreq/q_reg[33]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/fifo_wreq/q_reg[36]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/fifo_wreq/q_reg[33]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/fifo_wreq/q_reg[35]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/fifo_wreq/q_reg[33]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/fifo_wreq/q_reg[34]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/fifo_wreq/q_reg[33]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/bus_equal_gen.fifo_burst/q_reg[6]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/bus_equal_gen.fifo_burst/q_reg[7]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/bus_equal_gen.fifo_burst/q_reg[7]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/bus_equal_gen.fifo_burst/q_reg[5]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/bus_equal_gen.fifo_burst/q_reg[4]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_write/bus_equal_gen.fifo_burst/q_reg[5]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/\tmp_1_mid2_reg_1058_reg[0] )
+INFO: [Synth 8-3886] merging instance 'inst/tmp_28_reg_1075_reg[2]' (FDE) to 'inst/tmp_29_reg_1080_reg[2]'
+INFO: [Synth 8-3886] merging instance 'inst/tmp_29_reg_1080_reg[1]' (FDE) to 'inst/tmp_31_reg_1085_reg[0]'
+INFO: [Synth 8-3886] merging instance 'inst/tmp_29_reg_1080_reg[2]' (FDE) to 'inst/tmp_31_reg_1085_reg[2]'
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (inst/\tmp_31_reg_1085_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/executeFirstLayer_gmem_m_axi_U/\bus_read/fifo_rreq/q_reg[33] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/executeFirstLayer_gmem_m_axi_U/\bus_write/fifo_wreq/q_reg[33] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/executeFirstLayer_gmem_m_axi_U/\bus_write/bus_equal_gen.fifo_burst/q_reg[5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (inst/\tmp_31_reg_1085_reg[0] )
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/align_len_reg[3]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/align_len_reg[4]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/align_len_reg[4]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/align_len_reg[5]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/align_len_reg[5]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/align_len_reg[6]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/align_len_reg[6]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/align_len_reg[7]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/align_len_reg[7]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/align_len_reg[8]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/align_len_reg[8]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/align_len_reg[9]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/align_len_reg[9]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/align_len_reg[10]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/align_len_reg[10]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/align_len_reg[11]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/align_len_reg[11]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/align_len_reg[12]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/align_len_reg[12]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/align_len_reg[13]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/align_len_reg[13]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/align_len_reg[14]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/align_len_reg[14]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/align_len_reg[15]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/align_len_reg[15]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/align_len_reg[16]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/align_len_reg[16]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/align_len_reg[17]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/align_len_reg[17]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/align_len_reg[18]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/align_len_reg[18]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/align_len_reg[19]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/align_len_reg[19]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/align_len_reg[20]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/align_len_reg[20]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/align_len_reg[21]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/align_len_reg[21]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/align_len_reg[22]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/align_len_reg[22]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/align_len_reg[23]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/align_len_reg[23]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/align_len_reg[24]'
+INFO: [Synth 8-3886] merging instance 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/align_len_reg[24]' (FDRE) to 'inst/executeFirstLayer_gmem_m_axi_U/bus_read/align_len_reg[25]'
+INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+WARNING: [Synth 8-3332] Sequential element (bus_write/fifo_wreq/q_reg[33]) is unused and will be removed from module executeFirstLayer_gmem_m_axi.
+WARNING: [Synth 8-3332] Sequential element (bus_write/bus_equal_gen.fifo_burst/q_reg[5]) is unused and will be removed from module executeFirstLayer_gmem_m_axi.
+WARNING: [Synth 8-3332] Sequential element (bus_read/fifo_rreq/q_reg[33]) is unused and will be removed from module executeFirstLayer_gmem_m_axi.
+WARNING: [Synth 8-3332] Sequential element (tmp_1_mid2_reg_1058_reg[0]) is unused and will be removed from module executeFirstLayer.
+WARNING: [Synth 8-3332] Sequential element (tmp_31_reg_1085_reg[1]) is unused and will be removed from module executeFirstLayer.
+WARNING: [Synth 8-3332] Sequential element (tmp_31_reg_1085_reg[0]) is unused and will be removed from module executeFirstLayer.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:17 ; elapsed = 00:01:20 . Memory (MB): peak = 952.039 ; gain = 741.695
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:27 ; elapsed = 00:01:31 . Memory (MB): peak = 952.039 ; gain = 741.695
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:01:29 ; elapsed = 00:01:33 . Memory (MB): peak = 952.039 ; gain = 741.695
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-3332] Sequential element (executeFirstLayer_gmem_m_axi_U/bus_write/could_multi_bursts.awaddr_buf_reg[1]) is unused and will be removed from module executeFirstLayer.
+WARNING: [Synth 8-3332] Sequential element (executeFirstLayer_gmem_m_axi_U/bus_write/could_multi_bursts.awaddr_buf_reg[0]) is unused and will be removed from module executeFirstLayer.
+WARNING: [Synth 8-3332] Sequential element (executeFirstLayer_gmem_m_axi_U/bus_read/could_multi_bursts.araddr_buf_reg[1]) is unused and will be removed from module executeFirstLayer.
+WARNING: [Synth 8-3332] Sequential element (executeFirstLayer_gmem_m_axi_U/bus_read/could_multi_bursts.araddr_buf_reg[0]) is unused and will be removed from module executeFirstLayer.
+INFO: [Synth 8-4480] The timing for the instance inst/executeFirstLayer_gmem_m_axi_U/bus_write/buff_wdata/mem_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance inst/executeFirstLayer_gmem_m_axi_U/bus_read/buff_rdata/mem_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:01:32 ; elapsed = 00:01:36 . Memory (MB): peak = 952.039 ; gain = 741.695
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:01:33 ; elapsed = 00:01:37 . Memory (MB): peak = 952.039 ; gain = 741.695
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:33 ; elapsed = 00:01:37 . Memory (MB): peak = 952.039 ; gain = 741.695
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:34 ; elapsed = 00:01:37 . Memory (MB): peak = 952.039 ; gain = 741.695
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:34 ; elapsed = 00:01:37 . Memory (MB): peak = 952.039 ; gain = 741.695
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:34 ; elapsed = 00:01:38 . Memory (MB): peak = 952.039 ; gain = 741.695
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:34 ; elapsed = 00:01:38 . Memory (MB): peak = 952.039 ; gain = 741.695
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+----------+------+
+|      |Cell      |Count |
++------+----------+------+
+|1     |CARRY4    |   323|
+|2     |DSP48E1   |     1|
+|3     |DSP48E1_1 |     1|
+|4     |DSP48E1_2 |     1|
+|5     |DSP48E1_3 |     1|
+|6     |DSP48E1_4 |     1|
+|7     |LUT1      |   235|
+|8     |LUT2      |   930|
+|9     |LUT3      |   857|
+|10    |LUT4      |   259|
+|11    |LUT5      |   281|
+|12    |LUT6      |   672|
+|13    |MUXCY     |   116|
+|14    |MUXF7     |   268|
+|15    |MUXF8     |   132|
+|16    |RAMB18E1  |     2|
+|17    |SRL16E    |     2|
+|18    |SRLC32E   |   528|
+|19    |XORCY     |    25|
+|20    |FDE       |    11|
+|21    |FDRE      |  3149|
+|22    |FDSE      |     9|
++------+----------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:34 ; elapsed = 00:01:38 . Memory (MB): peak = 952.039 ; gain = 741.695
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 308 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:05 ; elapsed = 00:01:20 . Memory (MB): peak = 952.039 ; gain = 284.613
+Synthesis Optimization Complete : Time (s): cpu = 00:01:34 ; elapsed = 00:01:38 . Memory (MB): peak = 952.039 ; gain = 741.695
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 482 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ip/design_1_executeFirstLayer_0_1/constraints/executeFirstLayer_ooc.xdc] for cell 'inst'
+INFO: [Vivado 12-4761] HD.CLK_SRC property is set on port ap_clk. The net connecting to the port drives either clock PIN or hierarchical black box. Use the create_clock constraint to create a clock on this port prior to setting HD.CLK_SRC.  [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ip/design_1_executeFirstLayer_0_1/constraints/executeFirstLayer_ooc.xdc:6]
+Finished Parsing XDC File [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ip/design_1_executeFirstLayer_0_1/constraints/executeFirstLayer_ooc.xdc] for cell 'inst'
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 43 instances were transformed.
+  (MUXCY,XORCY) => CARRY4: 32 instances
+  FDE => FDRE: 11 instances
+
+INFO: [Common 17-83] Releasing license: Synthesis
+320 Infos, 195 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:01:34 ; elapsed = 00:01:36 . Memory (MB): peak = 952.039 ; gain = 688.977
+INFO: [Common 17-1381] The checkpoint 'C:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.runs/design_1_executeFirstLayer_0_1_synth_1/design_1_executeFirstLayer_0_1.dcp' has been generated.

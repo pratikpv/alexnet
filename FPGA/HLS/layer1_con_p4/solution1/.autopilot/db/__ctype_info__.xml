@@ -1,0 +1,83 @@
+<InterfaceSummary>
+<RtlPorts>
+<name>gmem</name>
+<CType>
+<TypeName>unsigned int</TypeName>
+<TypeWidth>32</TypeWidth>
+<PhysicalWidth>32</PhysicalWidth>
+</CType>
+<CFractionWidth>0</CFractionWidth>
+<InvalidType>0</InvalidType>
+</RtlPorts>
+<RtlPorts>
+<name>group_id_x</name>
+<CType>
+<TypeName>unsigned int</TypeName>
+<TypeWidth>32</TypeWidth>
+<PhysicalWidth>32</PhysicalWidth>
+</CType>
+<CFractionWidth>0</CFractionWidth>
+<InvalidType>0</InvalidType>
+</RtlPorts>
+<RtlPorts>
+<name>group_id_y</name>
+<CType>
+<TypeName>unsigned int</TypeName>
+<TypeWidth>32</TypeWidth>
+<PhysicalWidth>32</PhysicalWidth>
+</CType>
+<CFractionWidth>0</CFractionWidth>
+<InvalidType>0</InvalidType>
+</RtlPorts>
+<RtlPorts>
+<name>group_id_z</name>
+<CType>
+<TypeName>unsigned int</TypeName>
+<TypeWidth>32</TypeWidth>
+<PhysicalWidth>32</PhysicalWidth>
+</CType>
+<CFractionWidth>0</CFractionWidth>
+<InvalidType>0</InvalidType>
+</RtlPorts>
+<RtlPorts>
+<name>bias</name>
+<CType>
+<TypeName>unsigned int</TypeName>
+<TypeWidth>32</TypeWidth>
+<PhysicalWidth>32</PhysicalWidth>
+</CType>
+<CFractionWidth>0</CFractionWidth>
+<InvalidType>0</InvalidType>
+</RtlPorts>
+<RtlPorts>
+<name>Layer1_Neurons_GPU</name>
+<CType>
+<TypeName>unsigned int</TypeName>
+<TypeWidth>32</TypeWidth>
+<PhysicalWidth>32</PhysicalWidth>
+</CType>
+<CFractionWidth>0</CFractionWidth>
+<InvalidType>0</InvalidType>
+</RtlPorts>
+<RtlPorts>
+<name>Layer1_Weights_GPU</name>
+<CType>
+<TypeName>unsigned int</TypeName>
+<TypeWidth>32</TypeWidth>
+<PhysicalWidth>32</PhysicalWidth>
+</CType>
+<CFractionWidth>0</CFractionWidth>
+<InvalidType>0</InvalidType>
+</RtlPorts>
+<RtlPorts>
+<name>Layer2_Neurons_GPU</name>
+<CType>
+<TypeName>unsigned int</TypeName>
+<TypeWidth>32</TypeWidth>
+<PhysicalWidth>32</PhysicalWidth>
+</CType>
+<CFractionWidth>0</CFractionWidth>
+<InvalidType>0</InvalidType>
+</RtlPorts>
+</InterfaceSummary>
+

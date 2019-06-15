@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="layer1.cl" path="C:\Users\RA_prof_Jeon\siddharth\HLS\Alexnet_dev\layer1.cl"/>
+  </source>
+  <testbench/>
+</autopilotfilemapping:AutoPilotFileMapping>

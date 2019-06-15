@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xd:acceleratorMap xmlns:xd="http://www.xilinx.com/xidane" xd:functionName="executeFirstLayer1_p2" xd:componentRef="executeFirstLayer1_p2" xd:initiationInterval="13933219" xd:clockPeriod="10.000000" xd:sequential="true" xd:hostMachine="64" xd:reset="control">
+  <xd:controlReg xd:name="control" xd:interfaceRef="s_axi_control" xd:busTypeRef="axilite" xd:type="generic_axi_lite" xd:offset="0x0"/>
+  <xd:arg xd:name="*(gmem)" xd:originalName="gmem" xd:direction="inout" xd:interfaceRef="m_axi_gmem" xd:busTypeRef="aximm" xd:dataWidth="32" xd:bufferDirection="inout"/>
+  <xd:arg xd:name="group_id.x" xd:originalName="group_id" xd:direction="in" xd:interfaceRef="s_axi_control" xd:busTypeRef="axilite" xd:offset="0x10" xd:handshakeRef="ap_none" xd:dataWidth="32"/>
+  <xd:arg xd:name="group_id.y" xd:originalName="group_id" xd:direction="in" xd:interfaceRef="s_axi_control" xd:busTypeRef="axilite" xd:offset="0x18" xd:handshakeRef="ap_none" xd:dataWidth="32"/>
+  <xd:arg xd:name="group_id.z" xd:originalName="group_id" xd:direction="in" xd:interfaceRef="s_axi_control" xd:busTypeRef="axilite" xd:offset="0x20" xd:handshakeRef="ap_none" xd:dataWidth="32"/>
+  <xd:arg xd:name="bias" xd:originalName="bias" xd:direction="in" xd:interfaceRef="s_axi_control" xd:busTypeRef="axilite" xd:offset="0x28" xd:handshakeRef="ap_none" xd:dataWidth="32"/>
+  <xd:arg xd:name="Layer1_Neurons_GPU" xd:originalName="Layer1_Neurons_GPU" xd:direction="in" xd:interfaceRef="s_axi_control" xd:busTypeRef="axilite" xd:offset="0x30" xd:handshakeRef="ap_none" xd:dataWidth="32"/>
+  <xd:arg xd:name="Layer1_Weights_GPU" xd:originalName="Layer1_Weights_GPU" xd:direction="in" xd:interfaceRef="s_axi_control" xd:busTypeRef="axilite" xd:offset="0x38" xd:handshakeRef="ap_none" xd:dataWidth="32"/>
+  <xd:arg xd:name="Layer2_Neurons_GPU" xd:originalName="Layer2_Neurons_GPU" xd:direction="in" xd:interfaceRef="s_axi_control" xd:busTypeRef="axilite" xd:offset="0x40" xd:handshakeRef="ap_none" xd:dataWidth="32"/>
+  <xd:latencyEstimates xd:best-case="13933218" xd:worst-case="13933218" xd:average-case="13933218"/>
+  <xd:resourceEstimates xd:LUT="4336" xd:FF="2714" xd:BRAM="2" xd:DSP="9"/>
+</xd:acceleratorMap>

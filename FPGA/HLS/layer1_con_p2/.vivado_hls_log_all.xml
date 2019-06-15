@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vivadoHLSLog:LogRoot xmlns:vivadoHLSLog="www.xilinx.com/vivadoHLSLog">
+  <errorLogs>
+    <logs>
+      <synLog/>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </errorLogs>
+  <warningLogs>
+    <logs>
+      <synLog>
+        <logs message="WARNING: [XFORM 203-542] the outer loop is not a perfect loop because there is nontrivial logic in the loop latch." projectName="layer1_con_p2" solutionName="solution1" date="2019-05-05T18:34:34.532-0700" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-542] Cannot flatten a loop nest 'XCL_WG_DIM_X' in function 'executeFirstLayer1_p2' : " projectName="layer1_con_p2" solutionName="solution1" date="2019-05-05T18:34:34.527-0700" type="Warning"/>
+      </synLog>
+      <simLog/>
+      <mgLog/>
+      <packageLog>
+        <logs message="WARNING: [IP_Flow 19-4832] The IP name 'executeFirstLayer1_p2_ap_fmul_1_max_dsp_32' you have specified is long. The Windows operating system has path length limitations. It is recommended you use shorter names to reduce the likelihood of issues." projectName="layer1_con_p2" solutionName="solution1" date="2019-05-05T18:34:57.095-0700" type="Warning"/>
+        <logs message="WARNING: [IP_Flow 19-4832] The IP name 'executeFirstLayer1_p2_ap_fcmp_0_no_dsp_32' you have specified is long. The Windows operating system has path length limitations. It is recommended you use shorter names to reduce the likelihood of issues." projectName="layer1_con_p2" solutionName="solution1" date="2019-05-05T18:34:55.784-0700" type="Warning"/>
+        <logs message="WARNING: [IP_Flow 19-4832] The IP name 'executeFirstLayer1_p2_ap_fadd_2_full_dsp_32' you have specified is long. The Windows operating system has path length limitations. It is recommended you use shorter names to reduce the likelihood of issues." projectName="layer1_con_p2" solutionName="solution1" date="2019-05-05T18:34:54.592-0700" type="Warning"/>
+      </packageLog>
+      <csimLog/>
+    </logs>
+  </warningLogs>
+</vivadoHLSLog:LogRoot>

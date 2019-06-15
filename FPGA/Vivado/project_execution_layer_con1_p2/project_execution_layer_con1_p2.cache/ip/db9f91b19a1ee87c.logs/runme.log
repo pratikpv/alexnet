@@ -1,0 +1,81 @@
+
+*** Running vivado
+    with args -log design_1_xbar_0.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_xbar_0.tcl
+
+
+****** Vivado v2016.4 (64-bit)
+  **** SW Build 1756540 on Mon Jan 23 19:11:23 MST 2017
+  **** IP Build 1755317 on Mon Jan 23 20:30:07 MST 2017
+    ** Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+
+source design_1_xbar_0.tcl -notrace
+Starting RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 361.277 ; gain = 151.031
+INFO: [Synth 8-638] synthesizing module 'design_1_xbar_0' [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ip/design_1_xbar_0/synth/design_1_xbar_0.v:59]
+INFO: [Synth 8-638] synthesizing module 'axi_crossbar_v2_1_12_axi_crossbar' [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/896d/hdl/axi_crossbar_v2_1_vl_rfs.v:4882]
+INFO: [Synth 8-638] synthesizing module 'axi_crossbar_v2_1_12_crossbar_sasd' [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/896d/hdl/axi_crossbar_v2_1_vl_rfs.v:1240]
+INFO: [Synth 8-638] synthesizing module 'axi_crossbar_v2_1_12_addr_decoder' [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/896d/hdl/axi_crossbar_v2_1_vl_rfs.v:794]
+INFO: [Synth 8-638] synthesizing module 'generic_baseblocks_v2_1_0_comparator_static' [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/7ee0/hdl/generic_baseblocks_v2_1_vl_rfs.v:2133]
+INFO: [Synth 8-638] synthesizing module 'generic_baseblocks_v2_1_0_carry_and' [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/7ee0/hdl/generic_baseblocks_v2_1_vl_rfs.v:62]
+INFO: [Synth 8-256] done synthesizing module 'generic_baseblocks_v2_1_0_carry_and' (1#1) [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/7ee0/hdl/generic_baseblocks_v2_1_vl_rfs.v:62]
+INFO: [Synth 8-256] done synthesizing module 'generic_baseblocks_v2_1_0_comparator_static' (2#1) [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/7ee0/hdl/generic_baseblocks_v2_1_vl_rfs.v:2133]
+INFO: [Synth 8-638] synthesizing module 'generic_baseblocks_v2_1_0_comparator_static__parameterized0' [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/7ee0/hdl/generic_baseblocks_v2_1_vl_rfs.v:2133]
+INFO: [Synth 8-256] done synthesizing module 'generic_baseblocks_v2_1_0_comparator_static__parameterized0' (2#1) [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/7ee0/hdl/generic_baseblocks_v2_1_vl_rfs.v:2133]
+INFO: [Synth 8-638] synthesizing module 'generic_baseblocks_v2_1_0_comparator_static__parameterized1' [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/7ee0/hdl/generic_baseblocks_v2_1_vl_rfs.v:2133]
+INFO: [Synth 8-256] done synthesizing module 'generic_baseblocks_v2_1_0_comparator_static__parameterized1' (2#1) [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/7ee0/hdl/generic_baseblocks_v2_1_vl_rfs.v:2133]
+INFO: [Synth 8-256] done synthesizing module 'axi_crossbar_v2_1_12_addr_decoder' (3#1) [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/896d/hdl/axi_crossbar_v2_1_vl_rfs.v:794]
+INFO: [Synth 8-638] synthesizing module 'axi_crossbar_v2_1_12_decerr_slave' [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/896d/hdl/axi_crossbar_v2_1_vl_rfs.v:3500]
+INFO: [Synth 8-256] done synthesizing module 'axi_crossbar_v2_1_12_decerr_slave' (4#1) [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/896d/hdl/axi_crossbar_v2_1_vl_rfs.v:3500]
+INFO: [Synth 8-638] synthesizing module 'axi_crossbar_v2_1_12_addr_arbiter_sasd' [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/896d/hdl/axi_crossbar_v2_1_vl_rfs.v:65]
+INFO: [Synth 8-256] done synthesizing module 'axi_crossbar_v2_1_12_addr_arbiter_sasd' (5#1) [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/896d/hdl/axi_crossbar_v2_1_vl_rfs.v:65]
+INFO: [Synth 8-638] synthesizing module 'axi_crossbar_v2_1_12_splitter' [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/896d/hdl/axi_crossbar_v2_1_vl_rfs.v:4459]
+INFO: [Synth 8-256] done synthesizing module 'axi_crossbar_v2_1_12_splitter' (6#1) [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/896d/hdl/axi_crossbar_v2_1_vl_rfs.v:4459]
+INFO: [Synth 8-638] synthesizing module 'axi_crossbar_v2_1_12_splitter__parameterized0' [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/896d/hdl/axi_crossbar_v2_1_vl_rfs.v:4459]
+INFO: [Synth 8-256] done synthesizing module 'axi_crossbar_v2_1_12_splitter__parameterized0' (6#1) [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/896d/hdl/axi_crossbar_v2_1_vl_rfs.v:4459]
+INFO: [Synth 8-638] synthesizing module 'generic_baseblocks_v2_1_0_mux_enc' [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/7ee0/hdl/generic_baseblocks_v2_1_vl_rfs.v:2452]
+INFO: [Synth 8-256] done synthesizing module 'generic_baseblocks_v2_1_0_mux_enc' (7#1) [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/7ee0/hdl/generic_baseblocks_v2_1_vl_rfs.v:2452]
+INFO: [Synth 8-638] synthesizing module 'generic_baseblocks_v2_1_0_mux_enc__parameterized0' [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/7ee0/hdl/generic_baseblocks_v2_1_vl_rfs.v:2452]
+INFO: [Synth 8-256] done synthesizing module 'generic_baseblocks_v2_1_0_mux_enc__parameterized0' (7#1) [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/7ee0/hdl/generic_baseblocks_v2_1_vl_rfs.v:2452]
+INFO: [Synth 8-638] synthesizing module 'generic_baseblocks_v2_1_0_mux_enc__parameterized1' [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/7ee0/hdl/generic_baseblocks_v2_1_vl_rfs.v:2452]
+INFO: [Synth 8-256] done synthesizing module 'generic_baseblocks_v2_1_0_mux_enc__parameterized1' (7#1) [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/7ee0/hdl/generic_baseblocks_v2_1_vl_rfs.v:2452]
+INFO: [Synth 8-638] synthesizing module 'generic_baseblocks_v2_1_0_mux_enc__parameterized2' [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/7ee0/hdl/generic_baseblocks_v2_1_vl_rfs.v:2452]
+INFO: [Synth 8-256] done synthesizing module 'generic_baseblocks_v2_1_0_mux_enc__parameterized2' (7#1) [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/7ee0/hdl/generic_baseblocks_v2_1_vl_rfs.v:2452]
+INFO: [Synth 8-638] synthesizing module 'axi_register_slice_v2_1_11_axic_register_slice' [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/0b6b/hdl/axi_register_slice_v2_1_vl_rfs.v:85]
+INFO: [Synth 8-256] done synthesizing module 'axi_register_slice_v2_1_11_axic_register_slice' (8#1) [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/0b6b/hdl/axi_register_slice_v2_1_vl_rfs.v:85]
+INFO: [Synth 8-638] synthesizing module 'generic_baseblocks_v2_1_0_mux_enc__parameterized3' [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/7ee0/hdl/generic_baseblocks_v2_1_vl_rfs.v:2452]
+INFO: [Synth 8-256] done synthesizing module 'generic_baseblocks_v2_1_0_mux_enc__parameterized3' (8#1) [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/7ee0/hdl/generic_baseblocks_v2_1_vl_rfs.v:2452]
+INFO: [Synth 8-256] done synthesizing module 'axi_crossbar_v2_1_12_crossbar_sasd' (9#1) [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/896d/hdl/axi_crossbar_v2_1_vl_rfs.v:1240]
+INFO: [Synth 8-256] done synthesizing module 'axi_crossbar_v2_1_12_axi_crossbar' (10#1) [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/896d/hdl/axi_crossbar_v2_1_vl_rfs.v:4882]
+INFO: [Synth 8-256] done synthesizing module 'design_1_xbar_0' (11#1) [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ip/design_1_xbar_0/synth/design_1_xbar_0.v:59]
+Finished RTL Elaboration : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 476.297 ; gain = 266.051
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:15 . Memory (MB): peak = 476.297 ; gain = 266.051
+INFO: [Device 21-403] Loading part xc7z045ffg900-2
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.109 . Memory (MB): peak = 776.219 ; gain = 0.012
+Finished Constraint Validation : Time (s): cpu = 00:00:20 ; elapsed = 00:00:24 . Memory (MB): peak = 776.219 ; gain = 565.973
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:20 ; elapsed = 00:00:24 . Memory (MB): peak = 776.219 ; gain = 565.973
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:20 ; elapsed = 00:00:24 . Memory (MB): peak = 776.219 ; gain = 565.973
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:20 ; elapsed = 00:00:24 . Memory (MB): peak = 776.219 ; gain = 565.973
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:20 ; elapsed = 00:00:25 . Memory (MB): peak = 776.219 ; gain = 565.973
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:28 ; elapsed = 00:00:32 . Memory (MB): peak = 776.219 ; gain = 565.973
+Finished Timing Optimization : Time (s): cpu = 00:00:28 ; elapsed = 00:00:32 . Memory (MB): peak = 776.219 ; gain = 565.973
+Finished Technology Mapping : Time (s): cpu = 00:00:28 ; elapsed = 00:00:33 . Memory (MB): peak = 776.219 ; gain = 565.973
+Finished IO Insertion : Time (s): cpu = 00:00:29 ; elapsed = 00:00:33 . Memory (MB): peak = 776.219 ; gain = 565.973
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:29 ; elapsed = 00:00:33 . Memory (MB): peak = 776.219 ; gain = 565.973
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:29 ; elapsed = 00:00:33 . Memory (MB): peak = 776.219 ; gain = 565.973
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:29 ; elapsed = 00:00:33 . Memory (MB): peak = 776.219 ; gain = 565.973
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:29 ; elapsed = 00:00:33 . Memory (MB): peak = 776.219 ; gain = 565.973
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:29 ; elapsed = 00:00:33 . Memory (MB): peak = 776.219 ; gain = 565.973
+
+Report Cell Usage: 
++------+-----+------+
+|      |Cell |Count |
++------+-----+------+
+|1     |LUT1 |     2|
+|2     |LUT2 |    10|
+|3     |LUT3 |    39|
+|4     |LUT4 |    51|
+|5     |LUT5 |    50|
+|6     |LUT6 |    22|
+|7     |FDRE |   131|
++------+-----+------+
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:29 ; elapsed = 00:00:33 . Memory (MB): peak = 776.219 ; gain = 565.973
+synth_design: Time (s): cpu = 00:00:26 ; elapsed = 00:00:29 . Memory (MB): peak = 776.219 ; gain = 501.477

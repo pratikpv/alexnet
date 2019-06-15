@@ -1,0 +1,36 @@
+{
+   guistr: "# # String gsaved with Nlview 6.6.5b  2016-09-06 bk=1.3687 VDI=39 GEI=35 GUI=JA:1.6
+#  -string -flagsOSRD
+preplace port DDR -pg 1 -y -240 -defaultsOSRD
+preplace port FIXED_IO -pg 1 -y -220 -defaultsOSRD
+preplace inst executeFirstLayer1_p4_0 -pg 1 -lvl 5 -y -630 -defaultsOSRD
+preplace inst rst_ps7_0_50M -pg 1 -lvl 3 -y -80 -defaultsOSRD
+preplace inst executeFirstLayer1_p2_0 -pg 1 -lvl 1 -y -170 -defaultsOSRD
+preplace inst executeFirstLayer1_p3_0 -pg 1 -lvl 1 -y -620 -defaultsOSRD
+preplace inst executeFirstLayer_0 -pg 1 -lvl 1 -y -500 -defaultsOSRD
+preplace inst ps7_0_axi_periph -pg 1 -lvl 4 -y 0 -defaultsOSRD
+preplace inst axi_mem_intercon -pg 1 -lvl 4 -y -420 -defaultsOSRD
+preplace inst processing_system7_0 -pg 1 -lvl 2 -y -150 -defaultsOSRD
+preplace netloc ps7_0_axi_periph_M02_AXI 1 0 5 10 180 NJ 180 NJ 180 NJ 180 1520
+preplace netloc processing_system7_0_DDR 1 2 4 800J -210 NJ -210 NJ -210 1890J
+preplace netloc executeFirstLayer1_p3_0_m_axi_gmem 1 1 3 NJ -630 NJ -630 1160
+preplace netloc executeFirstLayer1_p2_0_m_axi_gmem 1 1 3 370 -550 NJ -550 NJ
+preplace netloc processing_system7_0_M_AXI_GP0 1 2 2 NJ -170 1170J
+preplace netloc executeFirstLayer_0_m_axi_gmem 1 1 3 NJ -510 NJ -510 1180J
+preplace netloc processing_system7_0_FCLK_RESET0_N 1 2 1 800
+preplace netloc executeFirstLayer1_p4_0_m_axi_gmem 1 3 3 1210 -700 NJ -700 1890
+preplace netloc ps7_0_axi_periph_M03_AXI 1 4 1 1570
+preplace netloc axi_mem_intercon_M00_AXI 1 1 4 380 -670 NJ -670 NJ -670 1540
+preplace netloc ps7_0_axi_periph_M01_AXI 1 0 5 40 -280 NJ -280 NJ -280 1170J -190 1520
+preplace netloc rst_ps7_0_50M_interconnect_aresetn 1 3 1 1160
+preplace netloc processing_system7_0_FIXED_IO 1 2 4 780J -200 NJ -200 NJ -200 1900J
+preplace netloc rst_ps7_0_50M_peripheral_aresetn 1 0 5 30 -390 NJ -390 NJ -390 1200 -640 1560J
+preplace netloc processing_system7_0_FCLK_CLK0 1 0 5 20 -290 360 -290 790 -290 1190 -650 1550J
+preplace netloc ps7_0_axi_periph_M00_AXI 1 0 5 40 -430 NJ -430 NJ -430 1170J -630 1530
+levelinfo -pg 1 -10 200 590 1000 1390 1730 1970 -top -940 -bot 190
+",
+}
+{
+   da_axi4_cnt: "12",
+   da_ps7_cnt: "1",
+}

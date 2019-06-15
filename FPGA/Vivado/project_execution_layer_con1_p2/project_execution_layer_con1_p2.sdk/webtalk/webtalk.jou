@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Webtalk v2018.3 (64-bit)
+# SW Build 2405991 on Thu Dec  6 23:38:27 MST 2018
+# 
+# Start of session at: Tue May  7 17:48:13 2019
+# Process ID: 10660
+# Current directory: C:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.sdk/webtalk
+# Command line: wbtcv.exe -mode batch -source sdk_webtalk.tcl
+# Log file: C:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.sdk/webtalk/webtalk.log
+# Journal file: C:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.sdk/webtalk\webtalk.jou
+#-----------------------------------------------------------
+source sdk_webtalk.tcl

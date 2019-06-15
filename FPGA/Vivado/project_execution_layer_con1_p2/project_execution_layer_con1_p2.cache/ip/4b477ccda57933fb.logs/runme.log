@@ -1,0 +1,92 @@
+
+*** Running vivado
+    with args -log design_1_auto_pc_0.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_auto_pc_0.tcl
+
+
+****** Vivado v2016.4 (64-bit)
+  **** SW Build 1756540 on Mon Jan 23 19:11:23 MST 2017
+  **** IP Build 1755317 on Mon Jan 23 20:30:07 MST 2017
+    ** Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+
+source design_1_auto_pc_0.tcl -notrace
+Starting RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:10 . Memory (MB): peak = 349.832 ; gain = 139.969
+INFO: [Synth 8-638] synthesizing module 'design_1_auto_pc_0' [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_0/synth/design_1_auto_pc_0.v:58]
+INFO: [Synth 8-638] synthesizing module 'axi_protocol_converter_v2_1_11_axi_protocol_converter' [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/df1b/hdl/axi_protocol_converter_v2_1_vl_rfs.v:4806]
+INFO: [Synth 8-638] synthesizing module 'axi_protocol_converter_v2_1_11_axi3_conv' [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/df1b/hdl/axi_protocol_converter_v2_1_vl_rfs.v:954]
+INFO: [Synth 8-638] synthesizing module 'axi_protocol_converter_v2_1_11_b_downsizer' [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/df1b/hdl/axi_protocol_converter_v2_1_vl_rfs.v:2276]
+INFO: [Synth 8-256] done synthesizing module 'axi_protocol_converter_v2_1_11_b_downsizer' (1#1) [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/df1b/hdl/axi_protocol_converter_v2_1_vl_rfs.v:2276]
+INFO: [Synth 8-638] synthesizing module 'axi_protocol_converter_v2_1_11_a_axi3_conv' [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/df1b/hdl/axi_protocol_converter_v2_1_vl_rfs.v:62]
+INFO: [Synth 8-638] synthesizing module 'axi_data_fifo_v2_1_10_axic_fifo' [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/39ba/hdl/axi_data_fifo_v2_1_vl_rfs.v:64]
+INFO: [Synth 8-638] synthesizing module 'axi_data_fifo_v2_1_10_fifo_gen' [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/39ba/hdl/axi_data_fifo_v2_1_vl_rfs.v:168]
+INFO: [Synth 8-256] done synthesizing module 'axi_data_fifo_v2_1_10_fifo_gen' (20#1) [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/39ba/hdl/axi_data_fifo_v2_1_vl_rfs.v:168]
+INFO: [Synth 8-256] done synthesizing module 'axi_data_fifo_v2_1_10_axic_fifo' (21#1) [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/39ba/hdl/axi_data_fifo_v2_1_vl_rfs.v:64]
+INFO: [Synth 8-256] done synthesizing module 'axi_protocol_converter_v2_1_11_a_axi3_conv' (22#1) [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/df1b/hdl/axi_protocol_converter_v2_1_vl_rfs.v:62]
+INFO: [Synth 8-638] synthesizing module 'axi_protocol_converter_v2_1_11_w_axi3_conv' [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/df1b/hdl/axi_protocol_converter_v2_1_vl_rfs.v:2004]
+INFO: [Synth 8-256] done synthesizing module 'axi_protocol_converter_v2_1_11_w_axi3_conv' (23#1) [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/df1b/hdl/axi_protocol_converter_v2_1_vl_rfs.v:2004]
+INFO: [Synth 8-638] synthesizing module 'axi_protocol_converter_v2_1_11_a_axi3_conv__parameterized0' [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/df1b/hdl/axi_protocol_converter_v2_1_vl_rfs.v:62]
+INFO: [Synth 8-638] synthesizing module 'axi_data_fifo_v2_1_10_axic_fifo__parameterized0' [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/39ba/hdl/axi_data_fifo_v2_1_vl_rfs.v:64]
+INFO: [Synth 8-638] synthesizing module 'axi_data_fifo_v2_1_10_fifo_gen__parameterized0' [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/39ba/hdl/axi_data_fifo_v2_1_vl_rfs.v:168]
+INFO: [Synth 8-256] done synthesizing module 'axi_data_fifo_v2_1_10_fifo_gen__parameterized0' (23#1) [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/39ba/hdl/axi_data_fifo_v2_1_vl_rfs.v:168]
+INFO: [Synth 8-256] done synthesizing module 'axi_data_fifo_v2_1_10_axic_fifo__parameterized0' (23#1) [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/39ba/hdl/axi_data_fifo_v2_1_vl_rfs.v:64]
+INFO: [Synth 8-256] done synthesizing module 'axi_protocol_converter_v2_1_11_a_axi3_conv__parameterized0' (23#1) [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/df1b/hdl/axi_protocol_converter_v2_1_vl_rfs.v:62]
+INFO: [Synth 8-638] synthesizing module 'axi_protocol_converter_v2_1_11_r_axi3_conv' [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/df1b/hdl/axi_protocol_converter_v2_1_vl_rfs.v:1789]
+INFO: [Synth 8-256] done synthesizing module 'axi_protocol_converter_v2_1_11_r_axi3_conv' (24#1) [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/df1b/hdl/axi_protocol_converter_v2_1_vl_rfs.v:1789]
+INFO: [Synth 8-256] done synthesizing module 'axi_protocol_converter_v2_1_11_axi3_conv' (25#1) [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/df1b/hdl/axi_protocol_converter_v2_1_vl_rfs.v:954]
+INFO: [Synth 8-256] done synthesizing module 'axi_protocol_converter_v2_1_11_axi_protocol_converter' (26#1) [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ipshared/df1b/hdl/axi_protocol_converter_v2_1_vl_rfs.v:4806]
+INFO: [Synth 8-256] done synthesizing module 'design_1_auto_pc_0' (27#1) [c:/Users/RA_prof_Jeon/siddharth/Vivado/project_execution_layer_con1_p2/project_execution_layer_con1_p2.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_0/synth/design_1_auto_pc_0.v:58]
+Finished RTL Elaboration : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 467.883 ; gain = 258.020
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:28 ; elapsed = 00:00:31 . Memory (MB): peak = 467.883 ; gain = 258.020
+INFO: [Device 21-403] Loading part xc7z045ffg900-2
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.035 . Memory (MB): peak = 773.234 ; gain = 0.059
+Finished Constraint Validation : Time (s): cpu = 00:00:36 ; elapsed = 00:00:40 . Memory (MB): peak = 773.234 ; gain = 563.371
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:36 ; elapsed = 00:00:40 . Memory (MB): peak = 773.234 ; gain = 563.371
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:36 ; elapsed = 00:00:40 . Memory (MB): peak = 773.234 ; gain = 563.371
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:37 ; elapsed = 00:00:41 . Memory (MB): peak = 773.234 ; gain = 563.371
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:39 ; elapsed = 00:00:43 . Memory (MB): peak = 773.234 ; gain = 563.371
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Distributed RAM: Preliminary Mapping  Report (see note below)
++-----------------------+-------------------------------------------------------------------------------+----------------+----------------------+----------------+
+|Module Name            | RTL Object                                                                    | Inference      | Size (Depth x Width) | Primitives     | 
++-----------------------+-------------------------------------------------------------------------------+----------------+----------------------+----------------+
+|fifo_generator_v13_1_3 | inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg | User Attribute | 32 x 5               | RAM32M x 1     | 
+|fifo_generator_v13_1_3 | inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg | User Attribute | 32 x 5               | RAM32M x 1     | 
+|fifo_generator_v13_1_3 | inst_fifo_gen/gconvfifo.rf/grf.rf/gntv_or_sync_fifo.mem/gdm.dm_gen.dm/RAM_reg | User Attribute | 32 x 1               | RAM32X1D x 1   | 
++-----------------------+-------------------------------------------------------------------------------+----------------+----------------------+----------------+
+
+Note: The table above is a preliminary report that shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:46 ; elapsed = 00:00:50 . Memory (MB): peak = 773.234 ; gain = 563.371
+Finished Timing Optimization : Time (s): cpu = 00:00:46 ; elapsed = 00:00:50 . Memory (MB): peak = 773.234 ; gain = 563.371
+Finished Technology Mapping : Time (s): cpu = 00:00:47 ; elapsed = 00:00:51 . Memory (MB): peak = 773.234 ; gain = 563.371
+Finished IO Insertion : Time (s): cpu = 00:00:47 ; elapsed = 00:00:51 . Memory (MB): peak = 773.234 ; gain = 563.371
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:47 ; elapsed = 00:00:51 . Memory (MB): peak = 773.234 ; gain = 563.371
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:47 ; elapsed = 00:00:51 . Memory (MB): peak = 773.234 ; gain = 563.371
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:47 ; elapsed = 00:00:51 . Memory (MB): peak = 773.234 ; gain = 563.371
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:47 ; elapsed = 00:00:51 . Memory (MB): peak = 773.234 ; gain = 563.371
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:47 ; elapsed = 00:00:51 . Memory (MB): peak = 773.234 ; gain = 563.371
+
+Report Cell Usage: 
++------+---------+------+
+|      |Cell     |Count |
++------+---------+------+
+|1     |CARRY4   |    16|
+|2     |LUT1     |    20|
+|3     |LUT2     |    48|
+|4     |LUT3     |    54|
+|5     |LUT4     |    73|
+|6     |LUT5     |   159|
+|7     |LUT6     |    79|
+|8     |RAM32M   |     2|
+|9     |RAM32X1D |     1|
+|10    |FDCE     |    69|
+|11    |FDPE     |    63|
+|12    |FDRE     |   335|
+|13    |FDSE     |     5|
++------+---------+------+
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:47 ; elapsed = 00:00:51 . Memory (MB): peak = 773.234 ; gain = 563.371
+synth_design: Time (s): cpu = 00:00:46 ; elapsed = 00:00:48 . Memory (MB): peak = 773.234 ; gain = 509.797

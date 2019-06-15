@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+  <core name="" type="" target="">
+    <kernel name="executeFirstLayer1_p2" language="clc" vlnv="xilinx.com:hls:executeFirstLayer1_p2:1.0" attributes="" hash="" preferredWorkGroupSizeMultiple="0" workGroupSize="1" debug="false">
+      <port name="M_AXI_GMEM" mode="master" range="0xFFFFFFFF" dataWidth="32" portType="addressable" base="0x00000000"/>
+      <port name="S_AXI_CONTROL" mode="slave" range="0x1000" dataWidth="32" portType="addressable" base="0x00000000"/>
+      <arg name="group_id.x" addressQualifier="0" id="0" port="S_AXI_CONTROL" size="0x4" offset="0x10" hostOffset="0x0" hostSize="0x4" type=""/>
+      <arg name="group_id.y" addressQualifier="0" id="1" port="S_AXI_CONTROL" size="0x4" offset="0x18" hostOffset="0x0" hostSize="0x4" type=""/>
+      <arg name="group_id.z" addressQualifier="0" id="2" port="S_AXI_CONTROL" size="0x4" offset="0x20" hostOffset="0x0" hostSize="0x4" type=""/>
+      <arg name="bias" addressQualifier="0" id="3" port="S_AXI_CONTROL" size="0x4" offset="0x28" hostOffset="0x0" hostSize="0x4" type=""/>
+      <arg name="Layer1_Neurons_GPU" addressQualifier="0" id="4" port="S_AXI_CONTROL" size="0x4" offset="0x30" hostOffset="0x0" hostSize="0x4" type=""/>
+      <arg name="Layer1_Weights_GPU" addressQualifier="0" id="5" port="S_AXI_CONTROL" size="0x4" offset="0x38" hostOffset="0x0" hostSize="0x4" type=""/>
+      <arg name="Layer2_Neurons_GPU" addressQualifier="0" id="6" port="S_AXI_CONTROL" size="0x4" offset="0x40" hostOffset="0x0" hostSize="0x4" type=""/>
+      <compileWorkGroupSize x="1" y="1" z="1"/>
+    </kernel>
+  </core>
+</project>

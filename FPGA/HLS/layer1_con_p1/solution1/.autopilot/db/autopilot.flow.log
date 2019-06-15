@@ -1,0 +1,731 @@
+@I [HLS-0] Workspace C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1 opened at Sun May 05 18:27:14 -0700 2019
+@I [HLS-100] Execute     config_clock -quiet -name default -period 10 -default=false 
+@I [SYN-201] Setting up clock 'default' with a period of 10ns.
+@I [HLS-100] Command     config_clock returned 0; 0 sec.
+@I [HLS-100] Execute     open_platform DefaultPlatform 
+@I [HLS-100] Command     open_platform returned 0; 0 sec.
+@I [HLS-100] Execute     import_lib C:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/zynq/zynq 
+@I [HLS-100] Execute       source C:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/common/xilinx.lib 
+@I [HLS-100] Execute         source C:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/interface/xilinx_interface.lib 
+@I [HLS-100] Execute           source C:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/interface/plb46.lib 
+@I [HLS-100] Command           ap_source returned 0; 0 sec.
+@I [HLS-100] Execute           source C:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/interface/fsl.lib 
+@I [HLS-100] Command           ap_source returned 0; 0 sec.
+@I [HLS-100] Execute           source C:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/interface/axi4.lib 
+@I [HLS-100] Command           ap_source returned 0; 0.001 sec.
+@I [HLS-100] Execute           source C:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/interface/maxi.lib 
+@I [HLS-100] Command           ap_source returned 0; 0 sec.
+@I [HLS-100] Execute           source C:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/interface/saxilite.lib 
+@I [HLS-100] Command           ap_source returned 0; 0 sec.
+@I [HLS-100] Command         ap_source returned 0; 0.002 sec.
+@I [HLS-100] Execute         source C:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/common/dsp48.lib 
+@I [HLS-100] Command         ap_source returned 0; 0 sec.
+@I [HLS-100] Execute         source C:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/ip/dds_compiler.lib 
+@I [HLS-100] Command         ap_source returned 0; 0 sec.
+@I [HLS-100] Execute         source C:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/ip/xfft.lib 
+@I [HLS-100] Command         ap_source returned 0; 0 sec.
+@I [HLS-100] Execute         source C:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/ip/xfir.lib 
+@I [HLS-100] Command         ap_source returned 0; 0 sec.
+@I [HLS-100] Command       ap_source returned 0; 0.005 sec.
+@I [HLS-100] Execute       source C:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/common/xilinx_old.lib 
+@I [HLS-100] Command       ap_source returned 0; 0.001 sec.
+@I [HLS-100] Execute       source C:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/common/xilinx_vivado.lib 
+@I [HLS-100] Command       ap_source returned 0; 0.001 sec.
+@I [HLS-100] Execute       source C:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/common/xilinx.hlp 
+@I [HLS-100] Execute         source C:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/common/target_info.tcl 
+@I [HLS-100] Command         ap_source returned 0; 0.001 sec.
+@I [HLS-100] Execute         source C:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/interface/xilinx_interface.hlp 
+@I [HLS-100] Execute           source C:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/interface/maxi.hlp 
+@I [HLS-100] Command           ap_source returned 0; 0.001 sec.
+@I [HLS-100] Execute           source C:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/interface/saxilite.hlp 
+@I [HLS-100] Command           ap_source returned 0; 0 sec.
+@I [HLS-100] Command         ap_source returned 0; 0.001 sec.
+@I [HLS-100] Execute         source C:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/common/dsp48.hlp 
+@I [HLS-100] Command         ap_source returned 0; 0.001 sec.
+@I [HLS-100] Command       ap_source returned 0; 0.003 sec.
+@I [HLS-100] Execute       source C:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/zynq/dsp48e1.hlp 
+@I [HLS-100] Command       ap_source returned 0; 0.001 sec.
+@I [HLS-100] Execute       get_default_platform 
+@I [HLS-100] Command       get_default_platform returned 0; 0 sec.
+@I [HLS-100] Execute       config_chip_info -quiet -resource  {SLICE 13300}  {LUT 53200}     {FF 106400} {DSP48E 220}   {BRAM 280}  
+@I [HLS-100] Command       config_chip_info returned 0; 0 sec.
+@I [HLS-100] Execute       config_chip_info -quiet -speed medium 
+@I [HLS-100] Command       config_chip_info returned 0; 0 sec.
+@I [HLS-100] Command     import_lib returned 0; 0.015 sec.
+@I [HLS-100] Execute     source C:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/zynq/zynq.gen 
+@I [HLS-100] Execute       source C:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/common/virtex.gen 
+@I [HLS-100] Execute         source C:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/common/xilinx.gen 
+@I [HLS-100] Execute           source C:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/interface/plb46.gen 
+@I [HLS-100] Command           ap_source returned 0; 0.001 sec.
+@I [HLS-100] Execute           source C:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/interface/fsl.gen 
+@I [HLS-100] Command           ap_source returned 0; 0.001 sec.
+@I [HLS-100] Execute           source C:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/interface/axi4.gen 
+@I [HLS-100] Command           ap_source returned 0; 0.002 sec.
+@I [HLS-100] Execute           source C:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/interface/nativeAXI4.gen 
+@I [HLS-100] Execute             source C:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/interface/saxilite.gen 
+@I [HLS-100] Command             ap_source returned 0; 0.003 sec.
+@I [HLS-100] Execute             source C:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/interface/maxi.gen 
+@I [HLS-100] Command             ap_source returned 0; 0.008 sec.
+@I [HLS-100] Command           ap_source returned 0; 0.011 sec.
+@I [HLS-100] Execute           source C:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/scripts/xilinxcoregen.gen 
+@I [HLS-100] Command           ap_source returned 0; 0.009 sec.
+@I [HLS-100] Execute           source C:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+@I [HLS-100] Command           ap_source returned 0; 0.007 sec.
+@I [HLS-100] Execute           source C:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/ip/dds_compiler.gen 
+@I [HLS-100] Command           ap_source returned 0; 0.002 sec.
+@I [HLS-100] Execute           source C:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/ip/util.gen 
+@I [HLS-100] Command           ap_source returned 0; 0 sec.
+@I [HLS-100] Execute           source C:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/ip/xfft.gen 
+@I [HLS-100] Command           ap_source returned 0; 0.077 sec.
+@I [HLS-100] Execute           source C:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/ip/xfir.gen 
+@I [HLS-100] Command           ap_source returned 0; 0.001 sec.
+@I [HLS-100] Command         ap_source returned 0; 0.114 sec.
+@I [HLS-100] Execute         source C:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/common/dsp48.gen 
+@I [HLS-100] Command         ap_source returned 0; 0 sec.
+@I [HLS-100] Command       ap_source returned 0; 0.116 sec.
+@I [HLS-100] Command     ap_source returned 0; 0.116 sec.
+@I [HLS-100] Execute     open_platform DefaultPlatform 
+@I [HLS-100] Command     open_platform returned 0; 0 sec.
+@I [HLS-100] Execute     import_lib C:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/zynq/zynq_fpv6 
+@I [HLS-100] Execute       source C:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/common/xilinx_fpv7.lib 
+@I [HLS-100] Execute         source C:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/common/xilinx_hp.lib 
+@I [HLS-100] Command         ap_source returned 0; 0 sec.
+@I [HLS-100] Command       ap_source returned 0; 0.003 sec.
+@I [HLS-100] Execute       source C:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/common/xilinx_fpv.hlp 
+@I [HLS-100] Execute         source C:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/common/xilinx.hlp 
+@I [HLS-100] Execute           source C:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/common/target_info.tcl 
+@I [HLS-100] Command           ap_source returned 0; 0.005 sec.
+@I [HLS-100] Execute           source C:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/interface/xilinx_interface.hlp 
+@I [HLS-100] Execute             source C:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/interface/maxi.hlp 
+@I [HLS-100] Command             ap_source returned 0; 0 sec.
+@I [HLS-100] Execute             source C:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/interface/saxilite.hlp 
+@I [HLS-100] Command             ap_source returned 0; 0 sec.
+@I [HLS-100] Command           ap_source returned 0; 0 sec.
+@I [HLS-100] Execute           source C:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/common/dsp48.hlp 
+@I [HLS-100] Command           ap_source returned 0; 0 sec.
+@I [HLS-100] Command         ap_source returned 0; 0.008 sec.
+@I [HLS-100] Command       ap_source returned 0; 0.009 sec.
+@I [HLS-100] Execute       source C:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/zynq/zynq_hp.hlp 
+@I [HLS-100] Command       ap_source returned 0; 0.001 sec.
+@I [HLS-100] Command     import_lib returned 0; 0.021 sec.
+@I [HLS-100] Execute     source C:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/zynq/zynq_fpv6.gen 
+@I [HLS-100] Execute       source C:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/common/xilinx_fpv6.gen 
+@I [HLS-100] Command       ap_source returned 0; 0.001 sec.
+@I [HLS-100] Command     ap_source returned 0; 0.002 sec.
+@I [HLS-100] Execute     set_part xc7z045ffg900-2 
+@I [HLS-100] Execute       add_library xilinx/zynq/zynq:xc7z045:ffg900:-2 
+@I [HLS-100] Execute         get_default_platform 
+@I [HLS-100] Command         get_default_platform returned 0; 0 sec.
+@I [HLS-100] Execute         license_isbetapart xc7z045 
+@I [HLS-100] Command         license_isbetapart returned 1; 0.022 sec.
+@I [HLS-100] Execute         get_default_platform 
+@I [HLS-100] Command         get_default_platform returned 0; 0 sec.
+@I [HLS-100] Execute         config_chip_info -quiet -resource  {SLICE 54650}  {LUT 218600}    {FF 437200} {DSP48E 900}   {BRAM 1090}  
+@I [HLS-100] Command         config_chip_info returned 0; 0 sec.
+@I [HLS-100] Execute         config_chip_info -quiet -speed medium 
+@I [HLS-100] Command         config_chip_info returned 0; 0 sec.
+@I [HLS-100] Command       add_library returned 0; 0.035 sec.
+@I [HLS-100] Execute       add_library xilinx/zynq/zynq_fpv6 
+@I [HLS-100] Execute         get_default_platform 
+@I [HLS-100] Command         get_default_platform returned 0; 0 sec.
+@I [HLS-100] Command       add_library returned 0; 0.002 sec.
+@I [HLS-10] Setting target device to 'xc7z045ffg900-2'
+@I [HLS-100] Command     set_part returned 0; 0.043 sec.
+@I [HLS-100] Execute     get_default_platform 
+@I [HLS-100] Command     get_default_platform returned 0; 0 sec.
+@I [HLS-100] Execute     config_chip_info -quiet -resource  {SLICE 54650}  {LUT 218600}    {FF 437200} {DSP48E 900}   {BRAM 1090}  
+@I [HLS-100] Command     config_chip_info returned 0; 0 sec.
+@I [HLS-100] Execute     config_chip_info -quiet -speed medium 
+@I [HLS-100] Command     config_chip_info returned 0; 0 sec.
+@I [HLS-100] Command   open_solution returned 0; 0.223 sec.
+@I [HLS-100] Execute   set_part xc7z045ffg900-2 -tool vivado 
+@I [HLS-100] Execute     add_library xilinx/zynq/zynq:xc7z045:ffg900:-2 
+@I [HLS-100] Execute       get_default_platform 
+@I [HLS-100] Command       get_default_platform returned 0; 0 sec.
+@I [HLS-100] Execute       license_isbetapart xc7z045 
+@I [HLS-100] Command       license_isbetapart returned 1; 0 sec.
+@I [HLS-100] Execute       get_default_platform 
+@I [HLS-100] Command       get_default_platform returned 0; 0 sec.
+@I [HLS-100] Execute       config_chip_info -quiet -resource  {SLICE 54650}  {LUT 218600}    {FF 437200} {DSP48E 900}   {BRAM 1090}  
+@I [HLS-100] Command       config_chip_info returned 0; 0 sec.
+@I [HLS-100] Execute       config_chip_info -quiet -speed medium 
+@I [HLS-100] Command       config_chip_info returned 0; 0 sec.
+@I [HLS-100] Command     add_library returned 0; 0.007 sec.
+@I [HLS-100] Execute     add_library xilinx/zynq/zynq_fpv6 
+@I [HLS-100] Execute       get_default_platform 
+@I [HLS-100] Command       get_default_platform returned 0; 0 sec.
+@I [HLS-100] Command     add_library returned 0; 0.002 sec.
+@I [HLS-100] Command   set_part returned 0; 0.016 sec.
+@I [HLS-100] Execute   create_clock -period 10 -name default 
+@I [HLS-100] Command   create_clock returned 0; 0.002 sec.
+@I [HLS-100] Execute   csynth_design 
+@I [HLS-100] Execute     elaborate -effort=medium -skip_syncheck=0 -keep_printf=0 -lm=0 -skip_cdt=0 -skip_transform=0 -ng=0 -g=0 -opt_fp=0 
+@I [HLS-10] Analyzing design file 'Alexnet_dev/layer1.cl' ... 
+@I [HLS-0] Compiling one TU...
+@I [HLS-100] Execute       is_m_axi_addr64 
+@I [HLS-100] Command       is_m_axi_addr64 returned 0; 0 sec.
+@I [HLS-0] Handling Alexnet_dev/layer1.cl as C
+@I [HLS-0] Syntax Checking before pre-processing...
+@I [HLS-100] Execute       clang  -fno-limit-debug-info -gcc-toolchain "C:/Xilinx/Vivado_HLS/2016.4/msys" -hls    -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -std=CL1.2 -D__openclc -target spir-unknown-linux-gnu   -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "C:/Xilinx/Vivado_HLS/2016.4/common/technology/autopilot" -I "C:/Xilinx/Vivado_HLS/2016.4/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__cdecl= -I "C:/Xilinx/Vivado_HLS/2016.4/include" -include clc.h  -D "__global=__attribute__((address_space(16776960)))"  -D "__local=__attribute__((address_space(16776961)))"  -D "__constant=__attribute__((address_space(16776962)))"  "Alexnet_dev/layer1.cl"  -o "C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/layer1.pp.00.o" 
+@I [HLS-100] Command       clang returned 0; 0.233 sec.
+@I [HLS-100] Execute       is_encrypted C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/layer1.pp.00.o 
+@I [HLS-100] Command       is_encrypted returned 0; 0 sec.
+@I [HLS-0] Source preprocessing
+@I [HLS-100] Execute       clang  -fno-limit-debug-info -gcc-toolchain "C:/Xilinx/Vivado_HLS/2016.4/msys" -hls -fno-exceptions  -D__llvm__  -CC -E "Alexnet_dev/layer1.cl"     -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -std=CL1.2 -D__openclc -target spir-unknown-linux-gnu   -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "C:/Xilinx/Vivado_HLS/2016.4/common/technology/autopilot" -I "C:/Xilinx/Vivado_HLS/2016.4/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__cdecl= -I "C:/Xilinx/Vivado_HLS/2016.4/include" -include clc.h  -D "__global=__attribute__((address_space(16776960)))"  -D "__local=__attribute__((address_space(16776961)))"  -D "__constant=__attribute__((address_space(16776962)))"  -o "C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/layer1.pp.0.cl" 
+@I [HLS-100] Command       clang returned 0; 0.23 sec.
+@I [HLS-0] GCC PP time: 0 seconds per iteration
+@I [HLS-100] Execute       list_core -type functional_unit 
+@I [HLS-100] Command       list_core returned 0; 0 sec.
+@I [HLS-0] CDT Preprocessing...
+@I [HLS-0] Marker-Pragma convertor: C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/layer1.pp.0.cl C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/layer1.pp.0.cl.ap-line.cl C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/layer1.pp.0.cl.ap-line.cl.CXX 1
+@I [HLS-0] Converting Markers to Pragmas...
+@I [HLS-100] Execute       cdt  "C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/layer1.pp.0.cl.ap-line.cl"  -m "executeFirstLayer" -o "C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/layer1.pp.0.cl.ap-cdt.cl" -c --pp --directive C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/solution1.directive --source C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/layer1.cl --error C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db --funcunit "AddSub AddSub_DSP AddSubnS DAddSub_fulldsp DAddSub_nodsp DDiv DExp_fulldsp DExp_meddsp DExp_nodsp DLog_fulldsp DLog_meddsp DLog_nodsp DMul_fulldsp DMul_maxdsp DMul_meddsp DMul_nodsp DRSqrt DRecip DSqrt DivnS FAddSub_fulldsp FAddSub_nodsp FDiv FExp_fulldsp FExp_meddsp FExp_nodsp FLog_fulldsp FLog_meddsp FLog_nodsp FMul_fulldsp FMul_maxdsp FMul_meddsp FMul_nodsp FRSqrt_fulldsp FRSqrt_nodsp FRecip_fulldsp FRecip_nodsp FSqrt HAddSub_nodsp HDiv HMul_fulldsp HMul_maxdsp HMul_nodsp HSqrt Mul Mul2S Mul3S Mul4S Mul5S Mul6S Mul_LUT MulnS MuxnS" --ca --gf --pd --p2d C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db --sd --scff C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/.systemc_flag --ad 
+@I [HLS-0] Error:Syntax error in source:float __attribute__ ((always_inline)) __attribute__((overloadable)) fract (float f,__private float * g);
+Error:Syntax error in source:float2 __attribute__ ((always_inline)) __attribute__((overloadable)) fract (float2 f,__private float2 * g);
+Error:Syntax error in source:float3 __attribute__ ((always_inline)) __attribute__((overloadable)) fract (float3 f,__private float3 * g);
+Error:Syntax error in source:float4 __attribute__ ((always_inline)) __attribute__((overloadable)) fract (float4 f,__private float4 * g);
+Error:Syntax error in source:float8 __attribute__ ((always_inline)) __attribute__((overloadable)) fract (float8 f,__private float8 * g);
+Error:Syntax error in source:float16 __attribute__ ((always_inline)) __attribute__((overloadable)) fract (float16 f,__private float16 * g);
+Error:Syntax error in source:float __attribute__ ((always_inline)) __attribute__((overloadable)) frexp (float f,__private int * g);
+Error:Syntax error in source:float2 __attribute__ ((always_inline)) __attribute__((overloadable)) frexp (float2 f,__private int2 * g);
+Error:Syntax error in source:float3 __attribute__ ((always_inline)) __attribute__((overloadable)) frexp (float3 f,__private int3 * g);
+Error:Syntax error in source:float4 __attribute__ ((always_inline)) __attribute__((overloadable)) frexp (float4 f,__private int4 * g);
+Error:Syntax error in source:float8 __attribute__ ((always_inline)) __attribute__((overloadable)) frexp (float8 f,__private int8 * g);
+Error:Syntax error in source:float16 __attribute__ ((always_inline)) __attribute__((overloadable)) frexp (float16 f,__private int16 * g);
+Error:Syntax error in source:float __attribute__ ((always_inline)) __attribute__((overloadable)) lgamma_r (float f,__private int * g);
+Error:Syntax error in source:float2 __attribute__ ((always_inline)) __attribute__((overloadable)) lgamma_r (float2 f,__private int2 * g);
+Error:Syntax error in source:float3 __attribute__ ((always_inline)) __attribute__((overloadable)) lgamma_r (float3 f,__private int3 * g);
+Error:Syntax error in source:float4 __attribute__ ((always_inline)) __attribute__((overloadable)) lgamma_r (float4 f,__private int4 * g);
+Error:Syntax error in source:float8 __attribute__ ((always_inline)) __attribute__((overloadable)) lgamma_r (float8 f,__private int8 * g);
+Error:Syntax error in source:float16 __attribute__ ((always_inline)) __attribute__((overloadable)) lgamma_r (float16 f,__private int16 * g);
+Error:Syntax error in source:float __attribute__ ((always_inline)) __attribute__((overloadable)) modf (float f,__private float * g);
+Error:Syntax error in source:float2 __attribute__ ((always_inline)) __attribute__((overloadable)) modf (float2 f,__private float2 * g);
+Error:Syntax error in source:float3 __attribute__ ((always_inline)) __attribute__((overloadable)) modf (float3 f,__private float3 * g);
+Error:Syntax error in source:float4 __attribute__ ((always_inline)) __attribute__((overloadable)) modf (float4 f,__private float4 * g);
+Error:Syntax error in source:float8 __attribute__ ((always_inline)) __attribute__((overloadable)) modf (float8 f,__private float8 * g);
+Error:Syntax error in source:float16 __attribute__ ((always_inline)) __attribute__((overloadable)) modf (float16 f,__private float16 * g);
+Error:Syntax error in source:float __attribute__ ((always_inline)) __attribute__((overloadable)) remquo (float f, float g,__private int * h);
+Error:Syntax error in source:float2 __attribute__ ((always_inline)) __attribute__((overloadable)) remquo (float2 f, float2 g,__private int2 * h);
+Error:Syntax error in source:float3 __attribute__ ((always_inline)) __attribute__((overloadable)) remquo (float3 f, float3 g,__private int3 * h);
+Error:Syntax error in source:float4 __attribute__ ((always_inline)) __attribute__((overloadable)) remquo (float4 f, float4 g,__private int4 * h);
+Error:Syntax error in source:float8 __attribute__ ((always_inline)) __attribute__((overloadable)) remquo (float8 f, float8 g,__private int8 * h);
+Error:Syntax error in source:float16 __attribute__ ((always_inline)) __attribute__((overloadable)) remquo (float16 f, float16 g,__private int16 * h);
+Error:Syntax error in source:float __attribute__ ((always_inline)) __attribute__((overloadable)) sincos (float f,__private float * g);
+Error:Syntax error in source:float2 __attribute__ ((always_inline)) __attribute__((overloadable)) sincos (float2 f,__private float2 * g);
+Error:Syntax error in source:float3 __attribute__ ((always_inline)) __attribute__((overloadable)) sincos (float3 f,__private float3 * g);
+Error:Syntax error in source:float4 __attribute__ ((always_inline)) __attribute__((overloadable)) sincos (float4 f,__private float4 * g);
+Error:Syntax error in source:float8 __attribute__ ((always_inline)) __attribute__((overloadable)) sincos (float8 f,__private float8 * g);
+Error:Syntax error in source:float16 __attribute__ ((always_inline)) __attribute__((overloadable)) sincos (float16 f,__private float16 * g);
+Error:Syntax error in source:char2 __attribute__ ((always_inline)) __attribute__((overloadable)) vload2 (size_t f,const __private char * g);
+Error:Syntax error in source:char3 __attribute__ ((always_inline)) __attribute__((overloadable)) vload3 (size_t f,const __private char * g);
+Error:Syntax error in source:char4 __attribute__ ((always_inline)) __attribute__((overloadable)) vload4 (size_t f,const __private char * g);
+Error:Syntax error in source:char8 __attribute__ ((always_inline)) __attribute__((overloadable)) vload8 (size_t f,const __private char * g);
+Error:Syntax error in source:char16 __attribute__ ((always_inline)) __attribute__((overloadable)) vload16 (size_t f,const __private char * g);
+Error:Syntax error in source:uchar2 __attribute__ ((always_inline)) __attribute__((overloadable)) vload2 (size_t f,const __private uchar * g);
+Error:Syntax error in source:uchar3 __attribute__ ((always_inline)) __attribute__((overloadable)) vload3 (size_t f,const __private uchar * g);
+Error:Syntax error in source:uchar4 __attribute__ ((always_inline)) __attribute__((overloadable)) vload4 (size_t f,const __private uchar * g);
+Error:Syntax error in source:uchar8 __attribute__ ((always_inline)) __attribute__((overloadable)) vload8 (size_t f,const __private uchar * g);
+Error:Syntax error in source:uchar16 __attribute__ ((always_inline)) __attribute__((overloadable)) vload16 (size_t f,const __private uchar * g);
+Error:Syntax error in source:short2 __attribute__ ((always_inline)) __attribute__((overloadable)) vload2 (size_t f,const __private short * g);
+Error:Syntax error in source:short3 __attribute__ ((always_inline)) __attribute__((overloadable)) vload3 (size_t f,const __private short * g);
+Error:Syntax error in source:short4 __attribute__ ((always_inline)) __attribute__((overloadable)) vload4 (size_t f,const __private short * g);
+Error:Syntax error in source:short8 __attribute__ ((always_inline)) __attribute__((overloadable)) vload8 (size_t f,const __private short * g);
+Error:Syntax error in source:short16 __attribute__ ((always_inline)) __attribute__((overloadable)) vload16 (size_t f,const __private short * g);
+Error:Syntax error in source:ushort2 __attribute__ ((always_inline)) __attribute__((overloadable)) vload2 (size_t f,const __private ushort * g);
+Error:Syntax error in source:ushort3 __attribute__ ((always_inline)) __attribute__((overloadable)) vload3 (size_t f,const __private ushort * g);
+Error:Syntax error in source:ushort4 __attribute__ ((always_inline)) __attribute__((overloadable)) vload4 (size_t f,const __private ushort * g);
+Error:Syntax error in source:ushort8 __attribute__ ((always_inline)) __attribute__((overloadable)) vload8 (size_t f,const __private ushort * g);
+Error:Syntax error in source:ushort16 __attribute__ ((always_inline)) __attribute__((overloadable)) vload16 (size_t f,const __private ushort * g);
+Error:Syntax error in source:int2 __attribute__ ((always_inline)) __attribute__((overloadable)) vload2 (size_t f,const __private int * g);
+Error:Syntax error in source:int3 __attribute__ ((always_inline)) __attribute__((overloadable)) vload3 (size_t f,const __private int * g);
+Error:Syntax error in source:int4 __attribute__ ((always_inline)) __attribute__((overloadable)) vload4 (size_t f,const __private int * g);
+Error:Syntax error in source:int8 __attribute__ ((always_inline)) __attribute__((overloadable)) vload8 (size_t f,const __private int * g);
+Error:Syntax error in source:int16 __attribute__ ((always_inline)) __attribute__((overloadable)) vload16 (size_t f,const __private int * g);
+Error:Syntax error in source:uint2 __attribute__ ((always_inline)) __attribute__((overloadable)) vload2 (size_t f,const __private uint * g);
+Error:Syntax error in source:uint3 __attribute__ ((always_inline)) __attribute__((overloadable)) vload3 (size_t f,const __private uint * g);
+Error:Syntax error in source:uint4 __attribute__ ((always_inline)) __attribute__((overloadable)) vload4 (size_t f,const __private uint * g);
+Error:Syntax error in source:uint8 __attribute__ ((always_inline)) __attribute__((overloadable)) vload8 (size_t f,const __private uint * g);
+Error:Syntax error in source:uint16 __attribute__ ((always_inline)) __attribute__((overloadable)) vload16 (size_t f,const __private uint * g);
+Error:Syntax error in source:long2 __attribute__ ((always_inline)) __attribute__((overloadable)) vload2 (size_t f,const __private long * g);
+Error:Syntax error in source:long3 __attribute__ ((always_inline)) __attribute__((overloadable)) vload3 (size_t f,const __private long * g);
+Error:Syntax error in source:long4 __attribute__ ((always_inline)) __attribute__((overloadable)) vload4 (size_t f,const __private long * g);
+Error:Syntax error in source:long8 __attribute__ ((always_inline)) __attribute__((overloadable)) vload8 (size_t f,const __private long * g);
+Error:Syntax error in source:long16 __attribute__ ((always_inline)) __attribute__((overloadable)) vload16 (size_t f,const __private long * g);
+Error:Syntax error in source:ulong2 __attribute__ ((always_inline)) __attribute__((overloadable)) vload2 (size_t f,const __private ulong * g);
+Error:Syntax error in source:ulong3 __attribute__ ((always_inline)) __attribute__((overloadable)) vload3 (size_t f,const __private ulong * g);
+Error:Syntax error in source:ulong4 __attribute__ ((always_inline)) __attribute__((overloadable)) vload4 (size_t f,const __private ulong * g);
+Error:Syntax error in source:ulong8 __attribute__ ((always_inline)) __attribute__((overloadable)) vload8 (size_t f,const __private ulong * g);
+Error:Syntax error in source:ulong16 __attribute__ ((always_inline)) __attribute__((overloadable)) vload16 (size_t f,const __private ulong * g);
+Error:Syntax error in source:float2 __attribute__ ((always_inline)) __attribute__((overloadable)) vload2 (size_t f,const __private float * g);
+Error:Syntax error in source:float3 __attribute__ ((always_inline)) __attribute__((overloadable)) vload3 (size_t f,const __private float * g);
+Error:Syntax error in source:float4 __attribute__ ((always_inline)) __attribute__((overloadable)) vload4 (size_t f,const __private float * g);
+Error:Syntax error in source:float8 __attribute__ ((always_inline)) __attribute__((overloadable)) vload8 (size_t f,const __private float * g);
+Error:Syntax error in source:float16 __attribute__ ((always_inline)) __attribute__((overloadable)) vload16 (size_t f,const __private float * g);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstore2 (char2 f, size_t g,__private char * h);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstore3 (char3 f, size_t g,__private char * h);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstore4 (char4 f, size_t g,__private char * h);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstore8 (char8 f, size_t g,__private char * h);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstore16 (char16 f, size_t g,__private char * h);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstore2 (uchar2 f, size_t g,__private uchar * h);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstore3 (uchar3 f, size_t g,__private uchar * h);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstore4 (uchar4 f, size_t g,__private uchar * h);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstore8 (uchar8 f, size_t g,__private uchar * h);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstore16 (uchar16 f, size_t g,__private uchar * h);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstore2 (short2 f, size_t g,__private short * h);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstore3 (short3 f, size_t g,__private short * h);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstore4 (short4 f, size_t g,__private short * h);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstore8 (short8 f, size_t g,__private short * h);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstore16 (short16 f, size_t g,__private short * h);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstore2 (ushort2 f, size_t g,__private ushort * h);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstore3 (ushort3 f, size_t g,__private ushort * h);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstore4 (ushort4 f, size_t g,__private ushort * h);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstore8 (ushort8 f, size_t g,__private ushort * h);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstore16 (ushort16 f, size_t g,__private ushort * h);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstore2 (int2 f, size_t g,__private int * h);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstore3 (int3 f, size_t g,__private int * h);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstore4 (int4 f, size_t g,__private int * h);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstore8 (int8 f, size_t g,__private int * h);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstore16 (int16 f, size_t g,__private int * h);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstore2 (uint2 f, size_t g,__private uint * h);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstore3 (uint3 f, size_t g,__private uint * h);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstore4 (uint4 f, size_t g,__private uint * h);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstore8 (uint8 f, size_t g,__private uint * h);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstore16 (uint16 f, size_t g,__private uint * h);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstore2 (long2 f, size_t g,__private long * h);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstore3 (long3 f, size_t g,__private long * h);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstore4 (long4 f, size_t g,__private long * h);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstore8 (long8 f, size_t g,__private long * h);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstore16 (long16 f, size_t g,__private long * h);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstore2 (ulong2 f, size_t g,__private ulong * h);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstore3 (ulong3 f, size_t g,__private ulong * h);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstore4 (ulong4 f, size_t g,__private ulong * h);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstore8 (ulong8 f, size_t g,__private ulong * h);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstore16 (ulong16 f, size_t g,__private ulong * h);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstore2 (float2 f, size_t g,__private float * h);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstore3 (float3 f, size_t g,__private float * h);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstore4 (float4 f, size_t g,__private float * h);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstore8 (float8 f, size_t g,__private float * h);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstore16 (float16 f, size_t g,__private float * h);
+Error:Syntax error in source:float __attribute__ ((always_inline)) __attribute__((overloadable)) vload_half(size_t offset, const __private half *p);
+Error:Syntax error in source:float __attribute__ ((always_inline)) __attribute__((overloadable)) vloada_half(size_t offset, const __private half *p);
+Error:Syntax error in source:float2 __attribute__ ((always_inline)) __attribute__((overloadable)) vload_half2(size_t offset, const __private half *p);
+Error:Syntax error in source:float2 __attribute__ ((always_inline)) __attribute__((overloadable)) vloada_half2(size_t offset, const __private half *p);
+Error:Syntax error in source:float3 __attribute__ ((always_inline)) __attribute__((overloadable)) vload_half3(size_t offset, const __private half *p);
+Error:Syntax error in source:float3 __attribute__ ((always_inline)) __attribute__((overloadable)) vloada_half3(size_t offset, const __private half *p);
+Error:Syntax error in source:float4 __attribute__ ((always_inline)) __attribute__((overloadable)) vload_half4(size_t offset, const __private half *p);
+Error:Syntax error in source:float4 __attribute__ ((always_inline)) __attribute__((overloadable)) vloada_half4(size_t offset, const __private half *p);
+Error:Syntax error in source:float8 __attribute__ ((always_inline)) __attribute__((overloadable)) vload_half8(size_t offset, const __private half *p);
+Error:Syntax error in source:float8 __attribute__ ((always_inline)) __attribute__((overloadable)) vloada_half8(size_t offset, const __private half *p);
+Error:Syntax error in source:float16 __attribute__ ((always_inline)) __attribute__((overloadable)) vload_half16(size_t offset, const __private half *p);
+Error:Syntax error in source:float16 __attribute__ ((always_inline)) __attribute__((overloadable)) vloada_half16(size_t offset, const __private half *p);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstore_half(float data, size_t offset, __private half *p);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstorea_half(float data, size_t offset, __private half *p);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstore_half_rte(float data, size_t offset, __private half *p);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstorea_half_rte(float data, size_t offset, __private half *p);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstore_half_rtz(float data, size_t offset, __private half *p);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstorea_half_rtz(float data, size_t offset, __private half *p);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstore_half_rtp(float data, size_t offset, __private half *p);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstorea_half_rtp(float data, size_t offset, __private half *p);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstore_half_rtn(float data, size_t offset, __private half *p);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstorea_half_rtn(float data, size_t offset, __private half *p);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstore_half2(float2 data, size_t offset, __private half *p);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstorea_half2(float2 data, size_t offset, __private half *p);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstore_half2_rte(float2 data, size_t offset, __private half *p);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstorea_half2_rte(float2 data, size_t offset, __private half *p);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstore_half2_rtz(float2 data, size_t offset, __private half *p);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstorea_half2_rtz(float2 data, size_t offset, __private half *p);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstore_half2_rtp(float2 data, size_t offset, __private half *p);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstorea_half2_rtp(float2 data, size_t offset, __private half *p);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstore_half2_rtn(float2 data, size_t offset, __private half *p);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstorea_half2_rtn(float2 data, size_t offset, __private half *p);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstore_half3(float3 data, size_t offset, __private half *p);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstorea_half3(float3 data, size_t offset, __private half *p);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstore_half3_rte(float3 data, size_t offset, __private half *p);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstorea_half3_rte(float3 data, size_t offset, __private half *p);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstore_half3_rtz(float3 data, size_t offset, __private half *p);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstorea_half3_rtz(float3 data, size_t offset, __private half *p);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstore_half3_rtp(float3 data, size_t offset, __private half *p);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstorea_half3_rtp(float3 data, size_t offset, __private half *p);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstore_half3_rtn(float3 data, size_t offset, __private half *p);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstorea_half3_rtn(float3 data, size_t offset, __private half *p);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstore_half4(float4 data, size_t offset, __private half *p);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstorea_half4(float4 data, size_t offset, __private half *p);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstore_half4_rte(float4 data, size_t offset, __private half *p);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstorea_half4_rte(float4 data, size_t offset, __private half *p);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstore_half4_rtz(float4 data, size_t offset, __private half *p);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstorea_half4_rtz(float4 data, size_t offset, __private half *p);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstore_half4_rtp(float4 data, size_t offset, __private half *p);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstorea_half4_rtp(float4 data, size_t offset, __private half *p);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstore_half4_rtn(float4 data, size_t offset, __private half *p);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstorea_half4_rtn(float4 data, size_t offset, __private half *p);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstore_half8(float8 data, size_t offset, __private half *p);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstorea_half8(float8 data, size_t offset, __private half *p);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstore_half8_rte(float8 data, size_t offset, __private half *p);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstorea_half8_rte(float8 data, size_t offset, __private half *p);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstore_half8_rtz(float8 data, size_t offset, __private half *p);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstorea_half8_rtz(float8 data, size_t offset, __private half *p);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstore_half8_rtp(float8 data, size_t offset, __private half *p);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstorea_half8_rtp(float8 data, size_t offset, __private half *p);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstore_half8_rtn(float8 data, size_t offset, __private half *p);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstorea_half8_rtn(float8 data, size_t offset, __private half *p);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstore_half16(float16 data, size_t offset, __private half *p);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstorea_half16(float16 data, size_t offset, __private half *p);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstore_half16_rte(float16 data, size_t offset, __private half *p);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstorea_half16_rte(float16 data, size_t offset, __private half *p);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstore_half16_rtz(float16 data, size_t offset, __private half *p);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstorea_half16_rtz(float16 data, size_t offset, __private half *p);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstore_half16_rtp(float16 data, size_t offset, __private half *p);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstorea_half16_rtp(float16 data, size_t offset, __private half *p);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstore_half16_rtn(float16 data, size_t offset, __private half *p);
+Error:Syntax error in source:void __attribute__ ((always_inline)) __attribute__((overloadable)) vstorea_half16_rtn(float16 data, size_t offset, __private half *p);
+Error:Syntax error in source:__kernel
+@I [HLS-100] Command       cdt returned 0; 0.776 sec.
+@I [HLS-0] Marker-Pragma convertor: C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/layer1.pp.0.cl.ap-cdt.cl C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/layer1.pragma.0.cl C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/layer1.pragma.0.cl.ap-line.CXX 0
+@I [HLS-0] Converting Pragmas to Markers...
+@I [HLS-100] Execute       source C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/pragma.status.tcl 
+@I [HLS-100] Command       ap_source returned 0; 0.001 sec.
+@I [HLS-0] Pragma Handling...
+@I [HLS-0] Source preprocessing
+@I [HLS-100] Execute       clang  -fno-limit-debug-info -gcc-toolchain "C:/Xilinx/Vivado_HLS/2016.4/msys" -hls -fno-exceptions  -D__llvm__  -CC -E "C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/layer1.pragma.1.cl"     -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -std=CL1.2 -D__openclc -target spir-unknown-linux-gnu   -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "C:/Xilinx/Vivado_HLS/2016.4/common/technology/autopilot" -I "C:/Xilinx/Vivado_HLS/2016.4/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -D__cdecl= -I "C:/Xilinx/Vivado_HLS/2016.4/include" -include clc.h  -D "__global=__attribute__((address_space(16776960)))"  -D "__local=__attribute__((address_space(16776961)))"  -D "__constant=__attribute__((address_space(16776962)))"  -o "C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/layer1.pragma.2.cl" 
+@I [HLS-100] Command       clang returned 0; 0.234 sec.
+@I [HLS-0] Processing labels
+@I [HLS-100] Execute       clang  -fno-limit-debug-info -gcc-toolchain C:/Xilinx/Vivado_HLS/2016.4/msys -hls -hls-analyze-label -hls-analyze-pragma -fno-exceptions  -D__llvm__  -w  "C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/layer1.pragma.2.cl"    -fno-math-errno -c -emit-llvm -O0  -mllvm -disable-llvm-optzns -std=CL1.2 -D__openclc -target spir-unknown-linux-gnu  -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I "C:/Xilinx/Vivado_HLS/2016.4/common/technology/autopilot" -I "C:/Xilinx/Vivado_HLS/2016.4/common/technology/autopilot/ap_sysc" -include etc/autopilot_ssdm_op.h -g -o "C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/layer1.g.bc" 
+@I [HLS-100] Command       clang returned 0; 0.286 sec.
+@I [HLS-10] Validating synthesis directives ...
+@I [HLS-100] Execute       source C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/pragma.status.tcl 
+@I [HLS-100] Command       ap_source returned 0; 0 sec.
+@I [HLS-111] Finished Checking Pragmas Time (s): cpu = 00:00:01 ; elapsed = 00:00:03 . Memory (MB): peak = 93.156 ; gain = 43.996
+@I [HLS-0] Linking Release ...
+@I [HLS-100] Execute       llvm-ld C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/layer1.bc -disable-opt -LC:/Xilinx/Vivado_HLS/2016.4/win64/lib -lm_basic -o C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/a.o 
+@I [HLS-100] Command       llvm-ld returned 0; 0.098 sec.
+@I [HLS-100] Execute       disassemble C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/a.o C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/a.o 
+@I [HLS-100] Execute         is_encrypted C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/a.o.bc 
+@I [HLS-100] Command         is_encrypted returned 0; 0.001 sec.
+@I [HLS-100] Command       disassemble returned 0; 0.023 sec.
+@I [HLS-0] Disassemble time: 0 seconds per iteration
+@I [HLS-0] Linking Debug ...
+@I [HLS-100] Execute       llvm-ld C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/layer1.g.bc -disable-opt -LC:/Xilinx/Vivado_HLS/2016.4/win64/lib -lm_basic -o C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/a.g 
+@I [HLS-100] Command       llvm-ld returned 0; 0.102 sec.
+@I [HLS-100] Execute       disassemble C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/a.g C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/a.g 
+@I [HLS-100] Execute         is_encrypted C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/a.g.bc 
+@I [HLS-100] Command         is_encrypted returned 0; 0 sec.
+@I [HLS-100] Command       disassemble returned 0; 0.024 sec.
+@I [HLS-0] Disassemble time: 0 seconds per iteration
+@I [HLS-111] Finished Linking Time (s): cpu = 00:00:01 ; elapsed = 00:00:03 . Memory (MB): peak = 93.176 ; gain = 44.016
+@I [HLS-100] Execute       opt_and_import_c a -opt_level=2 -skip_syncheck=0 -ng=0 -keep_printf=0 
+@I [HLS-100] Execute         cleanup_all_models 
+@I [HLS-100] Command         cleanup_all_models returned 0; 0 sec.
+@I [HLS-10] Starting code transformations ...
+@I [HLS-0] OpenCL Compiler optimizing ...
+@I [HLS-100] Execute         transform -hls -top=executeFirstLayer -xcl-target=hls -xcl-xmlinfo=C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/../../../kernel.xml -xcl-flatten -xcl-pipes -spir-runtime-support -xcl-ports-metadata -spir-link-builtins -always-inline -xcl-loop-md -reg2mem -xcl-scalarize -xcl-localmem -xcl-constmem -xcl-globalmem -mem2reg -instcombine -dce -loop-simplify -reg2mem -spir-kernel-coarsening -reg2mem -mem2reg -xcl-array-md -instcombine -dce -simplifycfg -spir-lower-builtins -spir-link-builtins -always-inline -spir-remove-always-inlined -xcl-hls-lowering -spir-discard-spir -strip-dead-prototypes -mem2reg C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/a.g.bc -o C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/a.cl.0.bc -f 
+@I [HLS-100] Command         transform returned 0; 0.343 sec.
+@I [HLS-100] Execute         disassemble C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/a.cl.0 C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/a.cl.0 
+@I [HLS-100] Execute           is_encrypted C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/a.cl.0.bc 
+@I [HLS-100] Command           is_encrypted returned 0; 0 sec.
+@I [HLS-100] Command         disassemble returned 0; 0.026 sec.
+@I [HLS-0] Processing address spaces and calling conventions ...
+@I [HLS-100] Execute         assemble C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/a.cl.1 C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/a.cl.1 
+@I [HLS-100] Command         assemble returned 0; 0.029 sec.
+@I [HLS-100] Execute         llvm-ld C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/a.cl.1.bc -disable-opt -LC:/Xilinx/Vivado_HLS/2016.4/win64/lib -lm_basic -o C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/a.pp 
+@I [HLS-100] Command         llvm-ld returned 0; 0.117 sec.
+@I [HLS-100] Execute         transform -promote-dbg-pointer C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/a.pp.bc -o C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/a.pp.0.bc -f 
+@I [HLS-100] Command         transform returned 0; 0.008 sec.
+@I [HLS-100] Execute         llvm-ld C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/a.pp.0.bc -disable-opt -LC:/Xilinx/Vivado_HLS/2016.4/win64/lib -lfloatconversion -o C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/a.g.0 
+@I [HLS-100] Command         llvm-ld returned 0; 0.103 sec.
+@I [HLS-0] Running Standard Transforms...
+@I [HLS-100] Execute         transform -hls -share-std-xform -always-inline -promote-dbg-pointer -interface-preproc -scalarrepl -mem2reg -keep-read-access -instcombine -dce -promote-dbg-pointer -bitop-raise -indvarspre -indvars -loop-simplify -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -basicaa -simplifycfg -mem2reg -globalopt -global-constprop -deadargelim -instcombine -simplifycfg -prune-eh -simplifycfg -scalarrepl -instcombine -reassociate -licm -simplifycfg -loop-simplify -indvars -instcombine -simplifycfg -mem2reg -loop-simplify -indvars -instcombine -gvn -gvn -instcombine -adce -break-crit-edges -simplifycfg -loop-delete -global-array-opt -dce -dse -adce -find-syn-modules -top executeFirstLayer -deadargelim -mem2reg -instcombine -dce -presyn-prepare -auto-rom-infer -interface-preproc -syn-check -check-rec-only -find-region -simplifycfg -func-extr -function-inline -globaldce -mem2reg -instcombine -dce -gvn -globaldce -adce -adse -constprop -instcombine -bit-constprop -instcombine -dce -simplifycfg -bitop-raise -simplifycfg -dce -loop-delete -reassociate -globalopt -global-privatize -mem2reg -dce -global-constprop -pointer-simplify -constprop -dce -func-inst -deadargelim -promote-dbg-pointer -norm-name C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/a.g.0.bc -o C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/a.g.1.bc -f -phase std-opt 
+@I [HLS-100] Command         transform returned 0; 0.022 sec.
+@I [HLS-100] Execute         disassemble C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/a.g.1 C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/a.g.1 
+@I [HLS-100] Execute           is_encrypted C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/a.g.1.bc 
+@I [HLS-100] Command           is_encrypted returned 0; 0.001 sec.
+@I [HLS-100] Command         disassemble returned 0; 0.023 sec.
+@I [HLS-111] Finished Standard Transforms Time (s): cpu = 00:00:01 ; elapsed = 00:00:04 . Memory (MB): peak = 179.090 ; gain = 129.930
+@I [HLS-10] Checking synthesizability ...
+@I [HLS-0] Checking Synthesizability 1/2..
+@I [HLS-100] Execute         transform -hls -syn-check -check-rec-only -disaggr -scalarrepl -norm-name -dce -mem2reg -instcombine -function-uniquify -directive-preproc -mem2reg -dse -dce -auto-rom-infer -dce -array-normalize -instcombine -dce -array-seg-normalize -instcombine -dce -array-flatten -instcombine -dce -array-burst -dce -deadargelim -promote-global-argument -simplifycfg -mem2reg -globaldce -resolve-double-ptr -dce -deadargelim -dce -instcombine -function-inline -globaldce -dce -doublePtrSimplify -doublePtrElim -dce -doublePtrSimplify -promote-dbg-pointer -dce -scalarrepl -dse -adse -instcombine -ptrLegalization -simplifycfg -dce -instcombine -pointer-simplify -ptrArgReplace -dce -instcombine -disaggr -scalarrepl -norm-name -dce -mem2reg -instcombine -ptrLegalization -simplifycfg -deadargelim -instcombine -dce -inst-simplify -function-uniquify -directive-preproc -mem2reg -dse -dce -globaldce C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/a.g.1.bc -o C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/a.g.2.prechk.bc -f 
+@I [HLS-100] Command         transform returned 0; 2.653 sec.
+@I [HLS-0] Checking Synthesizability 2/2..
+@I [HLS-100] Execute         transform -syn-check C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/a.g.2.prechk.bc -o C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/a.g.2.bc -f -phase syn-check 
+@I [HLS-100] Command         transform returned 0; 0.006 sec.
+@I [HLS-111] Finished Checking Synthesizability Time (s): cpu = 00:00:03 ; elapsed = 00:00:06 . Memory (MB): peak = 179.090 ; gain = 129.930
+@I [HLS-0] Compiler optimizing ...
+@I [HLS-0] Share syncheck's 1.bc for syn flow: copy C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/a.g.1.bc to C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/a.o.1.bc
+@I [HLS-0] Presyn 1...
+@I [HLS-100] Execute         transform -hls -tmp C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db -interface-port-rename -type-info -function-uniquify -directive-preproc -mem2reg -dse -dce -disaggr -scalarrepl -norm-name -deadargelim -mem2reg -instcombine -dce -auto-rom-infer -dce -function-uniquify -resource-proc -simplifycfg -mem2reg -globaldce -resolve-double-ptr -dce -deadargelim -dce -instcombine -clib-intrinsic-prepare -dce -func-buffer -dce -array-normalize -func-legal -instcombine -gvn -constprop -dce -ptrArgReplace -mem2reg -instcombine -dce -array-seg-normalize -deadargelim -instcombine -dce -pointer-simplify -dce -port-alignment -dce -interface-preproc -data-pack -instcombine -dce -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -loop-simplify -indvars -instcombine -gvn -loop-simplify -mem2reg -dce -simplifycfg -find-region -instcombine -auto-loop-pipeline -inst-simplify -interface-preproc -cfgopt -instcombine -indvars -auto-loop-unroll -loop-simplify -loop-bound -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -clean-region -attach-range -gvn -inst-simplify -constprop -simplifycfg -dce -pointer-simplify -dce -globalopt -constprop -dce -array-promote -constprop -instcombine -dce -ptrArgReplace -mem2reg -instcombine -simplifycfg -dce -auto-par -instcombine -dce -array-transform-check -array-reshape -instcombine -simplifycfg -dce -ptrArgReplace -deadargelim -mem2reg -instcombine -simplifycfg -dce -indvars -loop-simplify -loop-bound -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -duplicate-dataflow-processes -globaldce -instcombine -array-partition -instcombine -simplifycfg -dce -ptrArgReplace -global-constprop -deadargelim -mem2reg -func-legal -instcombine -dce -global-constprop -deadargelim -mem2reg -instcombine -simplifycfg -dce -globalopt -constprop -dce -array-promote -constprop -instcombine -dce -ptrArgReplace -mem2reg -instcombine -simplifycfg -dce -mem-intrinsic-preproc -dce -global-privatize -mem2reg -globaldce -promote-global-argument -ptrArgReplace -mem2reg -instcombine -dce -globalopt -mergereturn -simplify-global-access -mem2reg -dce -pointer-simplify -dce -functionattrs -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -inst-simplify -dce -norm-name -function-inline -globaldce -func-inst -constprop -instcombine -simplifycfg -dce -func-legal -dce -loop-bound -arraycheck -bitwidthmin -on-by-dataflow -loop-delete -instcombine -simplifycfg -globaldce -dce -gvn -deadargelim -dce -loop-simplify -clean-region -simplifycfg -propagate-stable-arguments -loop-stream -instcombine -simplifycfg -dce -globaldce -stream-intrinsic-preproc -dce -check-ap-stream -loop-simplify -eliminate-keepreads -extract-dataflow-in-loop -loop-simplify -dce -gvn -deadargelim -dse -check-dataflow-syntax -legalize-stream-variable -legalize-global -extract-subproc -dce -dead-channel-elimination -canonicalize-gep -globaldce -dce -gvn -deadargelim -annotate-dataflow-channels -scalar-propagation -deadargelim -globaldce -mem2reg -check-dataflow-channels -function-stream -dce -globaldce -prop-fifo-spec -internal-stream-gen -canonicalize-gep -globaldce -dce -gvn -deadargelim -mergereturn -indvars -loop-simplify -instcombine -array-stream -array-seg-normalize -array-partition -func-legal -instcombine -simplifycfg -dce -bundle-memfifo-ops -deadargelim -function-uniquify -directive-preproc -mem2reg -dse -dce -group-axi-access -licm -simplifycfg -dce -loop-delete -norm-name C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/a.o.1.bc -o C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/a.o.1.tmp.bc -f 
+@I [XFORM-102] Partitioning array '.cast.i.1' automatically.
+@I [XFORM-102] Partitioning array '.cast.i.2' automatically.
+@I [XFORM-102] Partitioning array '.cast.i.3' automatically.
+@I [XFORM-102] Partitioning array '.cast.i.4' automatically.
+@I [XFORM-102] Partitioning array '.cast.i.5' automatically.
+@I [XFORM-102] Partitioning array '.cast.i.6' automatically.
+@I [XFORM-102] Partitioning array '.cast.i.7' automatically.
+@I [HLS-100] Command         transform returned 0; 2.797 sec.
+@I [HLS-0] Presyn 2...
+@I [HLS-100] Execute         transform -hls -keep-callgraph -scalarrepl -mem2reg -port-alignment -attach-range -dce -pipe-mux-gen -indvars -loop-bound -inst-simplify -instcombine -dce -merge-array-access -mem2reg -dce -clean-region -mergereturn -if-conv -instcombine -dce -constprop -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -scalarrepl -mem2reg -global-constprop -deadargelim -deadargelim -instcombine -dce -simplifycfg -ptrArgReplace -mem2reg -function-inline -globaldce -mem2reg -instcombine -dce -expr-balance -instcombine -dce -bitwidthmin -interface-preproc -directive-preproc -inst-rectify -instcombine -dce -functionattrs -constprop -instcombine -bit-constprop -simplify-global-access -globalopt -globaldce -inst-simplify -instcombine -elimdeaddata -dce -loop-delete -simplifycfg -loop-simplify -auto-burst -norm-name C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/a.o.1.tmp.bc -o C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/a.o.2.bc -f -phase presyn 
+@I [XFORM-11] Balancing expressions in function 'executeFirstLayer' (Alexnet_dev/layer1.cl:11:32)...15 expression(s) balanced.
+@I [HLS-100] Command         transform returned 0; 0.054 sec.
+@I [HLS-100] Execute         disassemble C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/a.o.2 C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/a.o.2 
+@I [HLS-100] Execute           is_encrypted C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/a.o.2.bc 
+@I [HLS-100] Command           is_encrypted returned 0; 0.001 sec.
+@I [HLS-100] Command         disassemble returned 0; 0.029 sec.
+@I [HLS-111] Finished Pre-synthesis Time (s): cpu = 00:00:06 ; elapsed = 00:00:09 . Memory (MB): peak = 179.090 ; gain = 129.930
+@I [HLS-0] Building ssdm...
+@I [HLS-100] Execute         transform -hls -function-uniquify -auto-function-inline -globaldce -ptrArgReplace -mem2reg -instcombine -dce -reset-lda -loop-simplify -indvars -licm -loop-dep -loop-bound -licm -loop-simplify -flattenloopnest -array-flatten -gvn -instcombine -dce -array-map -dce -func-legal -gvn -adce -instcombine -cfgopt -simplifycfg -loop-simplify -array-burst -promote-global-argument -dce -axi4-lower -array-seg-normalize -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -gvn -gvn -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -dse -adse -adce -licm -inst-simplify -dce -globaldce -instcombine -array-stream -eliminate-keepreads -instcombine -dce -deadargelim -doublePtrSimplify -doublePtrElim -dce -doublePtrSimplify -promote-dbg-pointer -dce -scalarrepl -mem2reg -disaggr -norm-name -mem2reg -instcombine -dse -adse -adce -ptrLegalization -dce -auto-rom-infer -array-flatten -dce -instcombine -loop-rot -constprop -cfgopt -simplifycfg -loop-simplify -indvars -pointer-simplify -dce -loop-bound -loop-simplify -loop-preproc -constprop -global-constprop -gvn -mem2reg -instcombine -dce -loop-bound -loop-merge -dce -bitwidthmin -deadargelim -dce -canonicalize-dataflow -dce -scalar-propagation -deadargelim -globaldce -mem2reg -interface-preproc -interface-gen -deadargelim -directive-preproc -inst-simplify -dce -gvn -mem2reg -instcombine -dce -adse -loop-bound -instcombine -cfgopt -simplifycfg -loop-simplify -clean-region -io-protocol -find-region -mem2reg -bitop-raise -inst-simplify -inst-rectify -instcombine -adce -deadargelim -loop-simplify -phi-opt -bitop-raise -cfgopt -simplifycfg -strip-dead-prototypes -interface-lower -bitop-lower -intrinsic-lower -auto-function-inline -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -inst-simplify -simplifycfg -loop-simplify -mergereturn -inst-simplify -inst-rectify -dce -bitop-lower -loop-rewind -pointer-simplify -dce -cfgopt -read-loop-dep -dce -bitwidth -loop-dep -norm-name -legalize -cdfg-build C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/a.o.2.bc -o C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/a.o.3.bc -f -phase build-ssdm 
+@W [XFORM-542] Cannot flatten a loop nest 'XCL_WG_DIM_X' in function 'executeFirstLayer' : 
+               the outer loop is not a perfect loop because there is nontrivial logic in the loop latch.
+@I [XFORM-541] Flattening a loop nest 'XCL_WG_DIM_Y' in function 'executeFirstLayer'.
+@I [HLS-100] Command         transform returned 0; 0.119 sec.
+@I [HLS-100] Execute         disassemble C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/a.o.3 C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/a.o.3 
+@I [HLS-100] Execute           is_encrypted C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/a.o.3.bc 
+@I [HLS-100] Command           is_encrypted returned 0; 0 sec.
+@I [HLS-100] Command         disassemble returned 0; 0.027 sec.
+@I [HLS-111] Finished Architecture Synthesis Time (s): cpu = 00:00:06 ; elapsed = 00:00:09 . Memory (MB): peak = 179.090 ; gain = 129.930
+@I [HLS-0] Finish building internal data model.
+@I [HLS-100] Command       opt_and_import_c returned 0; 6.42 sec.
+@I [HLS-100] Command     elaborate returned 0; 8.724 sec.
+@I [HLS-100] Execute     autosyn 
+@I [HLS-10] Starting hardware synthesis ...
+@I [HLS-0] Synthesizing C/C++ design ...
+@I [HLS-10] Synthesizing 'executeFirstLayer' ...
+@I [HLS-100] Execute       ap_set_top_model executeFirstLayer 
+@I [HLS-100] Command       ap_set_top_model returned 0; 0 sec.
+@I [HLS-100] Execute       get_model_list executeFirstLayer -filter all-wo-channel -topdown 
+@I [HLS-100] Command       get_model_list returned 0; 0 sec.
+@I [HLS-100] Execute       preproc_iomode -model executeFirstLayer 
+@I [HLS-100] Command       preproc_iomode returned 0; 0 sec.
+@I [HLS-100] Execute       get_model_list executeFirstLayer -filter all-wo-channel 
+@I [HLS-100] Command       get_model_list returned 0; 0 sec.
+@I [HLS-0] Model list for configure: executeFirstLayer
+@I [HLS-0] Configuring Module : executeFirstLayer ...
+@I [HLS-100] Execute       set_default_model executeFirstLayer 
+@I [HLS-100] Command       set_default_model returned 0; 0 sec.
+@I [HLS-100] Execute       apply_spec_resource_limit executeFirstLayer 
+@I [HLS-100] Command       apply_spec_resource_limit returned 0; 0 sec.
+@I [HLS-0] Model list for preprocess: executeFirstLayer
+@I [HLS-0] Preprocessing Module: executeFirstLayer ...
+@I [HLS-100] Execute       set_default_model executeFirstLayer 
+@I [HLS-100] Command       set_default_model returned 0; 0 sec.
+@I [HLS-100] Execute       cdfg_preprocess -model executeFirstLayer 
+@I [HLS-100] Command       cdfg_preprocess returned 0; 0.002 sec.
+@I [HLS-100] Execute       rtl_gen_preprocess executeFirstLayer 
+@I [HLS-100] Command       rtl_gen_preprocess returned 0; 0.001 sec.
+@I [HLS-0] Model list for synthesis: executeFirstLayer
+@I [HLS-10] ----------------------------------------------------------------
+@I [HLS-10] -- Implementing module 'executeFirstLayer' 
+@I [HLS-10] ----------------------------------------------------------------
+@I [HLS-100] Execute       set_default_model executeFirstLayer 
+@I [HLS-100] Command       set_default_model returned 0; 0 sec.
+@I [HLS-100] Execute       schedule -model executeFirstLayer 
+@I [SCHED-11] Starting scheduling ...
+@I [SCHED-11] Finished scheduling.
+@I [HLS-100] Command       schedule returned 0; 0.109 sec.
+@I [HLS-111]  Elapsed time: 9.542 seconds; current allocated memory: 121.180 MB.
+@I [HLS-100] Execute       report -o C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/executeFirstLayer.verbose.sched.rpt -verbose -f 
+@I [HLS-100] Command       report returned 0; 0.043 sec.
+@I [HLS-100] Execute       db_write -o C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/executeFirstLayer.sched.adb -f 
+@I [HLS-100] Command       db_write returned 0; 0.044 sec.
+@I [HLS-0] Finish scheduling executeFirstLayer.
+@I [HLS-100] Execute       set_default_model executeFirstLayer 
+@I [HLS-100] Command       set_default_model returned 0; 0 sec.
+@I [HLS-100] Execute       bind -model executeFirstLayer 
+@I [BIND-110] clear=
+@I [BIND-110] debug=
+@I [BIND-110] drf=
+@I [BIND-110] effort=
+@I [BIND-110] fast_refine=
+@I [BIND-110] fu_weight=[ 0.0 -- 1.0 ]
+@I [BIND-110] global_opt=
+@I [BIND-110] gsearch=
+@I [BIND-110] help=
+@I [BIND-110] help-hidden=
+@I [BIND-110] min_mem_port=
+@I [BIND-110] min_op=
+@I [BIND-110] minreg=
+@I [BIND-110] ml=
+@I [BIND-110] model=executeFirstLayer
+@I [BIND-110] no_false_path=
+@I [BIND-110] no_min_op=
+@I [BIND-110] normalize=
+@I [BIND-110] quiet=
+@I [BIND-110] refine=
+@I [BIND-110] reg_weight=[ 0.0 -- 1.0 ]
+@I [BIND-110] search=
+@I [BIND-110] tight_delay=
+@I [BIND-110] verbose=
+@I [BIND-110] wFF=
+@I [BIND-110] wFU=
+@I [BIND-110] wMUX=
+@I [BIND-110] wNET=
+@I [BIND-100] Starting micro-architecture generation ...
+@I [BIND-101] Performing variable lifetime analysis.
+@I [BIND-101] Exploring resource sharing.
+@I [BIND-101] Binding ...
+@I [BIND-100] Finished micro-architecture generation.
+@I [HLS-100] Command       bind returned 0; 0.114 sec.
+@I [HLS-111]  Elapsed time: 0.219 seconds; current allocated memory: 123.574 MB.
+@I [HLS-100] Execute       report -o C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/executeFirstLayer.verbose.bind.rpt -verbose -f 
+@I [HLS-100] Command       report returned 0; 0.072 sec.
+@I [HLS-100] Execute       db_write -o C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/executeFirstLayer.bind.adb -f 
+@I [HLS-100] Command       db_write returned 0; 0.086 sec.
+@I [HLS-0] Finish binding executeFirstLayer.
+@I [HLS-100] Execute       get_model_list executeFirstLayer -filter all-wo-channel 
+@I [HLS-100] Command       get_model_list returned 0; 0 sec.
+@I [HLS-0] Preprocessing for RTLGen ...
+@I [HLS-100] Execute       rtl_gen_preprocess executeFirstLayer 
+@I [HLS-100] Command       rtl_gen_preprocess returned 0; 0 sec.
+@I [HLS-0] Model list for RTL generation: executeFirstLayer
+@I [HLS-10] ----------------------------------------------------------------
+@I [HLS-10] -- Generating RTL for module 'executeFirstLayer' 
+@I [HLS-10] ----------------------------------------------------------------
+@I [HLS-100] Execute       create_rtl_model executeFirstLayer -vendor xilinx -mg_file C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/executeFirstLayer.compgen.tcl 
+@I [RTGEN-500] Setting interface mode on port 'executeFirstLayer/gmem' to 'm_axi'.
+@I [RTGEN-500] Setting interface mode on port 'executeFirstLayer/group_id_x' to 's_axilite & ap_none'.
+@I [RTGEN-500] Setting interface mode on port 'executeFirstLayer/group_id_y' to 's_axilite & ap_none'.
+@I [RTGEN-500] Setting interface mode on port 'executeFirstLayer/group_id_z' to 's_axilite & ap_none'.
+@I [RTGEN-500] Setting interface mode on port 'executeFirstLayer/bias' to 's_axilite & ap_none'.
+@I [RTGEN-500] Setting interface mode on port 'executeFirstLayer/Layer1_Neurons_GPU' to 's_axilite & ap_none'.
+@I [RTGEN-500] Setting interface mode on port 'executeFirstLayer/Layer1_Weights_GPU' to 's_axilite & ap_none'.
+@I [RTGEN-500] Setting interface mode on port 'executeFirstLayer/Layer2_Neurons_GPU' to 's_axilite & ap_none'.
+@I [RTGEN-500] Setting interface mode on port 'executeFirstLayer/r_offset' to 's_axilite & ap_none'.
+@I [RTGEN-500] Setting interface mode on port 'executeFirstLayer/c_offset' to 's_axilite & ap_none'.
+@I [RTGEN-500] Setting interface mode on function 'executeFirstLayer' to 's_axilite & ap_ctrl_hs'.
+@I [RTGEN-100] Bundling port 'return', 'group_id_x', 'group_id_y', 'group_id_z', 'bias', 'Layer1_Neurons_GPU', 'Layer1_Weights_GPU', 'Layer2_Neurons_GPU', 'r_offset' and 'c_offset' to AXI-Lite port control.
+@I [SYN-210] Renamed object name 'executeFirstLayer_fadd_32ns_32ns_32_4_full_dsp' to 'executeFirstLayerbkb' due to the length limit 20
+@I [SYN-210] Renamed object name 'executeFirstLayer_fmul_32ns_32ns_32_3_max_dsp' to 'executeFirstLayercud' due to the length limit 20
+@I [SYN-210] Renamed object name 'executeFirstLayer_fcmp_32ns_32ns_1_1' to 'executeFirstLayerdEe' due to the length limit 20
+@I [RTGEN-100] Generating core module 'executeFirstLayerbkb': 1 instance(s).
+@I [RTGEN-100] Generating core module 'executeFirstLayercud': 1 instance(s).
+@I [RTGEN-100] Generating core module 'executeFirstLayerdEe': 1 instance(s).
+@I [RTGEN-100] Finished creating RTL model for 'executeFirstLayer'.
+@I [HLS-100] Command       create_rtl_model returned 0; 0.276 sec.
+@I [HLS-111]  Elapsed time: 0.456 seconds; current allocated memory: 127.605 MB.
+@I [HLS-100] Execute       source C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/executeFirstLayer.rtl_wrap.cfg.tcl 
+@I [HLS-100] Command       ap_source returned 0; 0.001 sec.
+@I [HLS-100] Execute       gen_rtl executeFirstLayer -istop -style xilinx -tracefl mytrace -tracefmt vcd -traceopt all -f -lang sc -o C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/syn/systemc/executeFirstLayer -synmodules executeFirstLayer 
+@I [HLS-100] Command       gen_rtl returned 0; 0.03 sec.
+@I [HLS-100] Execute       gen_rtl executeFirstLayer -istop -style xilinx -f -lang vhdl -o C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/syn/vhdl/executeFirstLayer 
+@I [HLS-100] Command       gen_rtl returned 0; 0.053 sec.
+@I [HLS-100] Execute       gen_rtl executeFirstLayer -istop -style xilinx -f -lang vlog -o C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/syn/verilog/executeFirstLayer 
+@I [HLS-100] Command       gen_rtl returned 0; 0.047 sec.
+@I [HLS-100] Execute       export_constraint_db -o C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/executeFirstLayer.constraint.tcl -f -tool general 
+@I [HLS-100] Command       export_constraint_db returned 0; 0.003 sec.
+@I [HLS-100] Execute       report -model executeFirstLayer -o C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/executeFirstLayer.design.xml -verbose -f -dv 
+@I [HLS-100] Command       report returned 0; 0.031 sec.
+@I [HLS-100] Execute       report -model executeFirstLayer -o C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/executeFirstLayer.sdaccel.xml -verbose -f -sdaccel 
+@I [HLS-100] Command       report returned 0; 0.046 sec.
+@I [HLS-100] Execute       gen_tb_info executeFirstLayer -o C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/executeFirstLayer -p C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db 
+@I [HLS-100] Command       gen_tb_info returned 0; 0.016 sec.
+@I [HLS-100] Execute       report -model executeFirstLayer -o C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/syn/report/executeFirstLayer_csynth.rpt -f 
+@I [HLS-100] Command       report returned 0; 0.019 sec.
+@I [HLS-100] Execute       report -model executeFirstLayer -o C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/syn/report/executeFirstLayer_csynth.xml -f -x 
+@I [HLS-100] Command       report returned 0; 0.016 sec.
+@I [HLS-100] Execute       report -model executeFirstLayer -o C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/executeFirstLayer.verbose.rpt -verbose -f 
+@I [HLS-100] Command       report returned 0; 0.079 sec.
+@I [HLS-100] Execute       db_write -model executeFirstLayer -o C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/executeFirstLayer.adb -f 
+@I [HLS-100] Command       db_write returned 0; 0.101 sec.
+@I [HLS-100] Execute       sc_get_clocks executeFirstLayer 
+@I [HLS-100] Command       sc_get_clocks returned 0; 0 sec.
+@I [HLS-100] Execute       sc_get_portdomain executeFirstLayer 
+@I [HLS-100] Command       sc_get_portdomain returned 0; 0 sec.
+@I [HLS-0] Model list for RTL component generation: executeFirstLayer
+@I [HLS-0] Handling components in module [executeFirstLayer] ... 
+@I [HLS-100] Execute       source C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/executeFirstLayer.compgen.tcl 
+@I [HLS-0] Found component executeFirstLayerbkb.
+@I [HLS-0] Append model executeFirstLayerbkb
+@I [HLS-0] Found component executeFirstLayercud.
+@I [HLS-0] Append model executeFirstLayercud
+@I [HLS-0] Found component executeFirstLayerdEe.
+@I [HLS-0] Append model executeFirstLayerdEe
+@I [HLS-0] Found component executeFirstLayer_control_s_axi.
+@I [HLS-0] Append model executeFirstLayer_control_s_axi
+@I [HLS-0] Found component executeFirstLayer_gmem_m_axi.
+@I [HLS-0] Append model executeFirstLayer_gmem_m_axi
+@I [HLS-100] Command       ap_source returned 0; 0.001 sec.
+@I [HLS-0] Append model executeFirstLayer
+@I [HLS-0] Generating RTL model list ...
+@I [HLS-0] All models in this session: executeFirstLayerbkb executeFirstLayercud executeFirstLayerdEe executeFirstLayer_control_s_axi executeFirstLayer_gmem_m_axi executeFirstLayer
+@I [HLS-0] To file: write model executeFirstLayerbkb
+@I [HLS-0] To file: write model executeFirstLayercud
+@I [HLS-0] To file: write model executeFirstLayerdEe
+@I [HLS-0] To file: write model executeFirstLayer_control_s_axi
+@I [HLS-0] To file: write model executeFirstLayer_gmem_m_axi
+@I [HLS-0] To file: write model executeFirstLayer
+@I [HLS-0] Finished generating RTL model list.
+
+
+@I [HLS-0] RTL Generation done.
+@I [HLS-0] CAS Generation done.
+@I [HLS-0] CBC Generation done.
+@I [HLS-100] Execute       export_ssdm C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/a.export.ll 
+@I [HLS-100] Command       export_ssdm returned 0; 0.005 sec.
+@I [HLS-100] Execute       source C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/global.setting.tcl 
+@I [HLS-100] Command       ap_source returned 0; 0 sec.
+@I [HLS-100] Execute       source C:/Xilinx/Vivado_HLS/2016.4/common/technology/generic/autopilot/common.gen 
+@I [HLS-100] Execute         source C:/Xilinx/Vivado_HLS/2016.4/common/technology/generic/autopilot/APCoreGen.gen 
+@I [HLS-100] Command         ap_source returned 0; 0.001 sec.
+@I [HLS-100] Command       ap_source returned 0; 0.001 sec.
+@I [HLS-100] Execute       source C:/Xilinx/Vivado_HLS/2016.4/common/technology/generic/autopilot/op.gen 
+@I [HLS-100] Command       ap_source returned 0; 0.001 sec.
+@I [HLS-100] Execute       source C:/Xilinx/Vivado_HLS/2016.4/common/technology/generic/autopilot/op_simcore.gen 
+@I [HLS-100] Command       ap_source returned 0; 0.001 sec.
+@I [HLS-100] Execute       source C:/Xilinx/Vivado_HLS/2016.4/common/technology/generic/autopilot/interface.gen 
+@I [HLS-100] Command       ap_source returned 0; 0 sec.
+@I [HLS-100] Execute       source C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/global.setting.tcl 
+@I [HLS-100] Command       ap_source returned 0; 0.001 sec.
+@I [HLS-100] Execute       source C:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/zynq/zynq.gen 
+@I [HLS-100] Execute         source C:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/common/virtex.gen 
+@I [HLS-100] Execute           source C:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/common/xilinx.gen 
+@I [HLS-100] Execute             source C:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/interface/plb46.gen 
+@I [HLS-100] Command             ap_source returned 0; 0.001 sec.
+@I [HLS-100] Execute             source C:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/interface/fsl.gen 
+@I [HLS-100] Command             ap_source returned 0; 0.001 sec.
+@I [HLS-100] Execute             source C:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/interface/axi4.gen 
+@I [HLS-100] Command             ap_source returned 0; 0.002 sec.
+@I [HLS-100] Execute             source C:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/interface/nativeAXI4.gen 
+@I [HLS-100] Execute               source C:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/interface/saxilite.gen 
+@I [HLS-100] Command               ap_source returned 0; 0.003 sec.
+@I [HLS-100] Execute               source C:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/interface/maxi.gen 
+@I [HLS-100] Command               ap_source returned 0; 0.006 sec.
+@I [HLS-100] Command             ap_source returned 0; 0.011 sec.
+@I [HLS-100] Execute             source C:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/scripts/xilinxcoregen.gen 
+@I [HLS-100] Command             ap_source returned 0; 0.008 sec.
+@I [HLS-100] Execute             source C:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+@I [HLS-100] Command             ap_source returned 0; 0.007 sec.
+@I [HLS-100] Execute             source C:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/ip/dds_compiler.gen 
+@I [HLS-100] Command             ap_source returned 0; 0.003 sec.
+@I [HLS-100] Execute             source C:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/ip/util.gen 
+@I [HLS-100] Command             ap_source returned 0; 0 sec.
+@I [HLS-100] Execute             source C:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/ip/xfft.gen 
+@I [HLS-100] Command             ap_source returned 0; 0.072 sec.
+@I [HLS-100] Execute             source C:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/ip/xfir.gen 
+@I [HLS-100] Command             ap_source returned 0; 0.001 sec.
+@I [HLS-100] Command           ap_source returned 0; 0.108 sec.
+@I [HLS-100] Execute           source C:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/common/dsp48.gen 
+@I [HLS-100] Command           ap_source returned 0; 0 sec.
+@I [HLS-100] Command         ap_source returned 0; 0.11 sec.
+@I [HLS-100] Command       ap_source returned 0; 0.111 sec.
+@I [HLS-100] Execute       source C:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/zynq/zynq_fpv6.gen 
+@I [HLS-100] Execute         source C:/Xilinx/Vivado_HLS/2016.4/common/technology/xilinx/common/xilinx_fpv6.gen 
+@I [HLS-100] Command         ap_source returned 0; 0.001 sec.
+@I [HLS-100] Command       ap_source returned 0; 0.001 sec.
+@I [HLS-100] Execute       source C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/global.setting.tcl 
+@I [HLS-100] Command       ap_source returned 0; 0 sec.
+@I [HLS-100] Execute       source C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/global.setting.tcl 
+@I [HLS-100] Command       ap_source returned 0; 0 sec.
+@I [HLS-100] Execute       source C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/global.setting.tcl 
+@I [HLS-100] Command       ap_source returned 0; 0 sec.
+@I [HLS-100] Execute       source C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/global.setting.tcl 
+@I [HLS-100] Command       ap_source returned 0; 0.001 sec.
+@I [HLS-100] Execute       source C:/Users/RA_prof_Jeon/siddharth/HLS/Alexnet_dev/solution1/.autopilot/db/executeFirstLayer.compgen.tcl 
+@I [HLS-100] Execute         source ./control.slave.tcl 
+@I [HLS-100] Command         ap_source returned 0; 0.001 sec.
+@I [HLS-100] Command       ap_source returned 0; 0.204 sec.
+@I [HLS-111] Finished generating all RTL models Time (s): cpu = 00:00:07 ; elapsed = 00:00:11 . Memory (MB): peak = 179.090 ; gain = 129.930
+@I [SYSC-301] Generating SystemC RTL for executeFirstLayer.
+@I [VHDL-304] Generating VHDL RTL for executeFirstLayer.
+@I [VLOG-307] Generating Verilog RTL for executeFirstLayer.
+@I [HLS-100] Command     autosyn returned 0; 1.857 sec.
+@I [HLS-100] Command   csynth_design returned 0; 10.582 sec.
+@I [HLS-100] Command ap_source returned 0; 10.836 sec.
+@I [HLS-100] Execute cleanup_all 
+@I [HLS-100] Command cleanup_all returned 0; 0.01 sec.
