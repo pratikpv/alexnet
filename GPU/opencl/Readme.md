@@ -1,0 +1,3 @@
+- Opencl code is built using Intel OpenCL framework.
+- The Opencl framework is installed at /opt/intel/system_studio_2019/ on the build machine.
+- Intel OpenCL SDK: https://software.intel.com/en-us/opencl-sdk
